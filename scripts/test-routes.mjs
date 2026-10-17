@@ -15,6 +15,16 @@ const urls = [
   '/products/pink-cotton-straight-kurta-pant-set-with-dupatta',
   '/products/yellow-cotton-straight-kurta-pant-set-with-dupatta',
   '/products/grey-blue-block-print-mulmul-kurta',
+  '/products/alia-silky-co-ord',
+  '/products/malika-panel-co-ord',
+  '/products/muskan-sage-co-ord',
+  '/products/sahiba-mughal-co-ord',
+  '/products/kashish-co-ord-set',
+  '/products/tanya-gulabo-co-ord',
+  '/products/mehak-vine-co-ord',
+  '/products/tara-summer-co-ord',
+  '/products/isha-pastel-co-ord',
+  '/products/diya-lily-co-ord',
 ];
 
 async function checkRoute(path) {

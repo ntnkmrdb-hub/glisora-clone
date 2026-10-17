@@ -6041,5 +6041,2980 @@
       "title": "Grey Blue Block Print Mulmul Kurta | NAVRANG CLOTHING",
       "description": "Shop Grey Blue Block Print Mulmul Kurta at NAVRANG CLOTHING."
     }
+  },
+  {
+    "id": "gid://shopify/Product/alia-silky-co-ord",
+    "handle": "alia-silky-co-ord",
+    "title": "ALIA SILKY CO-ORD",
+    "description": "\n\nArticle: Co-ord Set\n\nFabric: Turkish Crepe - Soft and Breathable\n\nStitch: Fully Stitched (Ready to Wear)\n\nContents: 1 top, 1 Pant\n\nSleeves: Full Cool Sleeves\n\n\nFit Type: Regular Comfy Fit\n\n\nCountry of Origin: India\n\n",
+    "descriptionHtml": "<ul>\n<li>\n<strong>Article: </strong>Co-ord Set</li>\n<li>\n<strong>Fabric: </strong>Turkish Crepe - Soft and Breathable</li>\n<li>\n<strong>Stitch:</strong> Fully Stitched (Ready to Wear)</li>\n<li>\n<strong>Contents:</strong> 1 top, 1 Pant</li>\n<li>\n<strong>Sleeves:</strong> Full Cool Sleeves<br><strong></strong><strong></strong>\n</li>\n<li>\n<strong>Fit Type: </strong>Regular Comfy Fit<br><strong></strong>\n</li>\n<li>\n<strong>Country of Origin:</strong> India<br>\n</li>\n</ul>",
+    "availableForSale": true,
+    "status": "ACTIVE",
+    "vendor": "NAVRANG CLOTHING",
+    "productType": "Co-Ord Set",
+    "categoryType": "women-cord-sets",
+    "categoryLabel": "Women's Cord Sets",
+    "priceRange": {
+      "minVariantPrice": {
+        "amount": "249",
+        "currencyCode": "INR"
+      },
+      "maxVariantPrice": {
+        "amount": "249",
+        "currencyCode": "INR"
+      }
+    },
+    "images": {
+      "edges": [
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/Untitled-7_b2d0e836-7f9f-409c-b873-45101ad5bc83.jpg?v=1792242311",
+            "altText": "ALIA SILKY CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        },
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/Untitled-6_e99db789-99d2-4262-865b-4e0c3202616d.jpg?v=1792242311",
+            "altText": "ALIA SILKY CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        },
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/Untitled-5_ccedb4a0-91e3-4406-9678-50465e5e6676.jpg?v=1792242310",
+            "altText": "ALIA SILKY CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        },
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/Untitled-4_d864bcd3-bd44-43d5-8e03-f0d76d3884bb.jpg?v=1792242311",
+            "altText": "ALIA SILKY CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        },
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/Untitled-3_520083b4-9b6b-4380-a544-8f4b7ab2014a.jpg?v=1792242312",
+            "altText": "ALIA SILKY CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        },
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/Untitled-2_6ab7768c-ac80-4c1a-aa91-c6763e98ee7e.jpg?v=1792242310",
+            "altText": "ALIA SILKY CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        },
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/Untitled-1_7919d49f-0291-49d4-b3e9-5a1d779ce09a.jpg?v=1792242312",
+            "altText": "ALIA SILKY CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        },
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/CO-ORD_size_chart_2cec6d44-f8a9-4d5a-9784-13dff37a9b9a.png?v=1792242313",
+            "altText": "ALIA SILKY CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        }
+      ]
+    },
+    "variants": {
+      "edges": [
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/alia-silky-co-ord-NC-ALIA-SILKY-CO-ORD-S-0",
+            "title": "S",
+            "sku": "NC-ALIA-SILKY-CO-ORD-S",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "249",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "S"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/alia-silky-co-ord-TIT-CS-009-M-1",
+            "title": "M",
+            "sku": "TIT-CS-009-M",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "249",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "M"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/alia-silky-co-ord-TIT-CS-009-L-2",
+            "title": "L",
+            "sku": "TIT-CS-009-L",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "249",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "L"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/alia-silky-co-ord-TIT-CS-009-XL-3",
+            "title": "XL",
+            "sku": "TIT-CS-009-XL",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "249",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "XL"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/alia-silky-co-ord-TIT-CS-009-2XL-4",
+            "title": "2XL",
+            "sku": "TIT-CS-009-2XL",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "249",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "2XL"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/alia-silky-co-ord-TIT-CS-009-3XL-5",
+            "title": "3XL",
+            "sku": "TIT-CS-009-3XL",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "249",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "3XL"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/alia-silky-co-ord-TIT-CS-009-4XL-6",
+            "title": "4XL",
+            "sku": "TIT-CS-009-4XL",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "249",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "4XL"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "options": [
+      {
+        "id": "opt-alia-silky-co-ord-size",
+        "name": "Size",
+        "values": [
+          "S",
+          "M",
+          "L",
+          "XL",
+          "2XL",
+          "3XL",
+          "4XL"
+        ]
+      }
+    ],
+    "tags": [
+      "NAVRANG CLOTHING",
+      "Women",
+      "Women's Cord Sets",
+      "BOGO",
+      "Buy 1 Get 1 Free"
+    ],
+    "seo": {
+      "title": "ALIA SILKY CO-ORD | NAVRANG CLOTHING",
+      "description": "Shop ALIA SILKY CO-ORD at NAVRANG CLOTHING."
+    }
+  },
+  {
+    "id": "gid://shopify/Product/malika-panel-co-ord",
+    "handle": "malika-panel-co-ord",
+    "title": "MALIKA PANEL CO-ORD",
+    "description": "\n\nArticle: Co-ord Set\n\nFabric: Premium Imported Rayon - Soft and Breathable\n\nStitch: Fully Stitched (Ready to Wear)\n\nContents: 1 top, 1 Pant\n\nSleeves: Full Cool Sleeves\n\n\nFit Type: Regular Comfy Fit\n\n\nCountry of Origin: India\n\n",
+    "descriptionHtml": "<ul>\n<li>\n<strong>Article: </strong>Co-ord Set</li>\n<li>\n<strong>Fabric: </strong>Premium Imported Rayon - Soft and Breathable</li>\n<li>\n<strong>Stitch:</strong> Fully Stitched (Ready to Wear)</li>\n<li>\n<strong>Contents:</strong> 1 top, 1 Pant</li>\n<li>\n<strong>Sleeves:</strong> Full Cool Sleeves<br><strong></strong><strong></strong>\n</li>\n<li>\n<strong>Fit Type: </strong>Regular Comfy Fit<br><strong></strong>\n</li>\n<li>\n<strong>Country of Origin:</strong> India<br>\n</li>\n</ul>",
+    "availableForSale": true,
+    "status": "ACTIVE",
+    "vendor": "NAVRANG CLOTHING",
+    "productType": "Co-Ord Set",
+    "categoryType": "women-cord-sets",
+    "categoryLabel": "Women's Cord Sets",
+    "priceRange": {
+      "minVariantPrice": {
+        "amount": "149",
+        "currencyCode": "INR"
+      },
+      "maxVariantPrice": {
+        "amount": "149",
+        "currencyCode": "INR"
+      }
+    },
+    "images": {
+      "edges": [
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/IMG_7835.jpg?v=1792242316",
+            "altText": "MALIKA PANEL CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        },
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/IMG_7839.jpg?v=1792242313",
+            "altText": "MALIKA PANEL CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        },
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/IMG_7850.jpg?v=1792242312",
+            "altText": "MALIKA PANEL CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        },
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/IMG_7836.jpg?v=1792242316",
+            "altText": "MALIKA PANEL CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        },
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/CO-ORD_size_chart_9f3e4b74-97a2-473f-bcbe-094f0459005e.png?v=1792242316",
+            "altText": "MALIKA PANEL CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        }
+      ]
+    },
+    "variants": {
+      "edges": [
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/malika-panel-co-ord-NC-MALIKA-PANEL-CO-ORD-XS-0",
+            "title": "XS",
+            "sku": "NC-MALIKA-PANEL-CO-ORD-XS",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "149",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "XS"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/malika-panel-co-ord-TIT-CS-014-S-1",
+            "title": "S",
+            "sku": "TIT-CS-014-S",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "149",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "S"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/malika-panel-co-ord-TIT-CS-014-M-2",
+            "title": "M",
+            "sku": "TIT-CS-014-M",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "149",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "M"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/malika-panel-co-ord-TIT-CS-014-L-3",
+            "title": "L",
+            "sku": "TIT-CS-014-L",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "149",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "L"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/malika-panel-co-ord-TIT-CS-014-XL-4",
+            "title": "XL",
+            "sku": "TIT-CS-014-XL",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "149",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "XL"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/malika-panel-co-ord-TIT-CS-014-2XL-5",
+            "title": "2XL",
+            "sku": "TIT-CS-014-2XL",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "149",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "2XL"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/malika-panel-co-ord-TIT-CS-014-3XL-6",
+            "title": "3XL",
+            "sku": "TIT-CS-014-3XL",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "149",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "3XL"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/malika-panel-co-ord-TIT-CS-014-4XL-7",
+            "title": "4XL",
+            "sku": "TIT-CS-014-4XL",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "149",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "4XL"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/malika-panel-co-ord-NC-MALIKA-PANEL-CO-ORD-5XL-8",
+            "title": "5XL",
+            "sku": "NC-MALIKA-PANEL-CO-ORD-5XL",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "149",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "5XL"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "options": [
+      {
+        "id": "opt-malika-panel-co-ord-size",
+        "name": "Size",
+        "values": [
+          "XS",
+          "S",
+          "M",
+          "L",
+          "XL",
+          "2XL",
+          "3XL",
+          "4XL",
+          "5XL"
+        ]
+      }
+    ],
+    "tags": [
+      "NAVRANG CLOTHING",
+      "Women",
+      "Women's Cord Sets",
+      "BOGO",
+      "Buy 1 Get 1 Free"
+    ],
+    "seo": {
+      "title": "MALIKA PANEL CO-ORD | NAVRANG CLOTHING",
+      "description": "Shop MALIKA PANEL CO-ORD at NAVRANG CLOTHING."
+    }
+  },
+  {
+    "id": "gid://shopify/Product/muskan-sage-co-ord",
+    "handle": "muskan-sage-co-ord",
+    "title": "MUSKAN SAGE CO-ORD",
+    "description": "\n\nArticle: Co-ord Set\n\nFabric: Premium Slub Cotton - Soft and Breathable\n\nStitch: Fully Stitched (Ready to Wear)\n\nContents: 1 top, 1 Pant\n\nSleeves: Full Cool Sleeves\n\n\nFit Type: Regular Comfy Fit\n\n\nCountry of Origin: India\n\n",
+    "descriptionHtml": "<ul>\n<li>\n<strong>Article: </strong>Co-ord Set</li>\n<li>\n<strong>Fabric: </strong>Premium Slub Cotton - Soft and Breathable</li>\n<li>\n<strong>Stitch:</strong> Fully Stitched (Ready to Wear)</li>\n<li>\n<strong>Contents:</strong> 1 top, 1 Pant</li>\n<li>\n<strong>Sleeves:</strong> Full Cool Sleeves<br><strong></strong><strong></strong>\n</li>\n<li>\n<strong>Fit Type: </strong>Regular Comfy Fit<br><strong></strong>\n</li>\n<li>\n<strong>Country of Origin:</strong> India<br>\n</li>\n</ul>",
+    "availableForSale": true,
+    "status": "ACTIVE",
+    "vendor": "NAVRANG CLOTHING",
+    "productType": "Co-Ord Set",
+    "categoryType": "women-cord-sets",
+    "categoryLabel": "Women's Cord Sets",
+    "priceRange": {
+      "minVariantPrice": {
+        "amount": "349",
+        "currencyCode": "INR"
+      },
+      "maxVariantPrice": {
+        "amount": "349",
+        "currencyCode": "INR"
+      }
+    },
+    "images": {
+      "edges": [
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/Untitled-5_82f49717-3150-45b5-91c2-a875446c002c.jpg?v=1792242315",
+            "altText": "MUSKAN SAGE CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        },
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/Untitled-1_02996300-3f94-4e9d-b9ec-73c1bcf8f02a.jpg?v=1792242315",
+            "altText": "MUSKAN SAGE CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        },
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/Untitled-2_954a9cf3-f069-4511-bf0e-48fcb1e2e582.jpg?v=1792242316",
+            "altText": "MUSKAN SAGE CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        },
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/Untitled-3_316d8fd3-26fb-40f0-b11e-c0c22a935552.jpg?v=1792242315",
+            "altText": "MUSKAN SAGE CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        },
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/Untitled-4_a8e6d88e-d052-4369-b6bd-d55b552fa52f.jpg?v=1792242313",
+            "altText": "MUSKAN SAGE CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        },
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/Untitled-6_878dffb0-9527-4043-9b2e-5f49f03a24c3.jpg?v=1792242315",
+            "altText": "MUSKAN SAGE CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        },
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/Untitled-7.jpg?v=1792242315",
+            "altText": "MUSKAN SAGE CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        },
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/CO-ORD_size_chart_e08a432b-58c2-440d-8d9d-8733a2a4d713.png?v=1792242317",
+            "altText": "MUSKAN SAGE CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        }
+      ]
+    },
+    "variants": {
+      "edges": [
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/muskan-sage-co-ord-TIT-CS-003-XS-0",
+            "title": "XS",
+            "sku": "TIT-CS-003-XS",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "349",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "XS"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/muskan-sage-co-ord-NC-MUSKAN-SAGE-CO-ORD-S-1",
+            "title": "S",
+            "sku": "NC-MUSKAN-SAGE-CO-ORD-S",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "349",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "S"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/muskan-sage-co-ord-TIT-CS-003-M-2",
+            "title": "M",
+            "sku": "TIT-CS-003-M",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "349",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "M"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/muskan-sage-co-ord-TIT-CS-003-L-3",
+            "title": "L",
+            "sku": "TIT-CS-003-L",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "349",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "L"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/muskan-sage-co-ord-TIT-CS-003-XL-4",
+            "title": "XL",
+            "sku": "TIT-CS-003-XL",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "349",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "XL"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/muskan-sage-co-ord-TIT-CS-003-2XL-5",
+            "title": "2XL",
+            "sku": "TIT-CS-003-2XL",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "349",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "2XL"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/muskan-sage-co-ord-TIT-CS-003-3XL-6",
+            "title": "3XL",
+            "sku": "TIT-CS-003-3XL",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "349",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "3XL"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/muskan-sage-co-ord-TIT-CS-003-4XL-7",
+            "title": "4XL",
+            "sku": "TIT-CS-003-4XL",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "349",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "4XL"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/muskan-sage-co-ord-TIT-CS-003-5XL-8",
+            "title": "5XL",
+            "sku": "TIT-CS-003-5XL",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "349",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "5XL"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "options": [
+      {
+        "id": "opt-muskan-sage-co-ord-size",
+        "name": "Size",
+        "values": [
+          "XS",
+          "S",
+          "M",
+          "L",
+          "XL",
+          "2XL",
+          "3XL",
+          "4XL",
+          "5XL"
+        ]
+      }
+    ],
+    "tags": [
+      "NAVRANG CLOTHING",
+      "Women",
+      "Women's Cord Sets",
+      "BOGO",
+      "Buy 1 Get 1 Free"
+    ],
+    "seo": {
+      "title": "MUSKAN SAGE CO-ORD | NAVRANG CLOTHING",
+      "description": "Shop MUSKAN SAGE CO-ORD at NAVRANG CLOTHING."
+    }
+  },
+  {
+    "id": "gid://shopify/Product/sahiba-mughal-co-ord",
+    "handle": "sahiba-mughal-co-ord",
+    "title": "SAHIBA MUGHAL CO-ORD",
+    "description": "\n\nArticle: Co-ord Set\n\nFabric: Premium Imported Rayon - Soft and Breathable\n\nStitch: Fully Stitched (Ready to Wear)\n\nContents: 1 top, 1 Pant\n\nSleeves: Full Cool Sleeves\n\n\nFit Type: Regular Comfy Fit\n\n\nCountry of Origin: India\n\n",
+    "descriptionHtml": "<ul>\n<li>\n<strong>Article: </strong>Co-ord Set</li>\n<li>\n<strong>Fabric: </strong>Premium Imported Rayon - Soft and Breathable</li>\n<li>\n<strong>Stitch:</strong> Fully Stitched (Ready to Wear)</li>\n<li>\n<strong>Contents:</strong> 1 top, 1 Pant</li>\n<li>\n<strong>Sleeves:</strong> Full Cool Sleeves<br><strong></strong><strong></strong>\n</li>\n<li>\n<strong>Fit Type: </strong>Regular Comfy Fit<br><strong></strong>\n</li>\n<li>\n<strong>Country of Origin:</strong> India<br>\n</li>\n</ul>",
+    "availableForSale": true,
+    "status": "ACTIVE",
+    "vendor": "NAVRANG CLOTHING",
+    "productType": "Co-Ord Set",
+    "categoryType": "women-cord-sets",
+    "categoryLabel": "Women's Cord Sets",
+    "priceRange": {
+      "minVariantPrice": {
+        "amount": "199",
+        "currencyCode": "INR"
+      },
+      "maxVariantPrice": {
+        "amount": "199",
+        "currencyCode": "INR"
+      }
+    },
+    "images": {
+      "edges": [
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/Untitled-1_2270ad5e-09b3-4459-9848-fbd2f5b361e1.jpg?v=1792242314",
+            "altText": "SAHIBA MUGHAL CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        },
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/Untitled-2_03bf0fb6-6f6f-4f7a-804a-ba04e4624303.jpg?v=1792242314",
+            "altText": "SAHIBA MUGHAL CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        },
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/Untitled-3_58b256f4-b675-496f-b078-7e564698c2aa.jpg?v=1792242316",
+            "altText": "SAHIBA MUGHAL CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        },
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/Untitled-4_f301e92f-ef1e-469a-80e7-db8b6c461864.jpg?v=1792242315",
+            "altText": "SAHIBA MUGHAL CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        },
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/Untitled-5_9a1b9513-59de-4e34-90ad-a81f4eb32850.jpg?v=1792242315",
+            "altText": "SAHIBA MUGHAL CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        },
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/CO-ORD_size_chart_81b591d3-2231-4d01-a677-db1d9d6e744c.png?v=1792242318",
+            "altText": "SAHIBA MUGHAL CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        }
+      ]
+    },
+    "variants": {
+      "edges": [
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/sahiba-mughal-co-ord-TIT-CS-007-XS-0",
+            "title": "XS",
+            "sku": "TIT-CS-007-XS",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "199",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "XS"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/sahiba-mughal-co-ord-TIT-CS-007-S-1",
+            "title": "S",
+            "sku": "TIT-CS-007-S",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "199",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "S"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/sahiba-mughal-co-ord-TIT-CS-007-M-2",
+            "title": "M",
+            "sku": "TIT-CS-007-M",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "199",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "M"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/sahiba-mughal-co-ord-TIT-CS-007-L-3",
+            "title": "L",
+            "sku": "TIT-CS-007-L",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "199",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "L"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/sahiba-mughal-co-ord-TIT-CS-007-XL-4",
+            "title": "XL",
+            "sku": "TIT-CS-007-XL",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "199",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "XL"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/sahiba-mughal-co-ord-TIT-CS-007-2XL-5",
+            "title": "2XL",
+            "sku": "TIT-CS-007-2XL",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "199",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "2XL"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/sahiba-mughal-co-ord-TIT-CS-007-3XL-6",
+            "title": "3XL",
+            "sku": "TIT-CS-007-3XL",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "199",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "3XL"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/sahiba-mughal-co-ord-TIT-CS-007-4XL-7",
+            "title": "4XL",
+            "sku": "TIT-CS-007-4XL",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "199",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "4XL"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/sahiba-mughal-co-ord-TIT-CS-007-5XL-8",
+            "title": "5XL",
+            "sku": "TIT-CS-007-5XL",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "199",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "5XL"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "options": [
+      {
+        "id": "opt-sahiba-mughal-co-ord-size",
+        "name": "Size",
+        "values": [
+          "XS",
+          "S",
+          "M",
+          "L",
+          "XL",
+          "2XL",
+          "3XL",
+          "4XL",
+          "5XL"
+        ]
+      }
+    ],
+    "tags": [
+      "NAVRANG CLOTHING",
+      "Women",
+      "Women's Cord Sets",
+      "BOGO",
+      "Buy 1 Get 1 Free"
+    ],
+    "seo": {
+      "title": "SAHIBA MUGHAL CO-ORD | NAVRANG CLOTHING",
+      "description": "Shop SAHIBA MUGHAL CO-ORD at NAVRANG CLOTHING."
+    }
+  },
+  {
+    "id": "gid://shopify/Product/kashish-co-ord-set",
+    "handle": "kashish-co-ord-set",
+    "title": "KASHISH TRENDY CO-ORD",
+    "description": "\n\nArticle: Co-ord Set\n\nFabric: Premium Imported Rayon - Soft and Breathable\n\nStitch: Fully Stitched (Ready to Wear)\n\nContents: 1 top, 1 Pant\n\nSleeves: Full Cool Sleeves\n\n\nFit Type: Regular Comfy Fit\n\n\nCountry of Origin: India\n\n",
+    "descriptionHtml": "<ul>\n<li>\n<strong>Article: </strong>Co-ord Set</li>\n<li>\n<strong>Fabric: </strong>Premium Imported Rayon - Soft and Breathable</li>\n<li>\n<strong>Stitch:</strong> Fully Stitched (Ready to Wear)</li>\n<li>\n<strong>Contents:</strong> 1 top, 1 Pant</li>\n<li>\n<strong>Sleeves:</strong> Full Cool Sleeves<br><strong></strong><strong></strong>\n</li>\n<li>\n<strong>Fit Type: </strong>Regular Comfy Fit<br><strong></strong>\n</li>\n<li>\n<strong>Country of Origin:</strong> India<br>\n</li>\n</ul>",
+    "availableForSale": true,
+    "status": "ACTIVE",
+    "vendor": "NAVRANG CLOTHING",
+    "productType": "Co-Ord Set",
+    "categoryType": "women-cord-sets",
+    "categoryLabel": "Women's Cord Sets",
+    "priceRange": {
+      "minVariantPrice": {
+        "amount": "149",
+        "currencyCode": "INR"
+      },
+      "maxVariantPrice": {
+        "amount": "149",
+        "currencyCode": "INR"
+      }
+    },
+    "images": {
+      "edges": [
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/1_a4f7c6f7-5215-40f7-ab49-2f33c4bde1e5.jpg?v=1792242315",
+            "altText": "KASHISH TRENDY CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        },
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/4_31539f5a-2ea7-4a58-8d7c-b95014b64d91.jpg?v=1792242315",
+            "altText": "KASHISH TRENDY CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        },
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/2_ece56b32-4798-4abf-b7ad-7a47ee6f8770.jpg?v=1792242317",
+            "altText": "KASHISH TRENDY CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        },
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/3_1e1f79be-ec2e-4b17-af8a-75515c35b705.jpg?v=1792242316",
+            "altText": "KASHISH TRENDY CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        },
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/5_887499a1-bd6a-45b2-b538-c39793f98da6.jpg?v=1792242316",
+            "altText": "KASHISH TRENDY CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        },
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/CO-ORD_size_chart_ca36a422-ecb0-4a3f-ba14-1f533d42e497.png?v=1792242320",
+            "altText": "KASHISH TRENDY CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        }
+      ]
+    },
+    "variants": {
+      "edges": [
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/kashish-co-ord-set-NC-KASHISH-CO-ORD-SET-S-0",
+            "title": "S",
+            "sku": "NC-KASHISH-CO-ORD-SET-S",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "149",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "S"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/kashish-co-ord-set-TIT-CS-010-M-1",
+            "title": "M",
+            "sku": "TIT-CS-010-M",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "149",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "M"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/kashish-co-ord-set-TIT-CS-010-L-2",
+            "title": "L",
+            "sku": "TIT-CS-010-L",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "149",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "L"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/kashish-co-ord-set-TIT-CS-010-XL-3",
+            "title": "XL",
+            "sku": "TIT-CS-010-XL",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "149",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "XL"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/kashish-co-ord-set-TIT-CS-010-2XL-4",
+            "title": "2XL",
+            "sku": "TIT-CS-010-2XL",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "149",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "2XL"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/kashish-co-ord-set-TIT-CS-010-3XL-5",
+            "title": "3XL",
+            "sku": "TIT-CS-010-3XL",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "149",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "3XL"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/kashish-co-ord-set-TIT-CS-010-4XL-6",
+            "title": "4XL",
+            "sku": "TIT-CS-010-4XL",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "149",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "4XL"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "options": [
+      {
+        "id": "opt-kashish-co-ord-set-size",
+        "name": "Size",
+        "values": [
+          "S",
+          "M",
+          "L",
+          "XL",
+          "2XL",
+          "3XL",
+          "4XL"
+        ]
+      }
+    ],
+    "tags": [
+      "NAVRANG CLOTHING",
+      "Women",
+      "Women's Cord Sets",
+      "BOGO",
+      "Buy 1 Get 1 Free"
+    ],
+    "seo": {
+      "title": "KASHISH TRENDY CO-ORD | NAVRANG CLOTHING",
+      "description": "Shop KASHISH TRENDY CO-ORD at NAVRANG CLOTHING."
+    }
+  },
+  {
+    "id": "gid://shopify/Product/tanya-gulabo-co-ord",
+    "handle": "tanya-gulabo-co-ord",
+    "title": "TANYA GULABO CO-ORD",
+    "description": "\n\nArticle: Co-ord Set\n\nFabric: Turkish Crepe - Soft and Breathable\n\nStitch: Fully Stitched (Ready to Wear)\n\nContents: 1 top, 1 Pant\n\nSleeves: Full Cool Sleeves\n\n\nFit Type: Regular Comfy Fit\n\n\nCountry of Origin: India\n\n",
+    "descriptionHtml": "<ul>\n<li>\n<strong>Article: </strong>Co-ord Set</li>\n<li>\n<strong>Fabric: </strong>Turkish Crepe - Soft and Breathable</li>\n<li>\n<strong>Stitch:</strong> Fully Stitched (Ready to Wear)</li>\n<li>\n<strong>Contents:</strong> 1 top, 1 Pant</li>\n<li>\n<strong>Sleeves:</strong> Full Cool Sleeves<br><strong></strong><strong></strong>\n</li>\n<li>\n<strong>Fit Type: </strong>Regular Comfy Fit<br><strong></strong>\n</li>\n<li>\n<strong>Country of Origin:</strong> India<br>\n</li>\n</ul>",
+    "availableForSale": true,
+    "status": "ACTIVE",
+    "vendor": "NAVRANG CLOTHING",
+    "productType": "Co-Ord Set",
+    "categoryType": "women-cord-sets",
+    "categoryLabel": "Women's Cord Sets",
+    "priceRange": {
+      "minVariantPrice": {
+        "amount": "349",
+        "currencyCode": "INR"
+      },
+      "maxVariantPrice": {
+        "amount": "349",
+        "currencyCode": "INR"
+      }
+    },
+    "images": {
+      "edges": [
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/1_95e54b08-2b81-4e34-80ab-c5662fcd892a.jpg?v=1792242316",
+            "altText": "TANYA GULABO CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        },
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/2_c28dffd2-7a60-409e-85e8-99b2e225a6b1.jpg?v=1792242318",
+            "altText": "TANYA GULABO CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        },
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/3_6051b01c-6804-4567-8e12-da7ff371f3f6.jpg?v=1792242317",
+            "altText": "TANYA GULABO CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        },
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/4_c08239a1-79ca-4c6e-9386-2a9d62c7f2ba.jpg?v=1792242317",
+            "altText": "TANYA GULABO CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        },
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/5_6f3a3553-f679-42b0-b646-a7a22d3b5fdf.jpg?v=1792242317",
+            "altText": "TANYA GULABO CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        },
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/6_bf7fc909-49f5-4453-93de-a765c7482645.jpg?v=1792242317",
+            "altText": "TANYA GULABO CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        },
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/7_bf33b1b8-820c-48e6-aca1-c1069aae435b.jpg?v=1792242318",
+            "altText": "TANYA GULABO CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        },
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/CO-ORD_size_chart_0645349f-461b-4f69-932d-81e5b17716e3.png?v=1792242319",
+            "altText": "TANYA GULABO CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        }
+      ]
+    },
+    "variants": {
+      "edges": [
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/tanya-gulabo-co-ord-TIT-CS-002-XS-0",
+            "title": "XS",
+            "sku": "TIT-CS-002-XS",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "349",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "XS"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/tanya-gulabo-co-ord-NC-TANYA-GULABO-CO-ORD-S-1",
+            "title": "S",
+            "sku": "NC-TANYA-GULABO-CO-ORD-S",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "349",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "S"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/tanya-gulabo-co-ord-TIT-CS-002-M-2",
+            "title": "M",
+            "sku": "TIT-CS-002-M",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "349",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "M"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/tanya-gulabo-co-ord-TIT-CS-002-L-3",
+            "title": "L",
+            "sku": "TIT-CS-002-L",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "349",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "L"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/tanya-gulabo-co-ord-TIT-CS-002-XL-4",
+            "title": "XL",
+            "sku": "TIT-CS-002-XL",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "349",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "XL"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/tanya-gulabo-co-ord-TIT-CS-002-2XL-5",
+            "title": "2XL",
+            "sku": "TIT-CS-002-2XL",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "349",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "2XL"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/tanya-gulabo-co-ord-TIT-CS-002-3XL-6",
+            "title": "3XL",
+            "sku": "TIT-CS-002-3XL",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "349",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "3XL"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/tanya-gulabo-co-ord-TIT-CS-002-4XL-7",
+            "title": "4XL",
+            "sku": "TIT-CS-002-4XL",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "349",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "4XL"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/tanya-gulabo-co-ord-TIT-CS-002-5XL-8",
+            "title": "5XL",
+            "sku": "TIT-CS-002-5XL",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "349",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "5XL"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "options": [
+      {
+        "id": "opt-tanya-gulabo-co-ord-size",
+        "name": "Size",
+        "values": [
+          "XS",
+          "S",
+          "M",
+          "L",
+          "XL",
+          "2XL",
+          "3XL",
+          "4XL",
+          "5XL"
+        ]
+      }
+    ],
+    "tags": [
+      "NAVRANG CLOTHING",
+      "Women",
+      "Women's Cord Sets",
+      "BOGO",
+      "Buy 1 Get 1 Free"
+    ],
+    "seo": {
+      "title": "TANYA GULABO CO-ORD | NAVRANG CLOTHING",
+      "description": "Shop TANYA GULABO CO-ORD at NAVRANG CLOTHING."
+    }
+  },
+  {
+    "id": "gid://shopify/Product/mehak-vine-co-ord",
+    "handle": "mehak-vine-co-ord",
+    "title": "MEHAK VINE CO-ORD",
+    "description": "\n\nArticle: Co-ord Set\n\nFabric: Premium Imported Rayon - Soft and Breathable\n\nStitch: Fully Stitched (Ready to Wear)\n\nContents: 1 top, 1 Pant\n\nSleeves: Full Cool Sleeves\n\n\nFit Type: Regular Comfy Fit\n\n\nCountry of Origin: India\n\n",
+    "descriptionHtml": "<ul>\n<li>\n<strong>Article: </strong>Co-ord Set</li>\n<li>\n<strong>Fabric: </strong>Premium Imported Rayon - Soft and Breathable</li>\n<li>\n<strong>Stitch:</strong> Fully Stitched (Ready to Wear)</li>\n<li>\n<strong>Contents:</strong> 1 top, 1 Pant</li>\n<li>\n<strong>Sleeves:</strong> Full Cool Sleeves<br><strong></strong><strong></strong>\n</li>\n<li>\n<strong>Fit Type: </strong>Regular Comfy Fit<br><strong></strong>\n</li>\n<li>\n<strong>Country of Origin:</strong> India<br>\n</li>\n</ul>",
+    "availableForSale": true,
+    "status": "ACTIVE",
+    "vendor": "NAVRANG CLOTHING",
+    "productType": "Co-Ord Set",
+    "categoryType": "women-cord-sets",
+    "categoryLabel": "Women's Cord Sets",
+    "priceRange": {
+      "minVariantPrice": {
+        "amount": "249",
+        "currencyCode": "INR"
+      },
+      "maxVariantPrice": {
+        "amount": "249",
+        "currencyCode": "INR"
+      }
+    },
+    "images": {
+      "edges": [
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/Untitled-1.jpg?v=1792242318",
+            "altText": "MEHAK VINE CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        },
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/Untitled-2.jpg?v=1792242320",
+            "altText": "MEHAK VINE CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        },
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/Untitled-3.jpg?v=1792242321",
+            "altText": "MEHAK VINE CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        },
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/Untitled-4.jpg?v=1792242319",
+            "altText": "MEHAK VINE CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        },
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/Untitled-5.jpg?v=1792242321",
+            "altText": "MEHAK VINE CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        },
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/Untitled-6.jpg?v=1792242320",
+            "altText": "MEHAK VINE CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        },
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/CO-ORD_size_chart_7fd63124-a6c6-49a3-8e95-38e354b2123e.png?v=1792242322",
+            "altText": "MEHAK VINE CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        }
+      ]
+    },
+    "variants": {
+      "edges": [
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/mehak-vine-co-ord-TIT-CS-004-XS-0",
+            "title": "XS",
+            "sku": "TIT-CS-004-XS",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "249",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "XS"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/mehak-vine-co-ord-NC-MEHAK-VINE-CO-ORD-S-1",
+            "title": "S",
+            "sku": "NC-MEHAK-VINE-CO-ORD-S",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "249",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "S"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/mehak-vine-co-ord-TIT-CS-004-M-2",
+            "title": "M",
+            "sku": "TIT-CS-004-M",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "249",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "M"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/mehak-vine-co-ord-TIT-CS-004-L-3",
+            "title": "L",
+            "sku": "TIT-CS-004-L",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "249",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "L"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/mehak-vine-co-ord-TIT-CS-004-XL-4",
+            "title": "XL",
+            "sku": "TIT-CS-004-XL",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "249",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "XL"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/mehak-vine-co-ord-TIT-CS-004-2XL-5",
+            "title": "2XL",
+            "sku": "TIT-CS-004-2XL",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "249",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "2XL"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/mehak-vine-co-ord-TIT-CS-004-3XL-6",
+            "title": "3XL",
+            "sku": "TIT-CS-004-3XL",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "249",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "3XL"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/mehak-vine-co-ord-TIT-CS-004-4XL-7",
+            "title": "4XL",
+            "sku": "TIT-CS-004-4XL",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "249",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "4XL"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/mehak-vine-co-ord-TIT-CS-004-5XL-8",
+            "title": "5XL",
+            "sku": "TIT-CS-004-5XL",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "249",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "5XL"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "options": [
+      {
+        "id": "opt-mehak-vine-co-ord-size",
+        "name": "Size",
+        "values": [
+          "XS",
+          "S",
+          "M",
+          "L",
+          "XL",
+          "2XL",
+          "3XL",
+          "4XL",
+          "5XL"
+        ]
+      }
+    ],
+    "tags": [
+      "NAVRANG CLOTHING",
+      "Women",
+      "Women's Cord Sets",
+      "BOGO",
+      "Buy 1 Get 1 Free"
+    ],
+    "seo": {
+      "title": "MEHAK VINE CO-ORD | NAVRANG CLOTHING",
+      "description": "Shop MEHAK VINE CO-ORD at NAVRANG CLOTHING."
+    }
+  },
+  {
+    "id": "gid://shopify/Product/tara-summer-co-ord",
+    "handle": "tara-summer-co-ord",
+    "title": "TARA SUMMER CO-ORD",
+    "description": "\n\nArticle: Co-ord Set\n\nFabric: Premium Slub Cotton - Soft and Breathable\n\nStitch: Fully Stitched (Ready to Wear)\n\nContents: 1 top, 1 Pant\n\nSleeves: Full Cool Sleeves\n\n\nFit Type: Regular Comfy Fit\n\n\nCountry of Origin: India\n\n",
+    "descriptionHtml": "<ul>\n<li>\n<strong>Article: </strong>Co-ord Set</li>\n<li>\n<strong>Fabric: </strong>Premium Slub Cotton - Soft and Breathable</li>\n<li>\n<strong>Stitch:</strong> Fully Stitched (Ready to Wear)</li>\n<li>\n<strong>Contents:</strong> 1 top, 1 Pant</li>\n<li>\n<strong>Sleeves:</strong> Full Cool Sleeves<br><strong></strong><strong></strong>\n</li>\n<li>\n<strong>Fit Type: </strong>Regular Comfy Fit<br><strong></strong>\n</li>\n<li>\n<strong>Country of Origin:</strong> India<br>\n</li>\n</ul>",
+    "availableForSale": true,
+    "status": "ACTIVE",
+    "vendor": "NAVRANG CLOTHING",
+    "productType": "Co-Ord Set",
+    "categoryType": "women-cord-sets",
+    "categoryLabel": "Women's Cord Sets",
+    "priceRange": {
+      "minVariantPrice": {
+        "amount": "199",
+        "currencyCode": "INR"
+      },
+      "maxVariantPrice": {
+        "amount": "199",
+        "currencyCode": "INR"
+      }
+    },
+    "images": {
+      "edges": [
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/IMG_7786.jpg?v=1792242324",
+            "altText": "TARA SUMMER CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        },
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/IMG_7785.jpg?v=1792242323",
+            "altText": "TARA SUMMER CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        },
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/IMG_7788.jpg?v=1792242325",
+            "altText": "TARA SUMMER CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        },
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/IMG_7790.jpg?v=1792242321",
+            "altText": "TARA SUMMER CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        },
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/CO-ORD_size_chart_48cc5702-8261-4438-a279-863b645402f0.png?v=1792242324",
+            "altText": "TARA SUMMER CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        }
+      ]
+    },
+    "variants": {
+      "edges": [
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/tara-summer-co-ord-TIT-CS-013-XS-0",
+            "title": "XS",
+            "sku": "TIT-CS-013-XS",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "199",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "XS"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/tara-summer-co-ord-NC-TARA-SUMMER-CO-ORD-S-1",
+            "title": "S",
+            "sku": "NC-TARA-SUMMER-CO-ORD-S",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "199",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "S"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/tara-summer-co-ord-TIT-CS-013-M-2",
+            "title": "M",
+            "sku": "TIT-CS-013-M",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "199",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "M"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/tara-summer-co-ord-TIT-CS-013-L-3",
+            "title": "L",
+            "sku": "TIT-CS-013-L",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "199",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "L"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/tara-summer-co-ord-TIT-CS-013-XL-4",
+            "title": "XL",
+            "sku": "TIT-CS-013-XL",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "199",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "XL"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/tara-summer-co-ord-TIT-CS-013-2XL-5",
+            "title": "2XL",
+            "sku": "TIT-CS-013-2XL",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "199",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "2XL"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/tara-summer-co-ord-TIT-CS-013-3XL-6",
+            "title": "3XL",
+            "sku": "TIT-CS-013-3XL",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "199",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "3XL"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/tara-summer-co-ord-TIT-CS-013-4XL-7",
+            "title": "4XL",
+            "sku": "TIT-CS-013-4XL",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "199",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "4XL"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/tara-summer-co-ord-TIT-CS-013-5XL-8",
+            "title": "5XL",
+            "sku": "TIT-CS-013-5XL",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "199",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "5XL"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "options": [
+      {
+        "id": "opt-tara-summer-co-ord-size",
+        "name": "Size",
+        "values": [
+          "XS",
+          "S",
+          "M",
+          "L",
+          "XL",
+          "2XL",
+          "3XL",
+          "4XL",
+          "5XL"
+        ]
+      }
+    ],
+    "tags": [
+      "NAVRANG CLOTHING",
+      "Women",
+      "Women's Cord Sets",
+      "BOGO",
+      "Buy 1 Get 1 Free"
+    ],
+    "seo": {
+      "title": "TARA SUMMER CO-ORD | NAVRANG CLOTHING",
+      "description": "Shop TARA SUMMER CO-ORD at NAVRANG CLOTHING."
+    }
+  },
+  {
+    "id": "gid://shopify/Product/isha-pastel-co-ord",
+    "handle": "isha-pastel-co-ord",
+    "title": "ISHA PASTEL CO-ORD",
+    "description": "\n\nArticle: Co-ord Set\n\nFabric: Premium Imported Rayon - Soft and Breathable\n\nStitch: Fully Stitched (Ready to Wear)\n\nContents: 1 top, 1 Pant\n\nSleeves: Full Cool Sleeves\n\n\nFit Type: Regular Comfy Fit\n\n\nCountry of Origin: India\n\n",
+    "descriptionHtml": "<ul>\n<li>\n<strong>Article: </strong>Co-ord Set</li>\n<li>\n<strong>Fabric: </strong>Premium Imported Rayon - Soft and Breathable</li>\n<li>\n<strong>Stitch:</strong> Fully Stitched (Ready to Wear)</li>\n<li>\n<strong>Contents:</strong> 1 top, 1 Pant</li>\n<li>\n<strong>Sleeves:</strong> Full Cool Sleeves<br><strong></strong><strong></strong>\n</li>\n<li>\n<strong>Fit Type: </strong>Regular Comfy Fit<br><strong></strong>\n</li>\n<li>\n<strong>Country of Origin:</strong> India<br>\n</li>\n</ul>",
+    "availableForSale": true,
+    "status": "ACTIVE",
+    "vendor": "NAVRANG CLOTHING",
+    "productType": "Co-Ord Set",
+    "categoryType": "women-cord-sets",
+    "categoryLabel": "Women's Cord Sets",
+    "priceRange": {
+      "minVariantPrice": {
+        "amount": "349",
+        "currencyCode": "INR"
+      },
+      "maxVariantPrice": {
+        "amount": "349",
+        "currencyCode": "INR"
+      }
+    },
+    "images": {
+      "edges": [
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/FullSizeRender5_jpg.jpg?v=1792242323",
+            "altText": "ISHA PASTEL CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        },
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/FullSizeRender3_jpg.jpg?v=1792242323",
+            "altText": "ISHA PASTEL CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        },
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/FullSizeRender4_jpg.jpg?v=1792242323",
+            "altText": "ISHA PASTEL CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        },
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/CO-ORD_size_chart_0c26cf31-e1c4-431d-a107-e6b9dcbd896c.png?v=1792242325",
+            "altText": "ISHA PASTEL CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        }
+      ]
+    },
+    "variants": {
+      "edges": [
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/isha-pastel-co-ord-NC-ISHA-PASTEL-CO-ORD-S-0",
+            "title": "S",
+            "sku": "NC-ISHA-PASTEL-CO-ORD-S",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "349",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "S"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/isha-pastel-co-ord-TIT-CS-006-M-1",
+            "title": "M",
+            "sku": "TIT-CS-006-M",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "349",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "M"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/isha-pastel-co-ord-TIT-CS-006-L-2",
+            "title": "L",
+            "sku": "TIT-CS-006-L",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "349",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "L"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/isha-pastel-co-ord-TIT-CS-006-XL-3",
+            "title": "XL",
+            "sku": "TIT-CS-006-XL",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "349",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "XL"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/isha-pastel-co-ord-TIT-CS-006-2XL-4",
+            "title": "2XL",
+            "sku": "TIT-CS-006-2XL",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "349",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "2XL"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/isha-pastel-co-ord-TIT-CS-006-3XL-5",
+            "title": "3XL",
+            "sku": "TIT-CS-006-3XL",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "349",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "3XL"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/isha-pastel-co-ord-TIT-CS-006-4XL-6",
+            "title": "4XL",
+            "sku": "TIT-CS-006-4XL",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "349",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "4XL"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "options": [
+      {
+        "id": "opt-isha-pastel-co-ord-size",
+        "name": "Size",
+        "values": [
+          "S",
+          "M",
+          "L",
+          "XL",
+          "2XL",
+          "3XL",
+          "4XL"
+        ]
+      }
+    ],
+    "tags": [
+      "NAVRANG CLOTHING",
+      "Women",
+      "Women's Cord Sets",
+      "BOGO",
+      "Buy 1 Get 1 Free",
+      "blue",
+      "Cord-Set",
+      "Paisley"
+    ],
+    "seo": {
+      "title": "ISHA PASTEL CO-ORD | NAVRANG CLOTHING",
+      "description": "Shop ISHA PASTEL CO-ORD at NAVRANG CLOTHING."
+    }
+  },
+  {
+    "id": "gid://shopify/Product/diya-lily-co-ord",
+    "handle": "diya-lily-co-ord",
+    "title": "DIYA LILY CO-ORD",
+    "description": "\n\nArticle: Co-ord Set\n\nFabric: Premium Imported Rayon - Soft and Breathable\n\nStitch: Fully Stitched (Ready to Wear)\n\nContents: 1 top, 1 Pant\n\nSleeves: Full Cool Sleeves\n\n\nFit Type: Regular Comfy Fit\n\n\nCountry of Origin: India\n\n",
+    "descriptionHtml": "<ul>\n<li>\n<strong>Article: </strong>Co-ord Set</li>\n<li>\n<strong>Fabric: </strong>Premium Imported Rayon - Soft and Breathable</li>\n<li>\n<strong>Stitch:</strong> Fully Stitched (Ready to Wear)</li>\n<li>\n<strong>Contents:</strong> 1 top, 1 Pant</li>\n<li>\n<strong>Sleeves:</strong> Full Cool Sleeves<br><strong></strong><strong></strong>\n</li>\n<li>\n<strong>Fit Type: </strong>Regular Comfy Fit<br><strong></strong>\n</li>\n<li>\n<strong>Country of Origin:</strong> India<br>\n</li>\n</ul>",
+    "availableForSale": true,
+    "status": "ACTIVE",
+    "vendor": "NAVRANG CLOTHING",
+    "productType": "Co-Ord Set",
+    "categoryType": "women-cord-sets",
+    "categoryLabel": "Women's Cord Sets",
+    "priceRange": {
+      "minVariantPrice": {
+        "amount": "299",
+        "currencyCode": "INR"
+      },
+      "maxVariantPrice": {
+        "amount": "299",
+        "currencyCode": "INR"
+      }
+    },
+    "images": {
+      "edges": [
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/3.jpg?v=1792242323",
+            "altText": "DIYA LILY CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        },
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/1.jpg?v=1792242323",
+            "altText": "DIYA LILY CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        },
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/2.jpg?v=1792242325",
+            "altText": "DIYA LILY CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        },
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/5.jpg?v=1792242324",
+            "altText": "DIYA LILY CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        },
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/6.jpg?v=1792242324",
+            "altText": "DIYA LILY CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        },
+        {
+          "node": {
+            "url": "https://cdn.shopify.com/s/files/1/0640/9076/7441/files/CO-ORD_size_chart_ea0b9099-5058-4afe-a474-fad1c8b5145f.png?v=1792242324",
+            "altText": "DIYA LILY CO-ORD",
+            "width": 1200,
+            "height": 1600
+          }
+        }
+      ]
+    },
+    "variants": {
+      "edges": [
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/diya-lily-co-ord-NC-DIYA-LILY-CO-ORD-S-0",
+            "title": "S",
+            "sku": "NC-DIYA-LILY-CO-ORD-S",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "299",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "S"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/diya-lily-co-ord-TIT-CS-005-M-1",
+            "title": "M",
+            "sku": "TIT-CS-005-M",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "299",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "M"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/diya-lily-co-ord-TIT-CS-005-L-2",
+            "title": "L",
+            "sku": "TIT-CS-005-L",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "299",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "L"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/diya-lily-co-ord-TIT-CS-005-XL-3",
+            "title": "XL",
+            "sku": "TIT-CS-005-XL",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "299",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "XL"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/diya-lily-co-ord-TIT-CS-005-2XL-4",
+            "title": "2XL",
+            "sku": "TIT-CS-005-2XL",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "299",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "2XL"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/diya-lily-co-ord-TIT-CS-005-3XL-5",
+            "title": "3XL",
+            "sku": "TIT-CS-005-3XL",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "299",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "3XL"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/ProductVariant/diya-lily-co-ord-TIT-CS-005-4XL-6",
+            "title": "4XL",
+            "sku": "TIT-CS-005-4XL",
+            "availableForSale": true,
+            "quantityAvailable": 15,
+            "price": {
+              "amount": "299",
+              "currencyCode": "INR"
+            },
+            "compareAtPrice": {
+              "amount": "2200.00",
+              "currencyCode": "INR"
+            },
+            "selectedOptions": [
+              {
+                "name": "Size",
+                "value": "4XL"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "options": [
+      {
+        "id": "opt-diya-lily-co-ord-size",
+        "name": "Size",
+        "values": [
+          "S",
+          "M",
+          "L",
+          "XL",
+          "2XL",
+          "3XL",
+          "4XL"
+        ]
+      }
+    ],
+    "tags": [
+      "NAVRANG CLOTHING",
+      "Women",
+      "Women's Cord Sets",
+      "BOGO",
+      "Buy 1 Get 1 Free"
+    ],
+    "seo": {
+      "title": "DIYA LILY CO-ORD | NAVRANG CLOTHING",
+      "description": "Shop DIYA LILY CO-ORD at NAVRANG CLOTHING."
+    }
   }
 ]

@@ -1,0 +1,264 @@
+Handle,Title,Body (HTML),Vendor,Product Category,Type,Tags,Published,Option1 Name,Option1 Value,Option1 Linked To,Option2 Name,Option2 Value,Option2 Linked To,Option3 Name,Option3 Value,Option3 Linked To,Variant SKU,Variant Grams,Variant Inventory Tracker,Variant Inventory Qty,Variant Inventory Policy,Variant Fulfillment Service,Variant Price,Variant Compare At Price,Variant Requires Shipping,Variant Taxable,Unit Price Total Measure,Unit Price Total Measure Unit,Unit Price Base Measure,Unit Price Base Measure Unit,Variant Barcodes,Image Src,Image Position,Image Alt Text,Gift Card,SEO Title,SEO Description,Color (product.metafields.shopify.color-pattern),Sleeve length type (product.metafields.shopify.sleeve-length-type),Target gender (product.metafields.shopify.target-gender),Variant Image,Variant Weight Unit,Variant Tax Code,Cost per item,Status,Variant Packed Length,Variant Packed Width,Variant Packed Height,Variant Packed Dimension Unit
+alia-silky-co-ord,ALIA SILKY CO-ORD,"<ul>
+<li>
+<strong>Article: </strong>Co-ord Set</li>
+<li>
+<strong>Fabric: </strong>Turkish Crepe - Soft and Breathable</li>
+<li>
+<strong>Stitch:</strong> Fully Stitched (Ready to Wear)</li>
+<li>
+<strong>Contents:</strong> 1 top, 1 Pant</li>
+<li>
+<strong>Sleeves:</strong> Full Cool Sleeves<br><strong></strong><strong></strong>
+</li>
+<li>
+<strong>Fit Type: </strong>Regular Comfy Fit<br><strong></strong>
+</li>
+<li>
+<strong>Country of Origin:</strong> India<br>
+</li>
+</ul>",Titli India,,Co-Ord Set,,true,Size,S,,,,,,,,NC-ALIA-SILKY-CO-ORD-S,0.0,shopify,0,deny,manual,249.00,2200.00,true,true,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/Untitled-7_b2d0e836-7f9f-409c-b873-45101ad5bc83.jpg?v=1792242311,1,,false,,,,,,,kg,,,active,,,,
+alia-silky-co-ord,,,,,,,,,M,,,,,,,,TIT-CS-009-M,0.0,shopify,0,deny,manual,249.00,2200.00,true,false,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/Untitled-6_e99db789-99d2-4262-865b-4e0c3202616d.jpg?v=1792242311,2,,,,,,,,,kg,,,,,,,
+alia-silky-co-ord,,,,,,,,,L,,,,,,,,TIT-CS-009-L,0.0,shopify,0,deny,manual,249.00,2200.00,true,false,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/Untitled-5_ccedb4a0-91e3-4406-9678-50465e5e6676.jpg?v=1792242310,3,,,,,,,,,kg,,,,,,,
+alia-silky-co-ord,,,,,,,,,XL,,,,,,,,TIT-CS-009-XL,0.0,shopify,0,deny,manual,249.00,2200.00,true,false,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/Untitled-4_d864bcd3-bd44-43d5-8e03-f0d76d3884bb.jpg?v=1792242311,4,,,,,,,,,kg,,,,,,,
+alia-silky-co-ord,,,,,,,,,2XL,,,,,,,,TIT-CS-009-2XL,0.0,shopify,0,deny,manual,249.00,2200.00,true,false,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/Untitled-3_520083b4-9b6b-4380-a544-8f4b7ab2014a.jpg?v=1792242312,5,,,,,,,,,kg,,,,,,,
+alia-silky-co-ord,,,,,,,,,3XL,,,,,,,,TIT-CS-009-3XL,0.0,shopify,0,deny,manual,249.00,2200.00,true,false,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/Untitled-2_6ab7768c-ac80-4c1a-aa91-c6763e98ee7e.jpg?v=1792242310,6,,,,,,,,,kg,,,,,,,
+alia-silky-co-ord,,,,,,,,,4XL,,,,,,,,TIT-CS-009-4XL,0.0,shopify,0,deny,manual,249.00,2200.00,true,false,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/Untitled-1_7919d49f-0291-49d4-b3e9-5a1d779ce09a.jpg?v=1792242312,7,,,,,,,,,kg,,,,,,,
+alia-silky-co-ord,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/CO-ORD_size_chart_2cec6d44-f8a9-4d5a-9784-13dff37a9b9a.png?v=1792242313,8,,,,,,,,,,,,,,,,
+malika-panel-co-ord,MALIKA PANEL CO-ORD,"<ul>
+<li>
+<strong>Article: </strong>Co-ord Set</li>
+<li>
+<strong>Fabric: </strong>Premium Imported Rayon - Soft and Breathable</li>
+<li>
+<strong>Stitch:</strong> Fully Stitched (Ready to Wear)</li>
+<li>
+<strong>Contents:</strong> 1 top, 1 Pant</li>
+<li>
+<strong>Sleeves:</strong> Full Cool Sleeves<br><strong></strong><strong></strong>
+</li>
+<li>
+<strong>Fit Type: </strong>Regular Comfy Fit<br><strong></strong>
+</li>
+<li>
+<strong>Country of Origin:</strong> India<br>
+</li>
+</ul>",Titli India,,Co-Ord Set,,true,Size,XS,,,,,,,,NC-MALIKA-PANEL-CO-ORD-XS,0.0,shopify,0,deny,manual,149.00,2200.00,true,true,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/IMG_7835.jpg?v=1792242316,1,,false,,,,,,,kg,,,active,,,,
+malika-panel-co-ord,,,,,,,,,S,,,,,,,,TIT-CS-014-S,0.0,shopify,0,deny,manual,149.00,2200.00,true,true,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/IMG_7839.jpg?v=1792242313,2,,,,,,,,,kg,,,,,,,
+malika-panel-co-ord,,,,,,,,,M,,,,,,,,TIT-CS-014-M,0.0,shopify,0,deny,manual,149.00,2200.00,true,false,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/IMG_7850.jpg?v=1792242312,3,,,,,,,,,kg,,,,,,,
+malika-panel-co-ord,,,,,,,,,L,,,,,,,,TIT-CS-014-L,0.0,shopify,0,deny,manual,149.00,2200.00,true,false,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/IMG_7836.jpg?v=1792242316,4,,,,,,,,,kg,,,,,,,
+malika-panel-co-ord,,,,,,,,,XL,,,,,,,,TIT-CS-014-XL,0.0,shopify,0,deny,manual,149.00,2200.00,true,false,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/CO-ORD_size_chart_9f3e4b74-97a2-473f-bcbe-094f0459005e.png?v=1792242316,5,,,,,,,,,kg,,,,,,,
+malika-panel-co-ord,,,,,,,,,2XL,,,,,,,,TIT-CS-014-2XL,0.0,shopify,0,deny,manual,149.00,2200.00,true,false,,,,,,,,,,,,,,,,kg,,,,,,,
+malika-panel-co-ord,,,,,,,,,3XL,,,,,,,,TIT-CS-014-3XL,0.0,shopify,0,deny,manual,149.00,2200.00,true,false,,,,,,,,,,,,,,,,kg,,,,,,,
+malika-panel-co-ord,,,,,,,,,4XL,,,,,,,,TIT-CS-014-4XL,0.0,shopify,0,deny,manual,149.00,2200.00,true,false,,,,,,,,,,,,,,,,kg,,,,,,,
+malika-panel-co-ord,,,,,,,,,5XL,,,,,,,,NC-MALIKA-PANEL-CO-ORD-5XL,0.0,shopify,0,deny,manual,149.00,2200.00,true,true,,,,,,,,,,,,,,,,kg,,,,,,,
+muskan-sage-co-ord,MUSKAN SAGE CO-ORD,"<ul>
+<li>
+<strong>Article: </strong>Co-ord Set</li>
+<li>
+<strong>Fabric: </strong>Premium Slub Cotton - Soft and Breathable</li>
+<li>
+<strong>Stitch:</strong> Fully Stitched (Ready to Wear)</li>
+<li>
+<strong>Contents:</strong> 1 top, 1 Pant</li>
+<li>
+<strong>Sleeves:</strong> Full Cool Sleeves<br><strong></strong><strong></strong>
+</li>
+<li>
+<strong>Fit Type: </strong>Regular Comfy Fit<br><strong></strong>
+</li>
+<li>
+<strong>Country of Origin:</strong> India<br>
+</li>
+</ul>",Titli India,,Co-Ord Set,,true,Size,XS,,,,,,,,TIT-CS-003-XS,0.0,shopify,0,deny,manual,349.00,2200.00,true,true,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/Untitled-5_82f49717-3150-45b5-91c2-a875446c002c.jpg?v=1792242315,1,,false,,,,,,,kg,,,active,,,,
+muskan-sage-co-ord,,,,,,,,,S,,,,,,,,NC-MUSKAN-SAGE-CO-ORD-S,0.0,shopify,0,deny,manual,349.00,2200.00,true,true,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/Untitled-1_02996300-3f94-4e9d-b9ec-73c1bcf8f02a.jpg?v=1792242315,2,,,,,,,,,kg,,,,,,,
+muskan-sage-co-ord,,,,,,,,,M,,,,,,,,TIT-CS-003-M,0.0,shopify,0,deny,manual,349.00,2200.00,true,false,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/Untitled-2_954a9cf3-f069-4511-bf0e-48fcb1e2e582.jpg?v=1792242316,3,,,,,,,,,kg,,,,,,,
+muskan-sage-co-ord,,,,,,,,,L,,,,,,,,TIT-CS-003-L,0.0,shopify,0,deny,manual,349.00,2200.00,true,false,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/Untitled-3_316d8fd3-26fb-40f0-b11e-c0c22a935552.jpg?v=1792242315,4,,,,,,,,,kg,,,,,,,
+muskan-sage-co-ord,,,,,,,,,XL,,,,,,,,TIT-CS-003-XL,0.0,shopify,0,deny,manual,349.00,2200.00,true,false,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/Untitled-4_a8e6d88e-d052-4369-b6bd-d55b552fa52f.jpg?v=1792242313,5,,,,,,,,,kg,,,,,,,
+muskan-sage-co-ord,,,,,,,,,2XL,,,,,,,,TIT-CS-003-2XL,0.0,shopify,0,deny,manual,349.00,2200.00,true,false,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/Untitled-6_878dffb0-9527-4043-9b2e-5f49f03a24c3.jpg?v=1792242315,6,,,,,,,,,kg,,,,,,,
+muskan-sage-co-ord,,,,,,,,,3XL,,,,,,,,TIT-CS-003-3XL,0.0,shopify,0,deny,manual,349.00,2200.00,true,false,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/Untitled-7.jpg?v=1792242315,7,,,,,,,,,kg,,,,,,,
+muskan-sage-co-ord,,,,,,,,,4XL,,,,,,,,TIT-CS-003-4XL,0.0,shopify,0,deny,manual,349.00,2200.00,true,false,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/CO-ORD_size_chart_e08a432b-58c2-440d-8d9d-8733a2a4d713.png?v=1792242317,8,,,,,,,,,kg,,,,,,,
+muskan-sage-co-ord,,,,,,,,,5XL,,,,,,,,TIT-CS-003-5XL,0.0,shopify,0,deny,manual,349.00,2200.00,true,true,,,,,,,,,,,,,,,,kg,,,,,,,
+sahiba-mughal-co-ord,SAHIBA MUGHAL CO-ORD,"<ul>
+<li>
+<strong>Article: </strong>Co-ord Set</li>
+<li>
+<strong>Fabric: </strong>Premium Imported Rayon - Soft and Breathable</li>
+<li>
+<strong>Stitch:</strong> Fully Stitched (Ready to Wear)</li>
+<li>
+<strong>Contents:</strong> 1 top, 1 Pant</li>
+<li>
+<strong>Sleeves:</strong> Full Cool Sleeves<br><strong></strong><strong></strong>
+</li>
+<li>
+<strong>Fit Type: </strong>Regular Comfy Fit<br><strong></strong>
+</li>
+<li>
+<strong>Country of Origin:</strong> India<br>
+</li>
+</ul>",Titli India,,Co-Ord Set,,true,Size,XS,,,,,,,,TIT-CS-007-XS,0.0,shopify,0,deny,manual,199.00,2200.00,true,true,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/Untitled-1_2270ad5e-09b3-4459-9848-fbd2f5b361e1.jpg?v=1792242314,1,,false,,,,,,,kg,,,active,,,,
+sahiba-mughal-co-ord,,,,,,,,,S,,,,,,,,TIT-CS-007-S,0.0,shopify,0,deny,manual,199.00,2200.00,true,true,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/Untitled-2_03bf0fb6-6f6f-4f7a-804a-ba04e4624303.jpg?v=1792242314,2,,,,,,,,,kg,,,,,,,
+sahiba-mughal-co-ord,,,,,,,,,M,,,,,,,,TIT-CS-007-M,0.0,shopify,0,deny,manual,199.00,2200.00,true,false,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/Untitled-3_58b256f4-b675-496f-b078-7e564698c2aa.jpg?v=1792242316,3,,,,,,,,,kg,,,,,,,
+sahiba-mughal-co-ord,,,,,,,,,L,,,,,,,,TIT-CS-007-L,0.0,shopify,0,deny,manual,199.00,2200.00,true,false,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/Untitled-4_f301e92f-ef1e-469a-80e7-db8b6c461864.jpg?v=1792242315,4,,,,,,,,,kg,,,,,,,
+sahiba-mughal-co-ord,,,,,,,,,XL,,,,,,,,TIT-CS-007-XL,0.0,shopify,0,deny,manual,199.00,2200.00,true,false,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/Untitled-5_9a1b9513-59de-4e34-90ad-a81f4eb32850.jpg?v=1792242315,5,,,,,,,,,kg,,,,,,,
+sahiba-mughal-co-ord,,,,,,,,,2XL,,,,,,,,TIT-CS-007-2XL,0.0,shopify,0,deny,manual,199.00,2200.00,true,false,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/CO-ORD_size_chart_81b591d3-2231-4d01-a677-db1d9d6e744c.png?v=1792242318,6,,,,,,,,,kg,,,,,,,
+sahiba-mughal-co-ord,,,,,,,,,3XL,,,,,,,,TIT-CS-007-3XL,0.0,shopify,0,deny,manual,199.00,2200.00,true,false,,,,,,,,,,,,,,,,kg,,,,,,,
+sahiba-mughal-co-ord,,,,,,,,,4XL,,,,,,,,TIT-CS-007-4XL,0.0,shopify,0,deny,manual,199.00,2200.00,true,false,,,,,,,,,,,,,,,,kg,,,,,,,
+sahiba-mughal-co-ord,,,,,,,,,5XL,,,,,,,,TIT-CS-007-5XL,0.0,shopify,0,deny,manual,199.00,2200.00,true,true,,,,,,,,,,,,,,,,kg,,,,,,,
+kashish-co-ord-set,KASHISH TRENDY CO-ORD,"<ul>
+<li>
+<strong>Article: </strong>Co-ord Set</li>
+<li>
+<strong>Fabric: </strong>Premium Imported Rayon - Soft and Breathable</li>
+<li>
+<strong>Stitch:</strong> Fully Stitched (Ready to Wear)</li>
+<li>
+<strong>Contents:</strong> 1 top, 1 Pant</li>
+<li>
+<strong>Sleeves:</strong> Full Cool Sleeves<br><strong></strong><strong></strong>
+</li>
+<li>
+<strong>Fit Type: </strong>Regular Comfy Fit<br><strong></strong>
+</li>
+<li>
+<strong>Country of Origin:</strong> India<br>
+</li>
+</ul>",Titli India,,Co-Ord Set,,true,Size,S,,,,,,,,NC-KASHISH-CO-ORD-SET-S,0.0,shopify,0,deny,manual,149.00,2200.00,true,true,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/1_a4f7c6f7-5215-40f7-ab49-2f33c4bde1e5.jpg?v=1792242315,1,,false,,,,,,,kg,,,active,,,,
+kashish-co-ord-set,,,,,,,,,M,,,,,,,,TIT-CS-010-M,0.0,shopify,0,deny,manual,149.00,2200.00,true,false,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/4_31539f5a-2ea7-4a58-8d7c-b95014b64d91.jpg?v=1792242315,2,,,,,,,,,kg,,,,,,,
+kashish-co-ord-set,,,,,,,,,L,,,,,,,,TIT-CS-010-L,0.0,shopify,0,deny,manual,149.00,2200.00,true,false,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/2_ece56b32-4798-4abf-b7ad-7a47ee6f8770.jpg?v=1792242317,3,,,,,,,,,kg,,,,,,,
+kashish-co-ord-set,,,,,,,,,XL,,,,,,,,TIT-CS-010-XL,0.0,shopify,0,deny,manual,149.00,2200.00,true,false,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/3_1e1f79be-ec2e-4b17-af8a-75515c35b705.jpg?v=1792242316,4,,,,,,,,,kg,,,,,,,
+kashish-co-ord-set,,,,,,,,,2XL,,,,,,,,TIT-CS-010-2XL,0.0,shopify,0,deny,manual,149.00,2200.00,true,false,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/5_887499a1-bd6a-45b2-b538-c39793f98da6.jpg?v=1792242316,5,,,,,,,,,kg,,,,,,,
+kashish-co-ord-set,,,,,,,,,3XL,,,,,,,,TIT-CS-010-3XL,0.0,shopify,0,deny,manual,149.00,2200.00,true,false,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/CO-ORD_size_chart_ca36a422-ecb0-4a3f-ba14-1f533d42e497.png?v=1792242320,6,,,,,,,,,kg,,,,,,,
+kashish-co-ord-set,,,,,,,,,4XL,,,,,,,,TIT-CS-010-4XL,0.0,shopify,0,deny,manual,149.00,2200.00,true,false,,,,,,,,,,,,,,,,kg,,,,,,,
+tanya-gulabo-co-ord,TANYA GULABO CO-ORD,"<ul>
+<li>
+<strong>Article: </strong>Co-ord Set</li>
+<li>
+<strong>Fabric: </strong>Turkish Crepe - Soft and Breathable</li>
+<li>
+<strong>Stitch:</strong> Fully Stitched (Ready to Wear)</li>
+<li>
+<strong>Contents:</strong> 1 top, 1 Pant</li>
+<li>
+<strong>Sleeves:</strong> Full Cool Sleeves<br><strong></strong><strong></strong>
+</li>
+<li>
+<strong>Fit Type: </strong>Regular Comfy Fit<br><strong></strong>
+</li>
+<li>
+<strong>Country of Origin:</strong> India<br>
+</li>
+</ul>",Titli India,,Co-Ord Set,,true,Size,XS,,,,,,,,TIT-CS-002-XS,0.0,shopify,0,deny,manual,349.00,2200.00,true,true,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/1_95e54b08-2b81-4e34-80ab-c5662fcd892a.jpg?v=1792242316,1,,false,,,,,,,kg,,,active,,,,
+tanya-gulabo-co-ord,,,,,,,,,S,,,,,,,,NC-TANYA-GULABO-CO-ORD-S,0.0,shopify,0,deny,manual,349.00,2200.00,true,true,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/2_c28dffd2-7a60-409e-85e8-99b2e225a6b1.jpg?v=1792242318,2,,,,,,,,,kg,,,,,,,
+tanya-gulabo-co-ord,,,,,,,,,M,,,,,,,,TIT-CS-002-M,0.0,shopify,0,deny,manual,349.00,2200.00,true,false,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/3_6051b01c-6804-4567-8e12-da7ff371f3f6.jpg?v=1792242317,3,,,,,,,,,kg,,,,,,,
+tanya-gulabo-co-ord,,,,,,,,,L,,,,,,,,TIT-CS-002-L,0.0,shopify,0,deny,manual,349.00,2200.00,true,false,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/4_c08239a1-79ca-4c6e-9386-2a9d62c7f2ba.jpg?v=1792242317,4,,,,,,,,,kg,,,,,,,
+tanya-gulabo-co-ord,,,,,,,,,XL,,,,,,,,TIT-CS-002-XL,0.0,shopify,0,deny,manual,349.00,2200.00,true,false,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/5_6f3a3553-f679-42b0-b646-a7a22d3b5fdf.jpg?v=1792242317,5,,,,,,,,,kg,,,,,,,
+tanya-gulabo-co-ord,,,,,,,,,2XL,,,,,,,,TIT-CS-002-2XL,0.0,shopify,0,deny,manual,349.00,2200.00,true,false,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/6_bf7fc909-49f5-4453-93de-a765c7482645.jpg?v=1792242317,6,,,,,,,,,kg,,,,,,,
+tanya-gulabo-co-ord,,,,,,,,,3XL,,,,,,,,TIT-CS-002-3XL,0.0,shopify,0,deny,manual,349.00,2200.00,true,false,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/7_bf33b1b8-820c-48e6-aca1-c1069aae435b.jpg?v=1792242318,7,,,,,,,,,kg,,,,,,,
+tanya-gulabo-co-ord,,,,,,,,,4XL,,,,,,,,TIT-CS-002-4XL,0.0,shopify,0,deny,manual,349.00,2200.00,true,false,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/CO-ORD_size_chart_0645349f-461b-4f69-932d-81e5b17716e3.png?v=1792242319,8,,,,,,,,,kg,,,,,,,
+tanya-gulabo-co-ord,,,,,,,,,5XL,,,,,,,,TIT-CS-002-5XL,0.0,shopify,0,deny,manual,349.00,2200.00,true,true,,,,,,,,,,,,,,,,kg,,,,,,,
+mehak-vine-co-ord,MEHAK VINE CO-ORD,"<ul>
+<li>
+<strong>Article: </strong>Co-ord Set</li>
+<li>
+<strong>Fabric: </strong>Premium Imported Rayon - Soft and Breathable</li>
+<li>
+<strong>Stitch:</strong> Fully Stitched (Ready to Wear)</li>
+<li>
+<strong>Contents:</strong> 1 top, 1 Pant</li>
+<li>
+<strong>Sleeves:</strong> Full Cool Sleeves<br><strong></strong><strong></strong>
+</li>
+<li>
+<strong>Fit Type: </strong>Regular Comfy Fit<br><strong></strong>
+</li>
+<li>
+<strong>Country of Origin:</strong> India<br>
+</li>
+</ul>",Titli India,,Co-Ord Set,,true,Size,XS,,,,,,,,TIT-CS-004-XS,0.0,shopify,0,deny,manual,249.00,2200.00,true,true,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/Untitled-1.jpg?v=1792242318,1,,false,,,,,,,kg,,,active,,,,
+mehak-vine-co-ord,,,,,,,,,S,,,,,,,,NC-MEHAK-VINE-CO-ORD-S,0.0,shopify,0,deny,manual,249.00,2200.00,true,true,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/Untitled-2.jpg?v=1792242320,2,,,,,,,,,kg,,,,,,,
+mehak-vine-co-ord,,,,,,,,,M,,,,,,,,TIT-CS-004-M,0.0,shopify,0,deny,manual,249.00,2200.00,true,false,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/Untitled-3.jpg?v=1792242321,3,,,,,,,,,kg,,,,,,,
+mehak-vine-co-ord,,,,,,,,,L,,,,,,,,TIT-CS-004-L,0.0,shopify,0,deny,manual,249.00,2200.00,true,false,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/Untitled-4.jpg?v=1792242319,4,,,,,,,,,kg,,,,,,,
+mehak-vine-co-ord,,,,,,,,,XL,,,,,,,,TIT-CS-004-XL,0.0,shopify,0,deny,manual,249.00,2200.00,true,false,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/Untitled-5.jpg?v=1792242321,5,,,,,,,,,kg,,,,,,,
+mehak-vine-co-ord,,,,,,,,,2XL,,,,,,,,TIT-CS-004-2XL,0.0,shopify,0,deny,manual,249.00,2200.00,true,false,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/Untitled-6.jpg?v=1792242320,6,,,,,,,,,kg,,,,,,,
+mehak-vine-co-ord,,,,,,,,,3XL,,,,,,,,TIT-CS-004-3XL,0.0,shopify,0,deny,manual,249.00,2200.00,true,false,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/CO-ORD_size_chart_7fd63124-a6c6-49a3-8e95-38e354b2123e.png?v=1792242322,7,,,,,,,,,kg,,,,,,,
+mehak-vine-co-ord,,,,,,,,,4XL,,,,,,,,TIT-CS-004-4XL,0.0,shopify,0,deny,manual,249.00,2200.00,true,false,,,,,,,,,,,,,,,,kg,,,,,,,
+mehak-vine-co-ord,,,,,,,,,5XL,,,,,,,,TIT-CS-004-5XL,0.0,shopify,0,deny,manual,249.00,2200.00,true,true,,,,,,,,,,,,,,,,kg,,,,,,,
+tara-summer-co-ord,TARA SUMMER CO-ORD,"<ul>
+<li>
+<strong>Article: </strong>Co-ord Set</li>
+<li>
+<strong>Fabric: </strong>Premium Slub Cotton - Soft and Breathable</li>
+<li>
+<strong>Stitch:</strong> Fully Stitched (Ready to Wear)</li>
+<li>
+<strong>Contents:</strong> 1 top, 1 Pant</li>
+<li>
+<strong>Sleeves:</strong> Full Cool Sleeves<br><strong></strong><strong></strong>
+</li>
+<li>
+<strong>Fit Type: </strong>Regular Comfy Fit<br><strong></strong>
+</li>
+<li>
+<strong>Country of Origin:</strong> India<br>
+</li>
+</ul>",Titli India,,Co-Ord Set,,true,Size,XS,,,,,,,,TIT-CS-013-XS,0.0,shopify,0,deny,manual,199.00,2200.00,true,true,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/IMG_7786.jpg?v=1792242324,1,,false,,,,,,,kg,,,active,,,,
+tara-summer-co-ord,,,,,,,,,S,,,,,,,,NC-TARA-SUMMER-CO-ORD-S,0.0,shopify,0,deny,manual,199.00,2200.00,true,true,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/IMG_7785.jpg?v=1792242323,2,,,,,,,,,kg,,,,,,,
+tara-summer-co-ord,,,,,,,,,M,,,,,,,,TIT-CS-013-M,0.0,shopify,0,deny,manual,199.00,2200.00,true,false,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/IMG_7788.jpg?v=1792242325,3,,,,,,,,,kg,,,,,,,
+tara-summer-co-ord,,,,,,,,,L,,,,,,,,TIT-CS-013-L,0.0,shopify,0,deny,manual,199.00,2200.00,true,false,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/IMG_7790.jpg?v=1792242321,4,,,,,,,,,kg,,,,,,,
+tara-summer-co-ord,,,,,,,,,XL,,,,,,,,TIT-CS-013-XL,0.0,shopify,0,deny,manual,199.00,2200.00,true,false,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/CO-ORD_size_chart_48cc5702-8261-4438-a279-863b645402f0.png?v=1792242324,5,,,,,,,,,kg,,,,,,,
+tara-summer-co-ord,,,,,,,,,2XL,,,,,,,,TIT-CS-013-2XL,0.0,shopify,0,deny,manual,199.00,2200.00,true,false,,,,,,,,,,,,,,,,kg,,,,,,,
+tara-summer-co-ord,,,,,,,,,3XL,,,,,,,,TIT-CS-013-3XL,0.0,shopify,0,deny,manual,199.00,2200.00,true,false,,,,,,,,,,,,,,,,kg,,,,,,,
+tara-summer-co-ord,,,,,,,,,4XL,,,,,,,,TIT-CS-013-4XL,0.0,shopify,0,deny,manual,199.00,2200.00,true,false,,,,,,,,,,,,,,,,kg,,,,,,,
+tara-summer-co-ord,,,,,,,,,5XL,,,,,,,,TIT-CS-013-5XL,0.0,shopify,0,deny,manual,199.00,2200.00,true,true,,,,,,,,,,,,,,,,kg,,,,,,,
+isha-pastel-co-ord,ISHA PASTEL CO-ORD,"<ul>
+<li>
+<strong>Article: </strong>Co-ord Set</li>
+<li>
+<strong>Fabric: </strong>Premium Imported Rayon - Soft and Breathable</li>
+<li>
+<strong>Stitch:</strong> Fully Stitched (Ready to Wear)</li>
+<li>
+<strong>Contents:</strong> 1 top, 1 Pant</li>
+<li>
+<strong>Sleeves:</strong> Full Cool Sleeves<br><strong></strong><strong></strong>
+</li>
+<li>
+<strong>Fit Type: </strong>Regular Comfy Fit<br><strong></strong>
+</li>
+<li>
+<strong>Country of Origin:</strong> India<br>
+</li>
+</ul>",Titli India,,Co-Ord Set,"blue, Cord-Set, Paisley",true,Size,S,,,,,,,,NC-ISHA-PASTEL-CO-ORD-S,0.0,shopify,0,deny,manual,349.00,2200.00,true,true,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/FullSizeRender5_jpg.jpg?v=1792242323,1,,false,,,,,,,kg,,,active,,,,
+isha-pastel-co-ord,,,,,,,,,M,,,,,,,,TIT-CS-006-M,0.0,shopify,0,deny,manual,349.00,2200.00,true,false,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/FullSizeRender3_jpg.jpg?v=1792242323,2,,,,,,,,,kg,,,,,,,
+isha-pastel-co-ord,,,,,,,,,L,,,,,,,,TIT-CS-006-L,0.0,shopify,0,deny,manual,349.00,2200.00,true,false,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/FullSizeRender4_jpg.jpg?v=1792242323,3,,,,,,,,,kg,,,,,,,
+isha-pastel-co-ord,,,,,,,,,XL,,,,,,,,TIT-CS-006-XL,0.0,shopify,0,deny,manual,349.00,2200.00,true,false,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/CO-ORD_size_chart_0c26cf31-e1c4-431d-a107-e6b9dcbd896c.png?v=1792242325,4,,,,,,,,,kg,,,,,,,
+isha-pastel-co-ord,,,,,,,,,2XL,,,,,,,,TIT-CS-006-2XL,0.0,shopify,0,deny,manual,349.00,2200.00,true,false,,,,,,,,,,,,,,,,kg,,,,,,,
+isha-pastel-co-ord,,,,,,,,,3XL,,,,,,,,TIT-CS-006-3XL,0.0,shopify,0,deny,manual,349.00,2200.00,true,false,,,,,,,,,,,,,,,,kg,,,,,,,
+isha-pastel-co-ord,,,,,,,,,4XL,,,,,,,,TIT-CS-006-4XL,0.0,shopify,0,deny,manual,349.00,2200.00,true,false,,,,,,,,,,,,,,,,kg,,,,,,,
+diya-lily-co-ord,DIYA LILY CO-ORD,"<ul>
+<li>
+<strong>Article: </strong>Co-ord Set</li>
+<li>
+<strong>Fabric: </strong>Premium Imported Rayon - Soft and Breathable</li>
+<li>
+<strong>Stitch:</strong> Fully Stitched (Ready to Wear)</li>
+<li>
+<strong>Contents:</strong> 1 top, 1 Pant</li>
+<li>
+<strong>Sleeves:</strong> Full Cool Sleeves<br><strong></strong><strong></strong>
+</li>
+<li>
+<strong>Fit Type: </strong>Regular Comfy Fit<br><strong></strong>
+</li>
+<li>
+<strong>Country of Origin:</strong> India<br>
+</li>
+</ul>",Titli India,,Co-Ord Set,,true,Size,S,,,,,,,,NC-DIYA-LILY-CO-ORD-S,0.0,shopify,0,deny,manual,299.00,2200.00,true,true,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/3.jpg?v=1792242323,1,,false,,,,,,,kg,,,active,,,,
+diya-lily-co-ord,,,,,,,,,M,,,,,,,,TIT-CS-005-M,0.0,shopify,0,deny,manual,299.00,2200.00,true,false,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/1.jpg?v=1792242323,2,,,,,,,,,kg,,,,,,,
+diya-lily-co-ord,,,,,,,,,L,,,,,,,,TIT-CS-005-L,0.0,shopify,0,deny,manual,299.00,2200.00,true,false,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/2.jpg?v=1792242325,3,,,,,,,,,kg,,,,,,,
+diya-lily-co-ord,,,,,,,,,XL,,,,,,,,TIT-CS-005-XL,0.0,shopify,0,deny,manual,299.00,2200.00,true,false,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/5.jpg?v=1792242324,4,,,,,,,,,kg,,,,,,,
+diya-lily-co-ord,,,,,,,,,2XL,,,,,,,,TIT-CS-005-2XL,0.0,shopify,0,deny,manual,299.00,2200.00,true,false,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/6.jpg?v=1792242324,5,,,,,,,,,kg,,,,,,,
+diya-lily-co-ord,,,,,,,,,3XL,,,,,,,,TIT-CS-005-3XL,0.0,shopify,0,deny,manual,299.00,2200.00,true,false,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/CO-ORD_size_chart_ea0b9099-5058-4afe-a474-fad1c8b5145f.png?v=1792242324,6,,,,,,,,,kg,,,,,,,
+diya-lily-co-ord,,,,,,,,,4XL,,,,,,,,TIT-CS-005-4XL,0.0,shopify,0,deny,manual,299.00,2200.00,true,false,,,,,,,,,,,,,,,,kg,,,,,,,
