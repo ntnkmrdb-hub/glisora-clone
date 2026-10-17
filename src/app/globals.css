@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navrang-ivory: #FAF8F5;
+  --color-navrang-cream: #F4EFEA;
+  --color-navrang-sand: #E8E1D5;
+  --color-navrang-black: #111111;
+  --color-navrang-charcoal: #171717;
+  --color-navrang-gold: #C5A880;
+  --color-navrang-gold-light: #E0CEB7;
+  --color-navrang-gold-dark: #9B7B50;
+  --color-navrang-burgundy: #5A1827;
+  --color-navrang-burgundy-light: #7E263A;
+  --font-serif-luxury: var(--font-playfair), Georgia, serif;
+  --font-sans-luxury: var(--font-sans), system-ui, -apple-system, sans-serif;
+}
+
+@layer base {
+  :root {
+    --background: #FAF8F5;
+    --foreground: #111111;
+    --navrang-ivory: #FAF8F5;
+    --navrang-cream: #F4EFEA;
+    --navrang-sand: #E8E1D5;
+    --navrang-black: #0D0D0D;
+    --navrang-charcoal: #1A1918;
+    --navrang-gold: #C5A880;
+    --navrang-gold-light: #E0CEB7;
+    --navrang-gold-dark: #9B7B50;
+    --navrang-burgundy: #5A1827;
+    --navrang-burgundy-light: #7E263A;
+  }
+
+  body {
+    background-color: var(--navrang-ivory);
+    color: var(--navrang-black);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  /* Custom scrollbar for luxury feel */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #FAF8F5;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #D4C9BC;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #B8A996;
+  }
+}
+
+/* Custom utility classes */
+.font-serif-luxury {
+  font-family: var(--font-playfair), Georgia, serif;
+}
+
+.font-sans-luxury {
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #A88656 0%, #D4AF37 50%, #B8935F 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-border-glow {
+  box-shadow: 0 0 15px rgba(197, 168, 128, 0.15);
+}
+
+.backdrop-blur-luxury {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
