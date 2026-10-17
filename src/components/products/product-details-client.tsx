@@ -39,21 +39,58 @@ export function ProductDetailsClient({ product }: ProductDetailsClientProps) {
   const isAvailable = selectedVariant?.availableForSale ?? product.availableForSale;
   const stockQty = selectedVariant?.quantityAvailable ?? null;
 
-  // Find option types
-  const sizeOption = product.options.find((o) => o.name.toLowerCase().includes("size") || o.name.toLowerCase().includes("age"));
-  const colorOption = product.options.find((o) => o.name.toLowerCase().includes("color"));
+  // Safely initialize options with fallback synthesis from variants
+  const availableOptions =
+    product.options && product.options.length > 0
+      ? product.options
+      : (() => {
+          const sizeValues = Array.from(
+            new Set(
+              product.variants?.edges
+                ?.map(
+                  (v) =>
+                    v.node.selectedOptions?.find((o) => o.name.toLowerCase().includes("size"))?.value
+                )
+                .filter(Boolean) as string[]
+            )
+          );
+          const colorValues = Array.from(
+            new Set(
+              product.variants?.edges
+                ?.map(
+                  (v) =>
+                    v.node.selectedOptions?.find((o) => o.name.toLowerCase().includes("color"))?.value
+                )
+                .filter(Boolean) as string[]
+            )
+          );
+          const opts = [];
+          if (sizeValues.length > 0) {
+            opts.push({ id: "opt-size", name: "Size", values: sizeValues });
+          }
+          if (colorValues.length > 0) {
+            opts.push({ id: "opt-color", name: "Color", values: colorValues });
+          }
+          return opts;
+        })();
+
+  const sizeOption = availableOptions.find(
+    (o) => o.name.toLowerCase().includes("size") || o.name.toLowerCase().includes("age")
+  );
+  const colorOption = availableOptions.find((o) => o.name.toLowerCase().includes("color"));
 
   const handleOptionSelect = (optionName: string, value: string) => {
+    if (!selectedVariant) return;
     // Find matching variant
-    const currentOptions = selectedVariant.selectedOptions.reduce((acc, opt) => {
+    const currentOptions = (selectedVariant.selectedOptions || []).reduce((acc, opt) => {
       acc[opt.name] = opt.value;
       return acc;
     }, {} as Record<string, string>);
 
     currentOptions[optionName] = value;
 
-    const matchedVariant = product.variants.edges.find((v) => {
-      return v.node.selectedOptions.every((opt) => currentOptions[opt.name] === opt.value);
+    const matchedVariant = product.variants?.edges?.find((v) => {
+      return v.node.selectedOptions?.every((opt) => currentOptions[opt.name] === opt.value);
     });
 
     if (matchedVariant) {

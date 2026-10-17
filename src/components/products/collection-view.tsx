@@ -40,9 +40,9 @@ export function CollectionView({ collection, initialProducts, allProducts }: Col
         p.title.toLowerCase().includes("dupatta")
     ).length;
 
-    return [
+    const tabs = [
       { id: "all", label: "All Styles", handle: "all", count: source.length },
-      { id: "women-cord-sets", label: "Cord Sets", handle: "women-cord-sets", count: cordSetsCount },
+      { id: "women-cord-sets", label: "Cord Sets & Outfits", handle: "women-cord-sets", count: cordSetsCount },
       { id: "women-night-suits", label: "Night Suits", handle: "women-night-suits", count: nightSuitsCount },
       {
         id: "women-three-piece-sets",
@@ -52,7 +52,8 @@ export function CollectionView({ collection, initialProducts, allProducts }: Col
         subtitle: "Top + Bottom + Dupatta",
       },
     ];
-  }, [source]);
+    return tabs.filter((t) => t.id === "all" || t.count > 0 || t.id === collection.handle);
+  }, [source, collection.handle]);
 
   // Determine initial active tab based on collection handle
   const defaultTab = ["women-cord-sets", "women-night-suits", "women-three-piece-sets"].includes(collection.handle)

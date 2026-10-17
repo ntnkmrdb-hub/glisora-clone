@@ -1,0 +1,451 @@
+﻿Handle,Title,Body (HTML),Vendor,Product Category,Type,Tags,Published,Option1 Name,Option1 Value,Option1 Linked To,Option2 Name,Option2 Value,Option2 Linked To,Option3 Name,Option3 Value,Option3 Linked To,Variant SKU,Variant Grams,Variant Inventory Tracker,Variant Inventory Qty,Variant Inventory Policy,Variant Fulfillment Service,Variant Price,Variant Compare At Price,Variant Requires Shipping,Variant Taxable,Unit Price Total Measure,Unit Price Total Measure Unit,Unit Price Base Measure,Unit Price Base Measure Unit,Variant Barcodes,Image Src,Image Position,Image Alt Text,Gift Card,SEO Title,SEO Description,Color (product.metafields.shopify.color-pattern),Sleeve length type (product.metafields.shopify.sleeve-length-type),Target gender (product.metafields.shopify.target-gender),Variant Image,Variant Weight Unit,Variant Tax Code,Cost per item,Status,Variant Packed Length,Variant Packed Width,Variant Packed Height,Variant Packed Dimension Unit
+blue-white-tie-dye-sleeveless-rayon-dress,Blue & White Tie-Dye Rayon Dress with Pocket | Women’s Summer Dress,"<p>Make a statement in this breezy blue &amp; white tie-dye sleeveless dress, crafted in 100% soft rayon for all-day comfort. Designed with a relaxed fit, subtle flare, and functional side pocket, this dress blends style and ease perfectly. Ideal for sunny days, casual outings, or brunch dates—pair it with white sneakers or flats for a laid-back yet polished look.</p>
+<p><strong>Sleeves:<br></strong>Sleeve less</p>
+<p><strong>Fabric: </strong>Soft 100% Rayon fabric.<br></p>
+<p><strong>Pattern:</strong><br>Tie &amp; Dye</p>
+<p><strong>Care Info:</strong> Hand wash separately in cold water, use mild detergent. <br>Do not bleach, dry in shade, do not wring or tumble dry.</p>
+<p>✨ Want to see how to style this dress for brunches, vacations, or evening outings?  <br>👉 <a rel=""noopener"" title=""👉 Complete Styling Guide for the Blue &amp; White Tie-Dye Dress"" href=""https://medium.com/@classyclothing1005/how-to-style-a-tie-dye-dress-for-effortless-summer-fashion-8e41fde351af"" target=""_blank"">[Read our full styling guide on Medium]</a></p>
+<p> </p>
+<p><a rel=""noopener"" title=""👉 Complete Styling Guide for the Blue &amp; White Tie-Dye Dress"" href=""https://medium.com/@classyclothing1005/how-to-style-a-tie-dye-dress-for-effortless-summer-fashion-8e41fde351af"" target=""_blank"">. </a></p>
+<p> </p>
+<style>
+  /* Scoped styles to avoid theme conflicts */
+  .cc-size-chart{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;max-width:840px;border:1px solid #e5e7eb;border-radius:14px;padding:18px 18px 8px;margin:20px 0;background:#fff}
+  .cc-size-chart h3{font-size:22px;margin:6px 0 14px;font-weight:700}
+  .cc-size-table{width:100%;border-collapse:separate;border-spacing:0;overflow:hidden;border-radius:12px}
+  .cc-size-table thead th{background:#f5f6f8;font-weight:700;text-align:center;padding:12px 10px;border-bottom:1px solid #e5e7eb;font-size:15px}
+  .cc-size-table tbody td{padding:12px 10px;text-align:center;border-bottom:1px solid #f0f1f3;font-size:15px}
+  .cc-size-table tbody tr:nth-child(even){background:#fcfcfc}
+  .cc-size-table td:first-child,.cc-size-table th:first-child{text-align:center;font-weight:700}
+  .cc-badges{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 0}
+  .cc-badge{font-size:12px;border:1px solid #e5e7eb;border-radius:999px;padding:6px 10px;background:#fafafa}
+  .cc-notes{margin:14px 2px 6px;color:#4b5563;font-size:14px;line-height:1.6}
+  .cc-details{margin-top:10px}
+  .cc-details summary{cursor:pointer;font-weight:600}
+ /* Mobile: keep table layout, enable horizontal scroll */
+.cc-table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:10px 0}
+.cc-size-table{min-width:620px}
+@media (max-width:640px){
+  .cc-size-table thead th{font-size:14px;padding:10px}
+  .cc-size-table tbody td{font-size:14px;padding:10px}
+ /* --- Mobile: static grid layout (no scroll), clean table --- */
+@media (max-width:640px){
+
+  .cc-table-scroll{
+    overflow:visible !important;
+  }
+
+  .cc-size-table{
+    display:table !important;
+    width:100% !important;
+    min-width:0 !important;
+    table-layout:auto !important;
+    border-collapse:separate !important;
+  }
+
+  .cc-size-table thead{
+    display:table-header-group !important;
+  }
+
+  .cc-size-table tbody{
+    display:table-row-group !important;
+  }
+
+  .cc-size-table tr{
+    display:table-row !important;
+  }
+
+  .cc-size-table th,
+  .cc-size-table td{
+    display:table-cell !important;
+    padding:10px 8px !important;
+    font-size:13px !important;
+  }
+
+  .cc-size-table td::before{
+    content:none !important;
+  }
+}
+
+  .cc-size-table thead{display:none}
+
+  /* Stack cells vertically as cards */
+  .cc-size-table,
+  .cc-size-table tbody,
+  .cc-size-table tr,
+  .cc-size-table td{
+    display:block;
+    width:100%;
+  }
+
+  /* Card style for each row */
+  .cc-size-table tr{
+    border:1px solid #f0f1f3;
+    border-radius:10px;
+    margin:0 0 10px;
+    background:#fff;
+  }
+
+  /* Cell spacing */
+  .cc-size-table td{
+    text-align:left;
+    border-bottom:0;
+    padding:10px 12px;
+  }
+
+  /* Label before each value */
+  .cc-size-table td::before{
+    content:attr(data-label);
+    display:block;
+    font-size:12px;
+    color:#6b7280;
+    margin-bottom:4px;
+  }
+}/* ============================
+   PREMIUM HIGH-CLASS SPEC SHEET
+   Clean Grid Layout – Mobile + Desktop
+   ============================ */
+
+/* Container */
+.cc-size-chart {
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  margin-top: 20px;
+}
+
+/* Title */
+#size-chart-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #222;
+  text-transform: none;
+}
+
+/* Wrapper for table */
+.cc-table-scroll {
+  overflow-x: visible !important;
+}
+
+/* Main table */
+.cc-size-table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #e6e6e6;
+}
+
+/* Header */
+.cc-size-table thead th {
+  background: #f8f8f8;
+  padding: 12px;
+  font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+
+/* Body cells */
+.cc-size-table tbody td {
+  padding: 12px;
+  font-size: 14px;
+  color: #333;
+  text-align: center;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/* Last row cleaner */
+.cc-size-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Hover effect */
+.cc-size-table tbody tr:hover {
+  background: #fafafa;
+}
+
+/* ===== MOBILE OPTIMIZED (no scroll, perfect fit) ===== */
+@media (max-width: 640px) {
+
+  /* Force proper width */
+  .cc-size-table {
+    width: 100% !important;
+    display: table !important;
+    min-width: 0 !important;
+    table-layout: fixed !important;
+  }
+
+  /* Perfect alignment */
+  .cc-size-table thead th,
+  .cc-size-table tbody td {
+    font-size: 13px !important;
+    padding: 10px !important;
+    word-break: break-word;
+  }
+
+  /* Remove scroll */
+  .cc-table-scroll {
+    overflow-x: hidden !important;
+  }
+}
+}
+
+</style>
+<div class=""cc-size-chart"">
+<h3 id=""size-chart-title"">Size Chart — Sleeveless Dress</h3>
+<div class=""cc-table-scroll"">
+<table role=""table"" class=""cc-size-table"">
+<thead>
+<tr>
+<th scope=""col"">Size</th>
+<th scope=""col"">Chest (in)</th>
+<th scope=""col"">Shoulder (in)</th>
+<th scope=""col"">Front Length – HPS (in)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label=""Size"">XS</td>
+<td data-label=""Chest (in)"">34</td>
+<td data-label=""Shoulder (in)"">11.5</td>
+<td data-label=""Front Length – HPS (in)"">34</td>
+</tr>
+<tr>
+<td data-label=""Size"">S</td>
+<td data-label=""Chest (in)"">36</td>
+<td data-label=""Shoulder (in)"">12</td>
+<td data-label=""Front Length – HPS (in)"">34.5</td>
+</tr>
+<tr>
+<td data-label=""Size"">M</td>
+<td data-label=""Chest (in)"">38</td>
+<td data-label=""Shoulder (in)"">12.5</td>
+<td data-label=""Front Length – HPS (in)"">35</td>
+</tr>
+<tr>
+<td data-label=""Size"">L</td>
+<td data-label=""Chest (in)"">40</td>
+<td data-label=""Shoulder (in)"">13</td>
+<td data-label=""Front Length – HPS (in)"">35.5</td>
+</tr>
+<tr>
+<td data-label=""Size"">XL</td>
+<td data-label=""Chest (in)"">42</td>
+<td data-label=""Shoulder (in)"">13.5</td>
+<td data-label=""Front Length – HPS (in)"">36</td>
+</tr>
+<tr>
+<td data-label=""Size"">XXL</td>
+<td data-label=""Chest (in)"">44</td>
+<td data-label=""Shoulder (in)"">14</td>
+<td data-label=""Front Length – HPS (in)"">36.5</td>
+</tr>
+</tbody>
+</table>
+<div class=""cc-badges"">
+<span class=""cc-badge"">Fit: Relaxed</span> <span class=""cc-badge"">Model height: 5'5"" (165 cm)</span> <span class=""cc-badge"">Model is wearing size: S</span>
+</div>
+<div class=""cc-notes"">
+<p>All measurements are in inches; please allow a tolerance of ±0.5 inch.</p>
+<p>HPS (High Point Shoulder) length is measured from the highest shoulder point to the hem.</p>
+</div>
+<details class=""cc-details"">
+<summary>How to measure yourself</summary>
+<div class=""cc-notes"">
+<p><strong>Chest:</strong> Measure around the fullest part of your bust.</p>
+<p><strong>Shoulder:</strong> Measure straight from shoulder point to shoulder point.</p>
+<p><strong>Front length (HPS):</strong> From the highest shoulder point down to the hem.</p>
+</div>
+</details>
+</div>
+</div>",The Classy Clothing,,,"and, Blue, Brunch, Casual, Classy, Clothing, Comfortable, Day, Dress, Dresses, Dye, India, Out, Outfit, Rayon, Sleeveless, Summer, The, Tie, Travel, Vacation, Wear, White, Women’s",true,Size,XS,,,,,,,,NC-BLUE-WHITE-TIE-DYE-SLEEVELESS-RAYON-DRESS-XS,0.0,shopify,0,deny,manual,249.00,1500.00,true,true,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/1_ef6e95bf-4701-408e-993b-12b968903123.jpg?v=1792238469,1,,false,,,,,,,kg,,,active,,,,
+blue-white-tie-dye-sleeveless-rayon-dress,,,,,,,,,S,,,,,,,,NC-BLUE-WHITE-TIE-DYE-SLEEVELESS-RAYON-DRESS-S,0.0,shopify,0,deny,manual,249.00,1500.00,true,true,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/2_2c961970-f090-4c47-a467-8c77e7528c54.jpg?v=1792238469,2,,,,,,,,,kg,,,,,,,
+blue-white-tie-dye-sleeveless-rayon-dress,,,,,,,,,M,,,,,,,,NC-BLUE-WHITE-TIE-DYE-SLEEVELESS-RAYON-DRESS-M,0.0,shopify,0,deny,manual,249.00,1500.00,true,true,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/3_6874b561-8026-4822-a910-8d99794ed59a.jpg?v=1792238469,3,,,,,,,,,kg,,,,,,,
+blue-white-tie-dye-sleeveless-rayon-dress,,,,,,,,,L,,,,,,,,NC-BLUE-WHITE-TIE-DYE-SLEEVELESS-RAYON-DRESS-L,0.0,shopify,0,deny,manual,249.00,1500.00,true,true,,,,,,,,,,,,,,,,kg,,,,,,,
+blue-white-tie-dye-sleeveless-rayon-dress,,,,,,,,,XL,,,,,,,,NC-BLUE-WHITE-TIE-DYE-SLEEVELESS-RAYON-DRESS-XL,0.0,shopify,0,deny,manual,249.00,1500.00,true,true,,,,,,,,,,,,,,,,kg,,,,,,,
+blue-white-tie-dye-sleeveless-rayon-dress,,,,,,,,,XXL,,,,,,,,NC-BLUE-WHITE-TIE-DYE-SLEEVELESS-RAYON-DRESS-XXL,0.0,shopify,0,deny,manual,249.00,1500.00,true,true,,,,,,,,,,,,,,,,kg,,,,,,,
+doodle-leaf-print-crop-top-for-women,Doodle Leaf Print Crop Top for Women,"<p data-start=""405"" data-end=""642"">Add a playful yet stylish touch to your wardrobe with this doodle leaf print crop top for women. Crafted from breathable rayon fabric, this top feels lightweight and comfortable, making it ideal for everyday wear in India’s warm climate.</p>
+<p data-start=""644"" data-end=""780"">The artistic leaf print and cropped silhouette create a modern look that pairs effortlessly with high-waisted jeans, trousers or skirts.</p>
+<p data-start=""782"" data-end=""911"">If you enjoy breathable everyday styles, explore our <a href=""https://www.theclassyclothing.com/collections/rayon-tops-for-women"" title=""Rayon Tops for Women""><strong data-start=""835"" data-end=""859"">rayon tops for women</strong></a> collection designed for comfort and casual fashion.</p>
+<h2 data-section-id=""r1diot"" data-start=""918"" data-end=""959"">Printed Rayon Top for Everyday Styling</h2>
+<p data-start=""961"" data-end=""1198"">Printed tops are a favourite choice for women who want stylish yet effortless outfits. This doodle leaf print crop top blends soft rayon fabric with a modern print, making it perfect for casual outfits, travel looks and everyday fashion.</p>
+<p data-start=""1200"" data-end=""1320"">You can also browse our <a href=""https://www.theclassyclothing.com/collections/printed-tops-for-women"" title=""Printed Top for Women""><strong data-start=""1224"" data-end=""1250"">printed tops for women</strong></a> collection featuring contemporary prints and comfortable silhouettes.</p>
+<h2 data-section-id=""1my5t8t"" data-start=""1327"" data-end=""1343"">Styling Ideas</h2>
+<p data-start=""1345"" data-end=""1421"">This printed rayon crop top can be styled easily for different casual looks:</p>
+<p data-start=""1423"" data-end=""1603"">• Pair with <strong data-start=""1435"" data-end=""1457"">high-waisted jeans</strong> for relaxed everyday outfits<br data-start=""1486"" data-end=""1489"">• Style with <strong data-start=""1502"" data-end=""1523"">wide-leg trousers</strong> for modern casual fashion<br data-start=""1549"" data-end=""1552"">• Wear with <strong data-start=""1564"" data-end=""1584"">skirts or shorts</strong> for summer styling</p>
+<p data-start=""1605"" data-end=""1699"">Lightweight rayon fabric keeps the outfit breathable while the playful print adds personality.</p>
+<h2 data-section-id=""17xojy5"" data-start=""1706"" data-end=""1718"">Wash Care</h2>
+<p data-start=""1720"" data-end=""1800"">Machine wash cold | Wash with similar colours | Do not bleach | Iron on low heat</p>
+<h1 data-section-id=""ro4oby"" data-start=""1807"" data-end=""1824"">FAQ -</h1>
+<p data-start=""1826"" data-end=""1980""><strong data-start=""1826"" data-end=""1875"">Is rayon fabric suitable for summer in India?</strong><br data-start=""1875"" data-end=""1878"">Yes, rayon is lightweight and breathable, making it comfortable for warm weather and everyday outfits.</p>
+<p data-start=""1982"" data-end=""2121""><strong data-start=""1982"" data-end=""2022"">How can printed crop tops be styled?</strong><br data-start=""2022"" data-end=""2025"">Printed crop tops can be styled with jeans, skirts or trousers to create stylish casual outfits.</p>
+<p data-start=""2123"" data-end=""2271""><strong data-start=""2123"" data-end=""2174"">Are printed rayon tops suitable for daily wear?</strong><br data-start=""2174"" data-end=""2177"">Yes, printed rayon tops are comfortable and versatile, making them ideal for everyday fashion.</p>
+<p><strong style=""font-family: -apple-system, BlinkMacSystemFont, 'San Francisco', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; font-size: 0.875rem;""><img alt="""" src=""https://cdn.shopify.com/s/files/1/0699/1708/1825/files/36.5_5.png?v=1728792043""></strong></p>",The Classy Clothing,,,"casual, crop, doodle, India, leaf, print, Printed, rayon, Short, Sleeve, Summer, top, tops, women",true,Size,XS,,,,,,,,NC-DOODLE-LEAF-PRINT-CROP-TOP-FOR-WOMEN-XS,0.0,shopify,0,deny,manual,149.00,1400.00,true,true,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/172.png?v=1792238476,1,,false,,,,,,,kg,,,active,,,,
+doodle-leaf-print-crop-top-for-women,,,,,,,,,S,,,,,,,,NC-DOODLE-LEAF-PRINT-CROP-TOP-FOR-WOMEN-S,0.0,shopify,0,deny,manual,149.00,1400.00,true,true,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/173.png?v=1792238478,2,,,,,,,,,kg,,,,,,,
+doodle-leaf-print-crop-top-for-women,,,,,,,,,M,,,,,,,,NC-DOODLE-LEAF-PRINT-CROP-TOP-FOR-WOMEN-M,0.0,shopify,0,deny,manual,149.00,1400.00,true,true,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/174.png?v=1792238477,3,,,,,,,,,kg,,,,,,,
+doodle-leaf-print-crop-top-for-women,,,,,,,,,L,,,,,,,,NC-DOODLE-LEAF-PRINT-CROP-TOP-FOR-WOMEN-L,0.0,shopify,0,deny,manual,149.00,1400.00,true,true,,,,,,,,,,,,,,,,kg,,,,,,,
+doodle-leaf-print-crop-top-for-women,,,,,,,,,XL,,,,,,,,NC-DOODLE-LEAF-PRINT-CROP-TOP-FOR-WOMEN-XL,0.0,shopify,0,deny,manual,149.00,1400.00,true,true,,,,,,,,,,,,,,,,kg,,,,,,,
+doodle-leaf-print-crop-top-for-women,,,,,,,,,XXL,,,,,,,,NC-DOODLE-LEAF-PRINT-CROP-TOP-FOR-WOMEN-XXL,0.0,shopify,0,deny,manual,149.00,1400.00,true,true,,,,,,,,,,,,,,,,kg,,,,,,,
+long-sleeves-satin-shirt-in-pastel-sea-green-color,Long Sleeves Satin Shirt in Silver Grey Color,"<p><strong><img alt="""" src=""https://cdn.shopify.com/s/files/1/0699/1708/1825/files/36.5_3.jpg?v=1722241368""><br>STYLE NUMBER: CC-01   </strong></p>
+<p><strong>Sleeves:<br></strong>Long Sleeves</p>
+<p><strong>Fabric:<br></strong>Satin</p>
+<p><strong>Pattern:</strong><br>Solid</p>
+<p><strong>Care Info:<br></strong>Follow Washcare<br></p>
+<p><br></p>",The Classy Clothing,,,,true,Size,S,,,,,,,,NC-LONG-SLEEVES-SATIN-SHIRT-IN-PASTEL-SEA-GREEN-COLOR-S,0.0,shopify,0,deny,manual,349.00,1700.00,true,true,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/7_d1360285-0eb1-46e9-ab8a-cd48d3a97573.jpg?v=1792238477,1,,false,,,,,,,kg,,,active,,,,
+long-sleeves-satin-shirt-in-pastel-sea-green-color,,,,,,,,,M,,,,,,,,NC-LONG-SLEEVES-SATIN-SHIRT-IN-PASTEL-SEA-GREEN-COLOR-M,0.0,shopify,0,deny,manual,349.00,1700.00,true,true,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/8_49f24554-157a-4c71-af88-a7b80fbfca4d.jpg?v=1792238477,2,,,,,,,,,kg,,,,,,,
+long-sleeves-satin-shirt-in-pastel-sea-green-color,,,,,,,,,L,,,,,,,,NC-LONG-SLEEVES-SATIN-SHIRT-IN-PASTEL-SEA-GREEN-COLOR-L,0.0,shopify,0,deny,manual,349.00,1700.00,true,true,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/9_8334d61a-e0f6-4a9d-ab8a-41cb4e2dcdde.jpg?v=1792238477,3,,,,,,,,,kg,,,,,,,
+long-sleeves-satin-shirt-in-pastel-sea-green-color,,,,,,,,,XL,,,,,,,,NC-LONG-SLEEVES-SATIN-SHIRT-IN-PASTEL-SEA-GREEN-COLOR-XL,0.0,shopify,0,deny,manual,349.00,1700.00,true,true,,,,,,,,,,,,,,,,kg,,,,,,,
+orange-rayon-sleeveless-midi-dress,Orange Rayon A-Line Midi Dress for Women – Sleeveless Midi Dress,"<div class=""flex basis-auto flex-col -mb-(--composer-overlap-px) [--composer-overlap-px:55px] grow overflow-hidden"">
+<div class=""relative h-full"">
+<div class=""flex h-full flex-col overflow-y-auto [scrollbar-gutter:stable_both-edges] @[84rem]/thread:pt-(--header-height)"">
+<div class=""@thread-xl/thread:pt-header-height flex flex-col text-sm pb-25"">
+<article dir=""auto"" class=""text-token-text-primary w-full focus:outline-none scroll-mt-[calc(var(--header-height)+min(200px,max(70px,20svh)))]"" tabindex=""-1"">
+<div class=""text-base my-auto mx-auto pb-10 [--thread-content-margin:--spacing(4)] @[37rem]:[--thread-content-margin:--spacing(6)] @[72rem]:[--thread-content-margin:--spacing(16)] px-(--thread-content-margin)"">
+<div class=""[--thread-content-max-width:32rem] @[34rem]:[--thread-content-max-width:40rem] @[64rem]:[--thread-content-max-width:48rem] mx-auto max-w-(--thread-content-max-width) flex-1 group/turn-messages focus-visible:outline-hidden relative flex w-full min-w-0 flex-col agent-turn"" tabindex=""-1"">
+<div class=""flex max-w-full flex-col grow"">
+<div class=""min-h-8 text-message relative flex w-full flex-col items-end gap-2 text-start break-words whitespace-normal [.text-message+&amp;]:mt-5"" dir=""auto"">
+<div class=""flex w-full flex-col gap-1 empty:hidden first:pt-[3px]"">
+<div class=""markdown prose dark:prose-invert w-full break-words light markdown-new-styling"">
+<p data-path-to-node=""12""><b data-path-to-node=""12"" data-index-in-node=""0"">Brighten your wardrobe with this orange rayon A-line midi dress, crafted from breathable fabric for effortless summer comfort.</b> Perfect for warm weather across India, this sleeveless silhouette delivers a relaxed fit for casual outings, daily wear, or travel.</p>
+<p data-path-to-node=""14,0,0""><b data-path-to-node=""14,0,0"" data-index-in-node=""0"">Fabric:</b> 100% Breathable Rayon</p>
+<p data-path-to-node=""14,1,0""><b data-path-to-node=""14,1,0"" data-index-in-node=""0"">Silhouette:</b> Flowy A-Line Midi Length</p>
+<p data-path-to-node=""14,2,0""><b data-path-to-node=""14,2,0"" data-index-in-node=""0"">Design:</b> Round Neck | Sleeveless</p>
+<p data-path-to-node=""14,3,0""><b data-path-to-node=""14,3,0"" data-index-in-node=""0"">Occasion:</b> Daily Wear, Casual Outings, Travel</p>
+<p data-path-to-node=""14,4,0""><b data-path-to-node=""14,4,0"" data-index-in-node=""0"">Origin:</b> Made in India | Free Shipping &amp; COD Available</p>
+<h3 data-path-to-node=""15"">Wash Care</h3>
+<p data-path-to-node=""16"">Hand wash separately in cold water. Do not bleach. Dry in shade. Low iron.</p>
+<meta charset=""utf-8"">
+<h3>Explore More Styles</h3>
+<p><strong><a href=""https://www.theclassyclothing.com/collections/100-rayon-dresses-for-women"" title=""Rayon Dresses for Women"">Rayon Dresses for Women</a></strong></p>
+<p><a href=""https://www.theclassyclothing.com/collections/cotton-dresses-for-women"" title=""Cotton Dresses for Women""><strong>Cotton Dresses for Women</strong></a></p>
+<br><strong></strong>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+</div>
+</div>
+</div>
+</div>
+<p><meta charset=""utf-8""><strong><img src=""https://cdn.shopify.com/s/files/1/0699/1708/1825/files/size_chart_14.jpg?v=1715721248"" alt=""""></strong> FAQs -</p>
+<div class=""container"">
+<div class=""markdown markdown-main-panel md-content enable-luminous-fast-follows enable-updated-hr-color force-compact-layout tutor-markdown-rendering"" id=""model-response-message-contentr_01f8663075331e85"" dir=""ltr"">
+<div class=""container"">
+<div class=""markdown markdown-main-panel md-content enable-luminous-fast-follows enable-updated-hr-color force-compact-layout tutor-markdown-rendering"" id=""model-response-message-contentr_d9d1104c6d356a38"" dir=""ltr"">
+<p data-path-to-node=""19""><b data-path-to-node=""19"" data-index-in-node=""0"">Q: Is this dress suitable for hot Indian weather?</b></p>
+<p data-path-to-node=""20""><b data-path-to-node=""20"" data-index-in-node=""0"">A:</b> Yes, it is made from 100% pure rayon, which is lightweight and highly breathable for summer comfort.</p>
+<p data-path-to-node=""21""><b data-path-to-node=""21"" data-index-in-node=""0"">Q: How does the fit run?</b></p>
+<p data-path-to-node=""22""><b data-path-to-node=""22"" data-index-in-node=""0"">A:</b> It features a flowy A-line silhouette with a relaxed fit. Refer to the size chart to select M, L, or XXL.</p>
+<p data-path-to-node=""23""><b data-path-to-node=""23"" data-index-in-node=""0"">Q: How should I wash this dress?</b></p>
+<p data-path-to-node=""24""><b data-path-to-node=""24"" data-index-in-node=""0"">A:</b> Gentle hand wash separately in cold water, do not bleach, dry in shade, and warm iron on low.</p>
+</div>
+<!---->
+</div>
+</div>
+<!---->
+</div>",The Classy Clothing,,,"bright, casual, dress, dresses, everyday, for, ightweight, india, midi, orange, rayon, rayon-dress, sleeveless, summer, wear, women",true,Size,M,,,,,,,,NC-ORANGE-RAYON-SLEEVELESS-MIDI-DRESS-M,0.0,shopify,0,deny,manual,199.00,1800.00,true,true,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/ChatGPT_Image_Jul_13_2025_03_27_40_PM.png?v=1792238470,1,,false,,,,,,,kg,,,active,,,,
+orange-rayon-sleeveless-midi-dress,,,,,,,,,L,,,,,,,,NC-ORANGE-RAYON-SLEEVELESS-MIDI-DRESS-L,0.0,shopify,0,deny,manual,199.00,1800.00,true,true,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/ChatGPT_Image_Jul_13_2025_03_17_09_PM.png?v=1792238469,2,,,,,,,,,kg,,,,,,,
+orange-rayon-sleeveless-midi-dress,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/ChatGPT_Image_Jul_13_2025_03_39_24_PM.png?v=1792238469,3,,,,,,,,,,,,,,,,
+orange-rayon-sleeveless-midi-dress,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/ChatGPT_Image_Jul_13_2025_03_43_48_PM.png?v=1792238469,4,,,,,,,,,,,,,,,,
+orange-rayon-sleeveless-midi-dress,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/ChatGPT_Image_Jul_13_2025_03_21_57_PM.png?v=1792238470,5,,,,,,,,,,,,,,,,
+orange-rayon-sleeveless-midi-dress,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/ChatGPT_Image_Jul_13_2025_03_32_45_PM.png?v=1792238469,6,,,,,,,,,,,,,,,,
+polka-crop,Polka Dot Printed Crop Top for Women,"<p data-path-to-node=""15""><b data-path-to-node=""15"" data-index-in-node=""0"">Elevate your everyday style with this polka dot printed crop top, crafted from lightweight and breathable rayon for effortless comfort.</b> Designed for versatile styling across India, this chic top transitions seamlessly from casual outings and college wear to weekend travel.</p>
+<p data-path-to-node=""17,0,0""><b data-path-to-node=""17,0,0"" data-index-in-node=""0"">Fabric:</b> Premium Breathable Rayon</p>
+<p data-path-to-node=""17,1,0""><b data-path-to-node=""17,1,0"" data-index-in-node=""0"">Design:</b> Classic Polka Dot Print | Collar Neck | Button Front</p>
+<p data-path-to-node=""17,2,0""><b data-path-to-node=""17,2,0"" data-index-in-node=""0"">Fit:</b> Flattering Regular Crop Fit</p>
+<p data-path-to-node=""17,3,0""><b data-path-to-node=""17,3,0"" data-index-in-node=""0"">Occasion:</b> Casual Outings, Daily Wear, College &amp; Travel</p>
+<p data-path-to-node=""17,4,0""><b data-path-to-node=""17,4,0"" data-index-in-node=""0"">Origin:</b> Made in India | Free Shipping &amp; COD Available</p>
+<h3 data-path-to-node=""18"">Wash Care</h3>
+<p data-path-to-node=""19"">Machine wash cold with similar colors. Use mild detergent. Do not bleach. Dry in shade. Iron on low heat.</p>
+<p data-end=""345"" data-start=""316""><strong style=""font-family: -apple-system, BlinkMacSystemFont, 'San Francisco', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; font-size: 0.875rem;""><img alt="""" src=""https://cdn.shopify.com/s/files/1/0699/1708/1825/files/36.5_5.png?v=1728792043""></strong><span style=""font-family: -apple-system, BlinkMacSystemFont, 'San Francisco', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; font-size: 0.875rem;"">Looking to buy a stylish polka dot crop top for women online in India? This trendy rayon crop top is designed for modern women who want comfort, breathability, and effortless style. Made from soft and lightweight rayon fabric, it is perfect for hot and humid Indian weather, keeping you cool throughout the day. The classic polka dot print adds a timeless and chic touch, making it ideal for casual outings, college wear, travel, and daily use.</span></p>
+<p data-start=""915"" data-end=""1208"">This women’s crop top can be easily styled with jeans, high-waist trousers, skirts, or shorts to create multiple fashionable looks. If you are exploring more options, check out our <a href=""https://www.theclassyclothing.com/collections/rayon-tops-for-women"" title=""Rayon Tops for Women""><strong data-start=""1096"" data-end=""1120"">Rayon Tops for Women</strong></a> collection and <a href=""https://www.theclassyclothing.com/collections/printed-tops-for-women"" title=""Prrinted Tops for Women""><strong data-start=""1136"" data-end=""1162"">Printed Tops for Women</strong></a> collection to discover similar trendy styles.</p>
+<p data-start=""1210"" data-end=""1647"">Whether you're searching for crop tops for women, printed tops for women, summer tops for women in India, or trendy western wear, this versatile piece fits every occasion. Buy this polka dot crop top online in India from The Classy Clothing and upgrade your wardrobe with premium quality fashion. We offer free delivery and cash on delivery (COD) across India, including Mumbai, Delhi, Bangalore, Hyderabad, Chennai, Pune, and Ahmedabad.</p>
+<h2 data-end=""899"" data-start=""861"" data-section-id=""ietzmw""> Frequently Asked Questions -</h2>
+<div class=""container"">
+<div class=""markdown markdown-main-panel md-content enable-luminous-fast-follows enable-updated-hr-color force-compact-layout tutor-markdown-rendering"" id=""model-response-message-contentr_237731c519f73a78"" dir=""ltr"">
+<p data-path-to-node=""22""><b data-path-to-node=""22"" data-index-in-node=""0"">Q: Is this crop top suitable for warm weather in India?</b></p>
+<p data-path-to-node=""23""><b data-path-to-node=""23"" data-index-in-node=""0"">A:</b> Yes, the lightweight rayon fabric is soft and breathable, keeping you comfortable throughout the day.</p>
+<p data-path-to-node=""24""><b data-path-to-node=""24"" data-index-in-node=""0"">Q: What can I pair this crop top with?</b></p>
+<p data-path-to-node=""25""><b data-path-to-node=""25"" data-index-in-node=""0"">A:</b> It pairs easily with high-waist jeans, denim skirts, shorts, or tailored trousers.</p>
+<p data-path-to-node=""26""><b data-path-to-node=""26"" data-index-in-node=""0"">Q: How do I select the right size?</b></p>
+<p data-path-to-node=""27""><b data-path-to-node=""27"" data-index-in-node=""0"">A:</b> Refer to the size chart on the product page and compare chest measurements with a top that fits you well.</p>
+</div>
+<!---->
+</div>",The Classy Clothing,,TOP,"casual, daily, Dot, half, India, Polka, Printed, rayon, sleeve, summer, top, tops, Wear, women",true,Size,XS,,,,,,,,NC-POLKA-CROP-XS,0.0,shopify,0,deny,manual,149.00,999.00,true,true,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/ChatGPT_Image_Jul_8_2025_08_48_51_PM.png?v=1792238474,1,,false,,,,,,,kg,,,active,,,,
+polka-crop,,,,,,,,,S,,,,,,,,NC-POLKA-CROP-S,0.0,shopify,0,deny,manual,149.00,999.00,true,true,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/image_2025-07-08_211924517.png?v=1792238472,2,,,,,,,,,kg,,,,,,,
+polka-crop,,,,,,,,,M,,,,,,,,NC-POLKA-CROP-M,0.0,shopify,0,deny,manual,149.00,999.00,true,true,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/ChatGPT_Image_Jul_8_2025_09_29_36_PM.png?v=1792238473,3,,,,,,,,,kg,,,,,,,
+polka-crop,,,,,,,,,L,,,,,,,,NC-POLKA-CROP-L,0.0,shopify,0,deny,manual,149.00,999.00,true,true,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/ChatGPT_Image_Jul_8_2025_09_35_40_PM.png?v=1792238473,4,,,,,,,,,kg,,,,,,,
+polka-crop,,,,,,,,,XL,,,,,,,,NC-POLKA-CROP-XL,0.0,shopify,0,deny,manual,149.00,999.00,true,true,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/ChatGPT_Image_Jul_8_2025_09_42_12_PM.png?v=1792238474,5,,,,,,,,,kg,,,,,,,
+polka-crop,,,,,,,,,XXL,,,,,,,,NC-POLKA-CROP-XXL,0.0,shopify,0,deny,manual,149.00,999.00,true,true,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/6_f4c2a133-089f-4a93-aaab-919c3bdd9d24.png?v=1792238473,6,,,,,,,,,kg,,,,,,,
+polka-crop,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/7_ef315c24-d276-48c3-aadd-153e902cb1b2.png?v=1792238474,7,,,,,,,,,,,,,,,,
+purple-check-sleeveless-cotton-dress,Purple Check Sleeveless Cotton A-Line Dress for Women,"<p>Stay cool and comfortable with this purple check sleeveless cotton A-line dress for women.Crafted from 100% pure breathable cotton, it features a timeless check pattern, a comfortable relaxed fit, a classic round neckline, and a lightweight silhouette ideal for summer wear.</p>
+<p>Fabric: 100% Pure Cotton (Breathable, Soft &amp; Summer-Friendly)</p>
+<p>Fit &amp; Style: Relaxed Fit, Sleeveless Cut, Timeless Check Pattern, Round Neckline</p>
+<p>Occasion: Ideal for Daily Wear, College, Office Casuals, Travel &amp; Summer Outings</p>
+<p>Care: Hand wash separately in cold water | Use mild detergent | Do not bleach | Dry in shade | Iron on low heat</p>
+<h3><strong style=""font-family: -apple-system, BlinkMacSystemFont, 'San Francisco', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; font-size: 0.875rem;""><img alt="""" src=""https://cdn.shopify.com/s/files/1/0699/1708/1825/files/size_chart_9.jpg?v=1715089854""><meta charset=""utf-8""></strong></h3>
+<h2>FAQ -</h2>
+<p>Is this dress suitable for Indian summers<br>Yes, the breathable cotton fabric makes it suitable for hot and humid Indian weather.</p>
+<p>Is this dress good for daily wear<br>Yes, it is designed for regular daily use with comfort and ease of movement.</p>
+<p>Will the fabric shrink after washing<br>Minimal shrinkage may occur if washed in hot water. Cold wash and shade drying are recommended.</p>
+<p>Can this dress be worn for office or casual outings<br>Yes, the check pattern and comfortable fit make it suitable for office casual wear and everyday outings.</p>
+<p> </p>
+<p> </p>",The Classy Clothing,,,"A, check, Cotton, daily, DRESS, dresses, LINE, purple, sleeveless, wear",true,Size,S,,,,,,,,NC-PURPLE-CHECK-SLEEVELESS-COTTON-DRESS-S,0.0,shopify,0,deny,manual,349.00,1600.00,true,true,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/419.png?v=1792238474,1,,false,,,,,,,kg,,,active,,,,
+purple-check-sleeveless-cotton-dress,,,,,,,,,M,,,,,,,,NC-PURPLE-CHECK-SLEEVELESS-COTTON-DRESS-M,0.0,shopify,0,deny,manual,349.00,1600.00,true,true,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/420.png?v=1792238475,2,,,,,,,,,kg,,,,,,,
+purple-check-sleeveless-cotton-dress,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/421.png?v=1792238474,3,,,,,,,,,,,,,,,,
+purple-check-sleeveless-cotton-dress,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/422.png?v=1792238474,4,,,,,,,,,,,,,,,,
+purple-check-sleeveless-cotton-dress,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/423.png?v=1792238475,5,,,,,,,,,,,,,,,,
+sleeveless-cotton-yarn-dyed-shirt-women,Sleeveless Cotton Yarn Dyed Shirt for Women,"<p>• 100% Pure Yarn-Dyed Cotton: Woven with pre-dyed yarns for rich, long-lasting color fade resistance.<br>• Premium Breathable Fabric: Lightweight, soft, and skin-friendly for all-day working comfort.<br>• Smart Collared Neckline: Structured sleeveless button-down shirt cut for a clean, modern look.<br>• Versatile Styling: Pairs seamlessly with tailored trousers, denim jeans, or summer skirts.</p>
+<p>Fabric: 100% Pure Yarn-Dyed Cotton<br>Fit Type: Regular Fit / Collared Sleeveless Top &amp; Shirt<br>Pattern: Yarn-Dyed Pattern<br>Occasion: Office Wear, Casual Outings, Travel, Daily Wear<br>Care Instructions: Machine Wash Cold | Gentle Cycle | Line Dry in Shade</p>
+<p><meta charset=""utf-8""><strong><img alt="""" src=""https://cdn.shopify.com/s/files/1/0699/1708/1825/files/Copy_of_Latest_size_chart_1.jpg?v=1717418530""></strong>Sleeveless shirts for women are an essential part of a comfortable summer wardrobe, offering a combination of breathable fabric, versatile styling, and effortless everyday wear. This sleeveless cotton yarn dyed shirt for women is designed to provide lightweight comfort while maintaining a clean and stylish appearance. Made from breathable cotton fabric, this shirt allows better airflow, making it ideal for warm weather and long hours of wear.</p>
+<p>Women who prefer natural fabrics often choose cotton sleeveless shirts because of their softness, comfort, and ability to keep the body cool. The yarn dyed cotton fabric used in this shirt gives it a refined and long-lasting pattern, ensuring the colors remain vibrant even after multiple washes. Unlike printed fabrics, yarn dyed cotton is woven using colored yarns, which creates a richer and more durable design.</p>
+<p>This sleeveless cotton shirt offers excellent styling versatility. It can be paired with denim jeans for a relaxed everyday look, styled with trousers for a smart casual outfit, or worn with skirts for a more effortless summer style. The sleeveless design adds extra comfort during warm days while maintaining a polished and modern look.</p>
+<p>For women looking for breathable summer tops, cotton sleeveless shirts remain one of the most practical choices. The natural cotton fabric feels gentle on the skin and helps regulate body temperature, making it suitable for everyday wear, travel, work, and casual outings.</p>
+<p>If you are exploring comfortable <a href=""https://www.theclassyclothing.com/collections/sleeveless-shirts-for-women"" title=""Sleeveless Shirts for Women""><strong>Sleeveless Shirts for Women</strong>,</a> this cotton yarn dyed shirt is a reliable wardrobe staple. The combination of breathable cotton fabric, timeless yarn dyed pattern, and easy styling options makes it a versatile piece that can be worn across seasons and occasions.</p>",The Classy Clothing,,,"breathable, casual, classy, cotton, shirt, sleeveless, summer, top, tops, wear, women’s, yarn-dyed",true,Size,XS,,,,,,,,NC-SLEEVELESS-COTTON-YARN-DYED-SHIRT-WOMEN-XS,0.0,shopify,0,deny,manual,249.00,1000.00,true,true,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/ChatGPT_Image_Jul_10_2025_08_56_21_PM.png?v=1792238467,1,,false,,,,,,,kg,,,active,,,,
+sleeveless-cotton-yarn-dyed-shirt-women,,,,,,,,,S,,,,,,,,NC-SLEEVELESS-COTTON-YARN-DYED-SHIRT-WOMEN-S,0.0,shopify,0,deny,manual,249.00,1000.00,true,true,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/ChatGPT_Image_Jul_10_2025_08_51_27_PM.png?v=1792238467,2,,,,,,,,,kg,,,,,,,
+sleeveless-cotton-yarn-dyed-shirt-women,,,,,,,,,M,,,,,,,,NC-SLEEVELESS-COTTON-YARN-DYED-SHIRT-WOMEN-M,0.0,shopify,0,deny,manual,249.00,1000.00,true,true,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/ChatGPTImageJul10_2025_08_46_16PM.png?v=1792238468,3,,,,,,,,,kg,,,,,,,
+sleeveless-cotton-yarn-dyed-shirt-women,,,,,,,,,L,,,,,,,,NC-SLEEVELESS-COTTON-YARN-DYED-SHIRT-WOMEN-L,0.0,shopify,0,deny,manual,249.00,1000.00,true,true,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/ChatGPT_Image_Jul_10_2025_09_00_59_PM.png?v=1792238468,4,,,,,,,,,kg,,,,,,,
+sleeveless-cotton-yarn-dyed-shirt-women,,,,,,,,,XL,,,,,,,,NC-SLEEVELESS-COTTON-YARN-DYED-SHIRT-WOMEN-XL,0.0,shopify,0,deny,manual,249.00,1000.00,true,true,,,,,,,,,,,,,,,,kg,,,,,,,
+sleeveless-cotton-yarn-dyed-shirt-women,,,,,,,,,XXL,,,,,,,,NC-SLEEVELESS-COTTON-YARN-DYED-SHIRT-WOMEN-XXL,0.0,shopify,0,deny,manual,249.00,1000.00,true,true,,,,,,,,,,,,,,,,kg,,,,,,,
+sleeveless-short-dress-with-pin-striped-print,Sleeveless Short Dress with Pin striped Print,"<p><strong>STYLE NUMBER: CC-16  </strong></p>
+<p><strong>Elevate your everyday style with this comfortable sleeveless dress,crafted with premium yarn dyed viscose fabric.The soft and breathable material ensures a perfect fit and all day comfort.</strong></p>
+<p><strong>Sleeves:<br></strong>Sleeve less</p>
+<p><strong>Fabric:<br></strong>Premium Rayon faric.</p>
+<p><strong>Pattern:</strong><br>Yarn Dye</p>
+<p><strong>Care Info:<br></strong>Follow Washcare</p>
+<p> </p>
+<p><strong><img alt="""" src=""https://cdn.shopify.com/s/files/1/0699/1708/1825/files/size_chart_9.jpg?v=1715089854""><br></strong></p>",The Classy Clothing,,,,true,Size,S,,,,,,,,NC-SLEEVELESS-SHORT-DRESS-WITH-PIN-STRIPED-PRINT-S,0.0,shopify,0,deny,manual,199.00,1400.00,true,true,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/1_a5849aa1-cf4c-4058-b749-49ee798e55f3.jpg?v=1792238475,1,,false,,,,,,,kg,,,active,,,,
+sleeveless-short-dress-with-pin-striped-print,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/2_47744fb9-4920-4c16-9026-8ccbb12233a5.jpg?v=1792238475,2,,,,,,,,,,,,,,,,
+sleeveless-short-dress-with-pin-striped-print,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/3_f04faea1-dbab-45c2-869f-d71e9f9bf128.jpg?v=1792238475,3,,,,,,,,,,,,,,,,
+sleeveless-short-dress-with-pin-striped-print,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/4_44e5238c-a129-462b-b84a-a9529bead63a.jpg?v=1792238475,4,,,,,,,,,,,,,,,,
+elegant-striped-cotton-a-line-dress,Women's Elegant Striped Cotton A-Line Dress,"<p data-path-to-node=""12""><b data-path-to-node=""12"" data-index-in-node=""0"">Stay chic and comfortable in this elegant striped cotton A-line dress, crafted from 100% breathable cotton for all-day ease.</b> Designed for versatile styling across India, this timeless vertical stripe dress delivers a graceful, flattering fit for brunch, office casuals, travel, and weekend plans.</p>
+<p data-path-to-node=""14,0,0""><b data-path-to-node=""14,0,0"" data-index-in-node=""0"">Fabric:</b> 100% Pure Breathable Cotton</p>
+<p data-path-to-node=""14,1,0""><b data-path-to-node=""14,1,0"" data-index-in-node=""0"">Design:</b> Timeless Striped Pattern | Collar Neck | Short Sleeves</p>
+<p data-path-to-node=""14,2,0""><b data-path-to-node=""14,2,0"" data-index-in-node=""0"">Fit:</b> Flattering Relaxed A-Line Silhouette</p>
+<p data-path-to-node=""14,3,0""><b data-path-to-node=""14,3,0"" data-index-in-node=""0"">Occasion:</b> Office Casuals, Daytime Brunch, Travel &amp; Outings</p>
+<p data-path-to-node=""14,3,0""><b data-path-to-node=""14,4,0"" data-index-in-node=""0"">Origin:</b> Made in India | Free Shipping &amp; COD Available</p>
+<h3 data-path-to-node=""15"">Wash Care -</h3>
+<p data-path-to-node=""16"">Machine wash cold with like colors using mild detergent. Do not bleach. Tumble dry low or line dry in shade. Warm iron if needed.</p>
+<h3 data-path-to-node=""18""><br></h3>
+<p data-end=""953"" data-start=""614""><strong style=""font-family: -apple-system, BlinkMacSystemFont, 'San Francisco', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; font-size: 0.875rem;""><img alt="""" src=""https://cdn.shopify.com/s/files/1/0699/1708/1825/files/size_chart_9.jpg?v=1715089854""></strong></p>
+<div class=""container"">
+<div class=""markdown markdown-main-panel md-content enable-luminous-fast-follows enable-updated-hr-color force-compact-layout tutor-markdown-rendering"" id=""model-response-message-contentr_38518936d3095c94"" dir=""ltr"">
+<h3 data-path-to-node=""18"">FAQs -</h3>
+<p data-path-to-node=""19""><b data-path-to-node=""19"" data-index-in-node=""0"">Q: Is this striped cotton dress comfortable for long hours?</b></p>
+<p data-path-to-node=""20""><b data-path-to-node=""20"" data-index-in-node=""0"">A:</b> Yes, it is made from 100% pure cotton, which is soft, lightweight, and highly breathable for extended wear.</p>
+<p data-path-to-node=""21""><b data-path-to-node=""21"" data-index-in-node=""0"">Q: How can I style this dress for work or casual outings?</b></p>
+<p data-path-to-node=""22""><b data-path-to-node=""22"" data-index-in-node=""0"">A:</b> Pair it with flat sandals or white sneakers for a relaxed daytime look, or style it with wedges and subtle jewelry for smart-casual office settings.</p>
+<p data-path-to-node=""23""><b data-path-to-node=""23"" data-index-in-node=""0"">Q: How do I select the right size?</b></p>
+<p data-path-to-node=""24""><b data-path-to-node=""24"" data-index-in-node=""0"">A:</b> The dress features a relaxed A-line fit. Check the size chart on the product page and compare your bust and waist measurements.</p>
+</div>
+<!---->
+</div>",The Classy Clothing,,,,true,Size,XS,,,,,,,,NC-ELEGANT-STRIPED-COTTON-A-LINE-DRESS-XS,0.0,shopify,0,deny,manual,349.00,1600.00,true,true,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/301.png?v=1792238472,1,,false,,,,,,,kg,,,active,,,,
+elegant-striped-cotton-a-line-dress,,,,,,,,,S,,,,,,,,NC-ELEGANT-STRIPED-COTTON-A-LINE-DRESS-S,0.0,shopify,0,deny,manual,349.00,1600.00,true,true,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/302.png?v=1792238471,2,,,,,,,,,kg,,,,,,,
+elegant-striped-cotton-a-line-dress,,,,,,,,,M,,,,,,,,NC-ELEGANT-STRIPED-COTTON-A-LINE-DRESS-M,0.0,shopify,0,deny,manual,349.00,1600.00,true,true,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/303.png?v=1792238471,3,,,,,,,,,kg,,,,,,,
+elegant-striped-cotton-a-line-dress,,,,,,,,,L,,,,,,,,NC-ELEGANT-STRIPED-COTTON-A-LINE-DRESS-L,0.0,shopify,0,deny,manual,349.00,1600.00,true,true,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/304.png?v=1792238471,4,,,,,,,,,kg,,,,,,,
+elegant-striped-cotton-a-line-dress,,,,,,,,,XL,,,,,,,,NC-ELEGANT-STRIPED-COTTON-A-LINE-DRESS-XL,0.0,shopify,0,deny,manual,349.00,1600.00,true,true,,,,,,https://cdn.shopify.com/s/files/1/0640/9076/7441/files/305.png?v=1792238471,5,,,,,,,,,kg,,,,,,,
+elegant-striped-cotton-a-line-dress,,,,,,,,,XXL,,,,,,,,NC-ELEGANT-STRIPED-COTTON-A-LINE-DRESS-XXL,0.0,shopify,0,deny,manual,349.00,1600.00,true,true,,,,,,,,,,,,,,,,kg,,,,,,,
