@@ -5,13 +5,16 @@ const urls = [
   '/collections/all',
   '/collections/women',
   '/collections/women-cord-sets',
+  '/collections/women-night-suits',
+  '/collections/women-three-piece-sets',
   '/products/blue-white-tie-dye-sleeveless-rayon-dress',
   '/products/orange-rayon-sleeveless-midi-dress',
-  '/products/polka-crop',
-  '/products/doodle-leaf-print-crop-top-for-women',
-  '/products/elegant-striped-cotton-a-line-dress',
-  '/products/sleeveless-cotton-yarn-dyed-shirt-women',
-  '/products/long-sleeves-satin-shirt-in-pastel-sea-green-color'
+  '/products/beige-multi-floral-rayon-a-line-shirts-style-top',
+  '/products/sky-blue-hand-block-printed-straight-kurta-pant-set-with-dupatta',
+  '/products/sea-green-cotton-animal-print-night-suit',
+  '/products/pink-cotton-straight-kurta-pant-set-with-dupatta',
+  '/products/yellow-cotton-straight-kurta-pant-set-with-dupatta',
+  '/products/grey-blue-block-print-mulmul-kurta',
 ];
 
 async function checkRoute(path) {

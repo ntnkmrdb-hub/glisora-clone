@@ -44,12 +44,12 @@ export function ProductsTable({
 }: ProductsTableProps) {
   const [products, setProducts] = useState<ShopifyProduct[]>([]);
   const [metrics, setMetrics] = useState<Metrics>({
-    totalProducts: 100,
-    cordSets: 35,
-    nightSuits: 35,
-    threePieceSets: 30,
-    bogoEligible: 100,
-    inStock: 100,
+    totalProducts: 0,
+    cordSets: 0,
+    nightSuits: 0,
+    threePieceSets: 0,
+    bogoEligible: 0,
+    inStock: 0,
     outOfStock: 0,
   });
 

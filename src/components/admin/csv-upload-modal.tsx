@@ -54,6 +54,8 @@ export function CsvUploadModal({
     durationMs?: number;
   } | null>(null);
 
+  const [isDragging, setIsDragging] = useState(false);
+
   if (!isOpen) return null;
 
   const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -70,7 +72,47 @@ export function CsvUploadModal({
       await runPreview(text);
     } catch (err) {
       setError("Failed to read CSV file: " + (err as Error).message);
+    } finally {
+      if (e.target) e.target.value = "";
     }
+  };
+
+  const handleDrop = async (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDragging(false);
+
+    const droppedFiles = e.dataTransfer.files;
+    if (!droppedFiles || droppedFiles.length === 0) return;
+
+    const selectedFile = droppedFiles[0];
+    if (!selectedFile.name.toLowerCase().endsWith(".csv")) {
+      setError("Please drop a valid .csv file.");
+      return;
+    }
+
+    setFile(selectedFile);
+    setError(null);
+
+    try {
+      const text = await selectedFile.text();
+      setCsvText(text);
+      await runPreview(text);
+    } catch (err) {
+      setError("Failed to read dropped CSV file: " + (err as Error).message);
+    }
+  };
+
+  const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (!isDragging) setIsDragging(true);
+  };
+
+  const handleDragLeave = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDragging(false);
   };
 
   const handleLoadSample = async (sampleType: "shopify_100" | "master_100") => {
@@ -214,10 +256,19 @@ export function CsvUploadModal({
           {stage === "select" && (
             <div className="space-y-6">
               {/* Drag & Drop Upload Zone */}
-              <div className="border-2 border-dashed border-[#E8E1D5] bg-white p-8 text-center flex flex-col items-center justify-center hover:border-[#C5A880] transition-colors">
+              <div
+                onDragOver={handleDragOver}
+                onDragLeave={handleDragLeave}
+                onDrop={handleDrop}
+                className={`border-2 border-dashed p-8 text-center flex flex-col items-center justify-center transition-all ${
+                  isDragging
+                    ? "border-[#C5A880] bg-[#FAF8F5] scale-[1.01]"
+                    : "border-[#E8E1D5] bg-white hover:border-[#C5A880]"
+                }`}
+              >
                 <FileText className="w-10 h-10 text-[#C5A880] mb-3" />
                 <h4 className="text-sm font-semibold text-[#111111] mb-1">
-                  Choose a CSV File (100+ Products)
+                  Choose or Drag & Drop CSV File (100+ Products)
                 </h4>
                 <p className="text-xs text-[#7E7469] max-w-md mb-4">
                   Upload Shopify Product Import format or Navrang Clothing Master Editable CSV.
@@ -293,6 +344,29 @@ export function CsvUploadModal({
 
           {stage === "preview" && validationReport && (
             <div className="space-y-6">
+              {/* Ready to Import Primary Action Banner */}
+              <div className="p-4 bg-emerald-50/80 border border-emerald-300 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                <div className="flex items-start space-x-3">
+                  <CheckCircle2 className="w-5 h-5 text-emerald-600 mt-0.5 shrink-0" />
+                  <div>
+                    <h4 className="text-xs font-bold text-emerald-900 uppercase tracking-wider">
+                      ✓ CSV File Validated: {validationReport.totalProducts} Products Ready to Sync
+                    </h4>
+                    <p className="text-xs text-emerald-800 mt-0.5">
+                      Review the details below or click the button on the right to immediately import these products into your live storefront.
+                    </p>
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => executeImport(false)}
+                  disabled={loading || validationReport.validProductsCount === 0}
+                  className="inline-flex items-center justify-center space-x-2 px-6 py-2.5 text-xs uppercase tracking-[0.15em] font-semibold bg-[#111111] text-white hover:bg-[#C5A880] hover:text-[#111111] transition-all shadow-md shrink-0 cursor-pointer disabled:opacity-50"
+                >
+                  <Sparkles className="w-3.5 h-3.5" />
+                  <span>Execute Live Import Now</span>
+                </button>
+              </div>
               {/* Summary Metrics Bar */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                 <div className="bg-white p-3 border border-[#E8E1D5]">

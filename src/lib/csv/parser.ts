@@ -210,8 +210,10 @@ function parseShopifyStandardCsv(rows: ParsedCsvRow[]): ParsedProductResult[] {
     const sku = row["Variant SKU"] || row["SKU"] || "";
     const priceStr = row["Variant Price"] || row["Price"] || "249";
     const comparePriceStr = row["Variant Compare At Price"] || "";
-    const sizeVal = row["Option1 Value"] || row["Size"] || "M";
-    const colorVal = row["Option2 Value"] || row["Color"] || "Royal Wine";
+    const opt1Name = row["Option1 Name"] || "Size";
+    const opt1Val = row["Option1 Value"] || row["Size"] || (sku ? "Standard" : "");
+    const opt2Name = row["Option2 Name"] || (row["Color"] ? "Color" : "");
+    const opt2Val = row["Option2 Value"] || row["Color"] || "";
     const invQtyStr = row["Variant Inventory Qty"] || "";
 
     const parsedPrice = parseFloat(priceStr);
@@ -219,22 +221,25 @@ function parseShopifyStandardCsv(rows: ParsedCsvRow[]): ParsedProductResult[] {
     const rawQty = parseInt(invQtyStr, 10);
     const invQty = !isNaN(rawQty) && rawQty > 0 ? rawQty : 15;
 
-    if (sku || sizeVal) {
-      const variantId = `gid://shopify/ProductVariant/${handle}-${sku || sizeVal}-${p.variants.length}`;
+    if (sku || opt1Val) {
+      const variantTitle = opt2Val ? `${opt1Val || "Default"} / ${opt2Val}` : (opt1Val || "Default");
+      const variantSku = sku || `NC-${handle.toUpperCase().slice(0, 8)}-${opt1Val || p.variants.length + 1}`;
+      const selectedOptions: { name: string; value: string }[] = [];
+      if (opt1Val) selectedOptions.push({ name: opt1Name || "Size", value: opt1Val });
+      if (opt2Val) selectedOptions.push({ name: opt2Name || "Color", value: opt2Val });
+
+      const variantId = `gid://shopify/ProductVariant/${handle}-${sku || opt1Val}-${p.variants.length}`;
       p.variants.push({
         id: variantId,
-        title: `${sizeVal} / ${colorVal}`,
-        sku: sku || `NC-${handle.toUpperCase().slice(0, 8)}-${sizeVal}`,
+        title: variantTitle,
+        sku: variantSku,
         availableForSale: true,
         quantityAvailable: invQty,
         price: { amount: price.toString(), currencyCode: "INR" },
         compareAtPrice: comparePriceStr
           ? { amount: comparePriceStr, currencyCode: "INR" }
           : null,
-        selectedOptions: [
-          { name: "Size", value: sizeVal },
-          { name: "Color", value: colorVal },
-        ],
+        selectedOptions,
       });
     }
 
@@ -260,14 +265,13 @@ function parseShopifyStandardCsv(rows: ParsedCsvRow[]): ParsedProductResult[] {
       const defaultSizes = ["S", "M", "L", "XL", "XXL"];
       variants = defaultSizes.map((s, idx) => ({
         id: `gid://shopify/ProductVariant/${entry.handle}-${s}-${idx}`,
-        title: `${s} / Royal Wine`,
+        title: s,
         sku: `NC-${entry.handle.toUpperCase().slice(0, 8)}-${s}`,
         availableForSale: true,
         quantityAvailable: 15,
         price: { amount: "249", currencyCode: "INR" },
         selectedOptions: [
           { name: "Size", value: s },
-          { name: "Color", value: "Royal Wine" },
         ],
       }));
       entry.warnings.push("No explicit variants specified in CSV; generated standard S-XXL size set.");
@@ -290,11 +294,57 @@ function parseShopifyStandardCsv(rows: ParsedCsvRow[]): ParsedProductResult[] {
     const minPrice = Math.min(...variants.map((v) => parseFloat(v.price.amount)));
     const maxPrice = Math.max(...variants.map((v) => parseFloat(v.price.amount)));
 
-    const categoryType = entry.handle.includes("night-suit")
+    const textForCat = `${entry.handle} ${entry.title} ${entry.tags.join(" ")} ${entry.productType}`.toLowerCase();
+    const categoryType = textForCat.includes("night-suit") || textForCat.includes("night suit")
       ? "women-night-suits"
-      : entry.handle.includes("three-piece") || entry.handle.includes("3-piece")
+      : textForCat.includes("three-piece") || textForCat.includes("3-piece") || textForCat.includes("dupatta")
       ? "women-three-piece-sets"
       : "women-cord-sets";
+
+    const categoryLabel =
+      categoryType === "women-cord-sets"
+        ? "Women's Cord Sets"
+        : categoryType === "women-night-suits"
+        ? "Women's Night Suits"
+        : "Women's Three-Piece Sets";
+
+    const options: { id: string; name: string; values: string[] }[] = [];
+    const sizeVals = Array.from(
+      new Set(
+        variants
+          .map((v) => v.selectedOptions.find((o) => o.name.toLowerCase().includes("size"))?.value)
+          .filter(Boolean) as string[]
+      )
+    );
+    if (sizeVals.length > 0) {
+      options.push({ id: `opt-${entry.handle}-size`, name: "Size", values: sizeVals });
+    }
+
+    const colorVals = Array.from(
+      new Set(
+        variants
+          .map((v) => v.selectedOptions.find((o) => o.name.toLowerCase().includes("color"))?.value)
+          .filter(Boolean) as string[]
+      )
+    );
+    if (colorVals.length > 0) {
+      options.push({ id: `opt-${entry.handle}-color`, name: "Color", values: colorVals });
+    }
+
+    if (options.length === 0) {
+      options.push({ id: `opt-${entry.handle}-size`, name: "Size", values: ["Free Size"] });
+    }
+
+    const finalTags = Array.from(
+      new Set([
+        "NAVRANG CLOTHING",
+        "Women",
+        categoryLabel,
+        "BOGO",
+        "Buy 1 Get 1 Free",
+        ...entry.tags,
+      ])
+    );
 
     const product: ShopifyProduct = {
       id: `gid://shopify/Product/${entry.handle}`,
@@ -305,14 +355,9 @@ function parseShopifyStandardCsv(rows: ParsedCsvRow[]): ParsedProductResult[] {
       availableForSale: true,
       status: "ACTIVE",
       vendor: entry.vendor || "NAVRANG CLOTHING",
-      productType: entry.productType,
+      productType: entry.productType || categoryLabel,
       categoryType,
-      categoryLabel:
-        categoryType === "women-cord-sets"
-          ? "Women's Cord Sets"
-          : categoryType === "women-night-suits"
-          ? "Women's Night Suits"
-          : "Women's Three-Piece Sets",
+      categoryLabel,
       priceRange: {
         minVariantPrice: { amount: minPrice.toString(), currencyCode: "INR" },
         maxVariantPrice: { amount: maxPrice.toString(), currencyCode: "INR" },
@@ -323,19 +368,8 @@ function parseShopifyStandardCsv(rows: ParsedCsvRow[]): ParsedProductResult[] {
       variants: {
         edges: variants.map((v) => ({ node: v })),
       },
-      options: [
-        {
-          id: "opt-size",
-          name: "Size",
-          values: Array.from(new Set(variants.map((v) => v.selectedOptions.find((o) => o.name === "Size")?.value || "M"))),
-        },
-        {
-          id: "opt-color",
-          name: "Color",
-          values: Array.from(new Set(variants.map((v) => v.selectedOptions.find((o) => o.name === "Color")?.value || "Standard"))),
-        },
-      ],
-      tags: entry.tags.length > 0 ? entry.tags : ["Women", "NAVRANG CLOTHING", "BOGO", "Buy 1 Get 1 Free"],
+      options,
+      tags: finalTags,
       seo: {
         title: entry.seoTitle || `${entry.title} | NAVRANG CLOTHING`,
         description: entry.seoDescription || `Shop ${entry.title} at NAVRANG CLOTHING.`,
@@ -418,9 +452,10 @@ function parseMasterEditableCsv(rows: ParsedCsvRow[]): ParsedProductResult[] {
       : ["Women", category, "NAVRANG CLOTHING"];
     if (isBogo && !tags.includes("BOGO")) tags.push("BOGO", "Buy 1 Get 1 Free");
 
-    const categoryType = handle.includes("night-suit")
+    const textForCat = `${handle} ${title} ${category} ${tagsStr}`.toLowerCase();
+    const categoryType = textForCat.includes("night-suit") || textForCat.includes("night suit")
       ? "women-night-suits"
-      : handle.includes("three-piece") || handle.includes("3-piece")
+      : textForCat.includes("three-piece") || textForCat.includes("3-piece") || textForCat.includes("dupatta")
       ? "women-three-piece-sets"
       : "women-cord-sets";
 
@@ -524,11 +559,14 @@ function parseWooCommerceCsv(rows: ParsedCsvRow[]): ParsedProductResult[] {
         availableForSale: true,
         vendor: "NAVRANG CLOTHING",
         productType: categories.split(">").pop()?.trim() || "Cord Set",
-        categoryType: handle.includes("night-suit")
-          ? "women-night-suits"
-          : handle.includes("three-piece") || handle.includes("3-piece")
-          ? "women-three-piece-sets"
-          : "women-cord-sets",
+        categoryType: (() => {
+          const textForCat = `${handle} ${name} ${categories} ${tagsStr}`.toLowerCase();
+          return textForCat.includes("night-suit") || textForCat.includes("night suit")
+            ? "women-night-suits"
+            : textForCat.includes("three-piece") || textForCat.includes("3-piece") || textForCat.includes("dupatta")
+            ? "women-three-piece-sets"
+            : "women-cord-sets";
+        })(),
         priceRange: {
           minVariantPrice: { amount: regularPrice, currencyCode: "INR" },
           maxVariantPrice: { amount: regularPrice, currencyCode: "INR" },
