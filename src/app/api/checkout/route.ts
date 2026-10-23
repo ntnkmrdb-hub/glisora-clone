@@ -107,7 +107,7 @@ export async function POST(request: NextRequest) {
       totalQuantity: cart.totalQuantity,
       currency: cart.cost.totalAmount.currencyCode,
       amount: cart.cost.totalAmount.amount,
-      provider: "Shopify-Hosted Checkout (PhonePe Payment Gateway / UPI)",
+      provider: "Shopify-Hosted Checkout (Paytm for Business / PhonePe / UPI)",
     });
   } catch (error) {
     console.error("[NAVRANG CLOTHING Checkout API Error]:", error);

@@ -270,7 +270,7 @@ export function CartPageContent() {
             <div className="pt-4 border-t border-[#F4EFEA] text-center space-y-3">
               <div className="flex items-center justify-center space-x-1.5 text-xs text-[#111111] font-medium">
                 <CreditCard className="w-4 h-4 text-[#C5A880]" />
-                <span>Shopify Checkout • PhonePe Payment Gateway</span>
+                <span>Paytm for Business • Official Store Gateway & UPI</span>
               </div>
               <div className="flex flex-wrap items-center justify-center gap-1.5 text-[10px] text-[#7E7469]">
                 <span className="border border-[#E8E1D5] bg-[#FAF8F5] px-2 py-0.5 font-medium text-[#111111]">Google Pay</span>

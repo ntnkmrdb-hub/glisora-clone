@@ -44,10 +44,15 @@ interface ActiveTxnInfo {
   genericUpiUrl: string;
   qrData: string;
   merchantVpa: string;
+  merchantName?: string;
   amount: number;
 }
 
-const DEFAULT_MERCHANT_VPA = process.env.NEXT_PUBLIC_MERCHANT_VPA || "paytm.s3grdw2@pty";
+const DEFAULT_MERCHANT_VPA = process.env.NEXT_PUBLIC_MERCHANT_VPA || "paytm.s4ecjea@pty";
+const DEFAULT_MERCHANT_NAME = process.env.NEXT_PUBLIC_MERCHANT_NAME || "Desai Sandipbhai Mansukhbhai";
+const DEFAULT_MERCHANT_PHONE = "9724242503";
+const DEFAULT_SETTLEMENT_BANK = "AXIS BANK ****1071";
+const DEFAULT_MERCHANT_ID = "ITEFNN81741247720006";
 
 interface MissingAppModalInfo {
   appName: string;
@@ -61,7 +66,7 @@ interface MissingAppModalInfo {
 export function PaymentGatewayCheckout() {
   const { cart, removeItem, addItem } = useCart();
   const [activeTab, setActiveTab] = useState<PaymentTab>("upi");
-  const [selectedUpiApp, setSelectedUpiApp] = useState<UpiApp>("phonepe");
+  const [selectedUpiApp, setSelectedUpiApp] = useState<UpiApp>("paytm");
   const [upiMode, setUpiMode] = useState<"intent" | "qr" | "vpa">("intent");
   const [vpaId, setVpaId] = useState("");
   const [vpaError, setVpaError] = useState("");
@@ -73,6 +78,7 @@ export function PaymentGatewayCheckout() {
   const [missingAppModalData, setMissingAppModalData] = useState<MissingAppModalInfo | null>(null);
   const [isCheckingStatus, setIsCheckingStatus] = useState(false);
   const [copiedVpa, setCopiedVpa] = useState(false);
+  const [showOriginalStandee, setShowOriginalStandee] = useState(false);
   const [errorNotice, setErrorNotice] = useState<string | null>(null);
   const pollIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -860,7 +866,78 @@ export function PaymentGatewayCheckout() {
 
                       {/* 4 SEPARATE PAYMENT BUTTONS */}
                       <div className="space-y-3">
-                        {/* Button 1: Google Pay */}
+                        {/* Button 1: Paytm (Official Merchant Gateway) */}
+                        <button
+                          type="button"
+                          onClick={() => handleContinueWithApp("paytm")}
+                          disabled={launchingApp !== null}
+                          className="w-full flex items-center justify-between p-4 border-2 border-[#002E6E] bg-[#F7FBFF] hover:bg-[#EEF6FF] transition-all group cursor-pointer shadow-sm disabled:opacity-60 disabled:cursor-not-allowed"
+                        >
+                          <div className="flex items-center space-x-3.5">
+                            <div className="w-10 h-10 rounded-full bg-white border border-[#002E6E]/30 flex items-center justify-center font-bold text-[11px] shadow-2xs group-hover:scale-105 transition-transform">
+                              <span className="text-[#002E6E]">Pay</span>
+                              <span className="text-[#00BAF2]">tm</span>
+                            </div>
+                            <div className="text-left">
+                              <div className="text-xs font-semibold text-[#111111] tracking-wide flex items-center space-x-2">
+                                <span>Continue with Paytm</span>
+                                <span className="bg-[#002E6E] text-white text-[9px] uppercase tracking-wider px-2 py-0.5 font-bold rounded-xs">
+                                  Official Gateway
+                                </span>
+                              </div>
+                              <div className="text-[10px] text-[#002E6E]/80">
+                                Verified Payee: {DEFAULT_MERCHANT_NAME} • Instant Axis Settlement
+                              </div>
+                            </div>
+                          </div>
+                          <div className="flex items-center space-x-2 text-xs text-[#002E6E] font-medium group-hover:text-[#00BAF2] transition-colors">
+                            {launchingApp === "paytm" ? (
+                              <>
+                                <RefreshCw className="w-4 h-4 animate-spin text-[#002E6E]" />
+                                <span className="text-[10px] text-[#002E6E]">Opening...</span>
+                              </>
+                            ) : (
+                              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                            )}
+                          </div>
+                        </button>
+
+                        {/* Button 2: PhonePe */}
+                        <button
+                          type="button"
+                          onClick={() => handleContinueWithApp("phonepe")}
+                          disabled={launchingApp !== null}
+                          className="w-full flex items-center justify-between p-4 border border-[#5F259F]/30 bg-white hover:border-[#5F259F] hover:bg-[#FAF8F5] transition-all group cursor-pointer shadow-2xs disabled:opacity-60 disabled:cursor-not-allowed"
+                        >
+                          <div className="flex items-center space-x-3.5">
+                            <div className="w-10 h-10 rounded-full bg-[#5F259F] text-white flex items-center justify-center font-bold text-base shadow-2xs group-hover:scale-105 transition-transform">
+                              पे
+                            </div>
+                            <div className="text-left">
+                              <div className="text-xs font-semibold text-[#111111] tracking-wide flex items-center space-x-2">
+                                <span>Continue with PhonePe</span>
+                                <span className="bg-[#5F259F]/10 text-[#5F259F] text-[9px] uppercase tracking-wider px-1.5 py-0.2 font-bold rounded-xs">
+                                  Fast
+                                </span>
+                              </div>
+                              <div className="text-[10px] text-[#7E7469]">
+                                Official PhonePe Intent • Pre-filled checkout
+                              </div>
+                            </div>
+                          </div>
+                          <div className="flex items-center space-x-2 text-xs text-[#111111] font-medium group-hover:text-[#5F259F] transition-colors">
+                            {launchingApp === "phonepe" ? (
+                              <>
+                                <RefreshCw className="w-4 h-4 animate-spin text-[#5F259F]" />
+                                <span className="text-[10px] text-[#5F259F]">Opening...</span>
+                              </>
+                            ) : (
+                              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                            )}
+                          </div>
+                        </button>
+
+                        {/* Button 3: Google Pay */}
                         <button
                           type="button"
                           onClick={() => handleContinueWithApp("gpay")}
@@ -888,74 +965,6 @@ export function PaymentGatewayCheckout() {
                               <>
                                 <RefreshCw className="w-4 h-4 animate-spin text-[#C5A880]" />
                                 <span className="text-[10px] text-[#C5A880]">Opening...</span>
-                              </>
-                            ) : (
-                              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                            )}
-                          </div>
-                        </button>
-
-                        {/* Button 2: PhonePe */}
-                        <button
-                          type="button"
-                          onClick={() => handleContinueWithApp("phonepe")}
-                          disabled={launchingApp !== null}
-                          className="w-full flex items-center justify-between p-4 border border-[#5F259F]/30 bg-white hover:border-[#5F259F] hover:bg-[#FAF8F5] transition-all group cursor-pointer shadow-2xs disabled:opacity-60 disabled:cursor-not-allowed"
-                        >
-                          <div className="flex items-center space-x-3.5">
-                            <div className="w-10 h-10 rounded-full bg-[#5F259F] text-white flex items-center justify-center font-bold text-base shadow-2xs group-hover:scale-105 transition-transform">
-                              पे
-                            </div>
-                            <div className="text-left">
-                              <div className="text-xs font-semibold text-[#111111] tracking-wide flex items-center space-x-2">
-                                <span>Continue with PhonePe</span>
-                                <span className="bg-[#5F259F]/10 text-[#5F259F] text-[9px] uppercase tracking-wider px-1.5 py-0.2 font-bold rounded-xs">
-                                  Fastest
-                                </span>
-                              </div>
-                              <div className="text-[10px] text-[#7E7469]">
-                                Official PhonePe Intent • Pre-filled checkout
-                              </div>
-                            </div>
-                          </div>
-                          <div className="flex items-center space-x-2 text-xs text-[#111111] font-medium group-hover:text-[#5F259F] transition-colors">
-                            {launchingApp === "phonepe" ? (
-                              <>
-                                <RefreshCw className="w-4 h-4 animate-spin text-[#5F259F]" />
-                                <span className="text-[10px] text-[#5F259F]">Opening...</span>
-                              </>
-                            ) : (
-                              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                            )}
-                          </div>
-                        </button>
-
-                        {/* Button 3: Paytm */}
-                        <button
-                          type="button"
-                          onClick={() => handleContinueWithApp("paytm")}
-                          disabled={launchingApp !== null}
-                          className="w-full flex items-center justify-between p-4 border border-[#002E6E]/20 bg-white hover:border-[#002E6E] hover:bg-[#FAF8F5] transition-all group cursor-pointer shadow-2xs disabled:opacity-60 disabled:cursor-not-allowed"
-                        >
-                          <div className="flex items-center space-x-3.5">
-                            <div className="w-10 h-10 rounded-full bg-white border border-[#002E6E]/30 flex items-center justify-center font-bold text-[10px] shadow-2xs group-hover:scale-105 transition-transform">
-                              <span className="text-[#002E6E]">Pay</span>
-                              <span className="text-[#00BAF2]">tm</span>
-                            </div>
-                            <div className="text-left">
-                              <div className="text-xs font-semibold text-[#111111] tracking-wide">
-                                Continue with Paytm
-                              </div>
-                              <div className="text-[10px] text-[#7E7469]">
-                                Paytm UPI & Wallet rail • Instant notification
-                              </div>
-                            </div>
-                          </div>
-                          <div className="flex items-center space-x-2 text-xs text-[#111111] font-medium group-hover:text-[#002E6E] transition-colors">
-                            {launchingApp === "paytm" ? (
-                              <>
-                                <RefreshCw className="w-4 h-4 animate-spin text-[#002E6E]" />
-                                <span className="text-[10px] text-[#002E6E]">Opening...</span>
                               </>
                             ) : (
                               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -1004,40 +1013,97 @@ export function PaymentGatewayCheckout() {
 
                   {/* Mode B: Dynamic QR Code */}
                   {upiMode === "qr" && (
-                    <div className="flex flex-col items-center justify-center p-6 border border-[#E8E1D5] bg-[#FAF8F5] space-y-4 text-center">
-                      <div className="p-3 bg-white border border-[#D8D1C7] shadow-sm">
-                        <div className="w-52 h-52 bg-white flex flex-col items-center justify-center border border-[#111111]/20 p-2 relative">
-                          <img
-                            src={`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(
-                              `upi://pay?pa=${DEFAULT_MERCHANT_VPA}&pn=NAVRANG%20CLOTHING&mc=5691&tr=TXN_NAV_${Date.now()}&tn=NAVRANG%20CLOTHING%20Order&am=${totalAmount.toFixed(2)}&cu=INR`
-                            )}`}
-                            alt="Bharat UPI QR Code"
-                            className="w-48 h-48 object-contain"
-                          />
+                    <div className="flex flex-col items-center justify-center p-4 sm:p-6 border border-[#002E6E]/20 bg-white space-y-4 text-center shadow-xs">
+                      {/* Paytm for Business Header */}
+                      <div className="w-full max-w-sm bg-[#002E6E] text-white p-3 rounded-t-lg flex items-center justify-between">
+                        <div className="flex items-center space-x-2">
+                          <div className="bg-white px-2 py-0.5 rounded text-[10px] font-bold">
+                            <span className="text-[#002E6E]">Pay</span><span className="text-[#00BAF2]">tm</span>
+                          </div>
+                          <span className="text-[11px] font-medium tracking-wide">for Business</span>
+                        </div>
+                        <div className="text-right">
+                          <div className="text-[11px] font-semibold">{DEFAULT_MERCHANT_NAME}</div>
+                          <div className="text-[9px] text-[#00BAF2] font-mono">+91 {DEFAULT_MERCHANT_PHONE}</div>
                         </div>
                       </div>
 
-                      <div className="space-y-1.5 max-w-sm">
-                        <span className="text-xs font-semibold text-[#111111] block">
-                          Scan & Pay with Any Indian UPI App
-                        </span>
+                      {/* Yellow Promo Ribbon */}
+                      <div className="w-full max-w-sm -mt-4 bg-[#FFDE00] text-[#111111] py-1.5 px-3 text-[10px] font-bold uppercase tracking-wider flex items-center justify-center space-x-1.5 shadow-2xs">
+                        <Sparkles className="w-3.5 h-3.5 text-[#002E6E]" />
+                        <span>Scan in Paytm App, GPay, PhonePe or Any UPI</span>
+                      </div>
+
+                      {/* QR Display */}
+                      <div className="p-4 bg-white border border-[#D8D1C7] shadow-sm max-w-sm w-full flex flex-col items-center space-y-3">
+                        {showOriginalStandee ? (
+                          <div className="w-64 h-80 relative flex flex-col items-center justify-center bg-stone-50 border border-stone-200 p-2 overflow-hidden">
+                            <img
+                              src="/images/paytm-business-qr-uploaded.png"
+                              alt="Official Paytm for Business Standee"
+                              className="w-full h-full object-contain"
+                            />
+                          </div>
+                        ) : (
+                          <div className="w-56 h-56 bg-white flex flex-col items-center justify-center border-2 border-[#002E6E]/20 p-2 relative">
+                            <img
+                              src={`https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(
+                                `upi://pay?pa=${DEFAULT_MERCHANT_VPA}&pn=${encodeURIComponent(DEFAULT_MERCHANT_NAME)}&mc=5691&tr=TXN_NAV_${Date.now()}&tn=NAVRANG%20CLOTHING%20Order&am=${totalAmount.toFixed(2)}&cu=INR`
+                              )}`}
+                              alt="Paytm Bharat UPI QR Code"
+                              className="w-52 h-52 object-contain"
+                            />
+                          </div>
+                        )}
+
+                        {/* Toggle between Dynamic and Standee view */}
+                        <button
+                          type="button"
+                          onClick={() => setShowOriginalStandee(!showOriginalStandee)}
+                          className="text-[10px] text-[#002E6E] font-medium hover:underline flex items-center space-x-1 cursor-pointer"
+                        >
+                          <QrCode className="w-3 h-3" />
+                          <span>{showOriginalStandee ? `Switch to Dynamic Pre-filled QR (${formatINR(totalAmount)})` : "View Official Standee Photo"}</span>
+                        </button>
+                      </div>
+
+                      <div className="space-y-2 max-w-sm w-full">
+                        <div className="text-xs font-semibold text-[#111111]">
+                          Amount: <strong className="text-base text-[#002E6E] font-serif-luxury">{formatINR(totalAmount)}</strong>
+                        </div>
                         <p className="text-[11px] text-[#7E7469]">
-                          Open GPay, PhonePe, Paytm, or BHIM on your smartphone and scan this code to complete payment of <strong>{formatINR(totalAmount)}</strong>.
+                          Open Paytm, Google Pay, PhonePe, or BHIM on your smartphone and scan this code to complete payment instantly.
                         </p>
-                        <div className="inline-flex items-center space-x-1.5 text-xs font-mono text-[#5A1827] bg-[#FAF5F5] border border-[#5A1827]/20 px-2.5 py-1 mt-2">
+
+                        <div className="inline-flex items-center space-x-1.5 text-xs font-mono text-[#5A1827] bg-[#FAF5F5] border border-[#5A1827]/20 px-2.5 py-1">
                           <Clock className="w-3.5 h-3.5" />
                           <span>Code expires in {Math.floor(qrTimer / 60)}:{(qrTimer % 60).toString().padStart(2, "0")}</span>
                         </div>
 
-                        <div className="pt-2">
+                        {/* UPI ID copy pill */}
+                        <div className="pt-1">
                           <button
                             type="button"
                             onClick={() => handleCopyVpa(DEFAULT_MERCHANT_VPA)}
-                            className="text-[11px] text-[#111111] font-mono bg-white border border-[#E8E1D5] px-3 py-1.5 hover:bg-[#FAF8F5] transition-colors inline-flex items-center space-x-1.5 cursor-pointer"
+                            className="text-[11px] text-[#111111] font-mono bg-[#F7FBFF] border border-[#002E6E]/20 px-3 py-1.5 hover:bg-[#EEF6FF] transition-colors inline-flex items-center space-x-1.5 cursor-pointer rounded"
                           >
-                            <span>VPA: {DEFAULT_MERCHANT_VPA}</span>
-                            {copiedVpa ? <Check className="w-3 h-3 text-emerald-600" /> : <Copy className="w-3 h-3 text-[#7E7469]" />}
+                            <span>UPI ID: <strong>{DEFAULT_MERCHANT_VPA}</strong></span>
+                            {copiedVpa ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5 text-[#002E6E]" />}
                           </button>
+                        </div>
+
+                        {/* Accepted rails badges */}
+                        <div className="flex flex-wrap items-center justify-center gap-1.5 pt-1 text-[9px] font-semibold text-[#002E6E]">
+                          <span className="bg-[#EEF6FF] px-2 py-0.5 rounded">Paytm Postpaid</span>
+                          <span className="bg-[#EEF6FF] px-2 py-0.5 rounded">UPI</span>
+                          <span className="bg-[#EEF6FF] px-2 py-0.5 rounded">UPI LITE</span>
+                          <span className="bg-[#EEF6FF] px-2 py-0.5 rounded">RuPay Credit Card</span>
+                        </div>
+
+                        {/* Instant Settlement info */}
+                        <div className="text-[10px] text-stone-500 pt-1 flex items-center justify-center space-x-1.5">
+                          <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+                          <span>Payments settle Instantly to {DEFAULT_SETTLEMENT_BANK}</span>
                         </div>
                       </div>
                     </div>
@@ -1574,15 +1640,23 @@ export function PaymentGatewayCheckout() {
             <div className="space-y-3 text-xs">
               <div className="bg-[#FAF8F5] border border-[#E8E1D5] p-3 space-y-1.5">
                 <div className="flex items-center justify-between text-[11px]">
+                  <span className="text-[#7E7469]">Verified Payee</span>
+                  <span className="font-semibold text-[#111111]">{activeTxn.merchantName || DEFAULT_MERCHANT_NAME}</span>
+                </div>
+                <div className="flex items-center justify-between text-[11px]">
                   <span className="text-[#7E7469]">Merchant VPA</span>
                   <button
                     type="button"
                     onClick={() => handleCopyVpa(activeTxn.merchantVpa || DEFAULT_MERCHANT_VPA)}
-                    className="text-[#111111] font-mono hover:text-[#C5A880] inline-flex items-center space-x-1 cursor-pointer"
+                    className="text-[#111111] font-mono hover:text-[#C5A880] inline-flex items-center space-x-1 cursor-pointer font-medium"
                   >
                     <span>{activeTxn.merchantVpa || DEFAULT_MERCHANT_VPA}</span>
                     {copiedVpa ? <Check className="w-3 h-3 text-emerald-600" /> : <Copy className="w-3 h-3 text-[#7E7469]" />}
                   </button>
+                </div>
+                <div className="flex justify-between text-[11px]">
+                  <span className="text-[#7E7469]">Settlement Rail</span>
+                  <span className="font-mono text-[#111111]">{DEFAULT_SETTLEMENT_BANK}</span>
                 </div>
                 <div className="flex justify-between text-[11px]">
                   <span className="text-[#7E7469]">Order Ref</span>

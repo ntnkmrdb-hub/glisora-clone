@@ -294,7 +294,7 @@ export function CartDrawer() {
               <div className="pt-2 border-t border-[#F4EFEA] text-[10px] text-[#7E7469] text-center space-y-1.5">
                 <div className="flex items-center justify-center space-x-1.5 text-stone-700 font-medium">
                   <CreditCard className="w-3.5 h-3.5 text-[#C5A880]" />
-                  <span>PhonePe PG • UPI (GPay, PhonePe, Paytm, BHIM)</span>
+                  <span>Paytm for Business • UPI (Paytm, GPay, PhonePe, BHIM)</span>
                 </div>
                 <p className="text-[9px] text-stone-400">
                   Shopify Level-1 PCI DSS Checkout • Direct Mobile UPI Redirection

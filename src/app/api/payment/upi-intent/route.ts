@@ -61,10 +61,10 @@ export async function POST(request: NextRequest) {
 
     // 2. Generate Authoritative Transaction Identifiers
     const timestamp = Date.now();
-    const txnId = `TXN_GLIS_${timestamp}_${Math.random().toString(36).substring(2, 7).toUpperCase()}`;
-    const orderId = `GLIS-${Math.floor(100000 + Math.random() * 900000)}`;
-    const merchantVpa = process.env.PHONEPE_MERCHANT_VPA || process.env.NEXT_PUBLIC_MERCHANT_VPA || "paytm.s3grdw2@pty";
-    const merchantName = "NAVRANG CLOTHING";
+    const txnId = `TXN_NAV_${timestamp}_${Math.random().toString(36).substring(2, 7).toUpperCase()}`;
+    const orderId = `NAV-${Math.floor(100000 + Math.random() * 900000)}`;
+    const merchantVpa = process.env.PHONEPE_MERCHANT_VPA || process.env.NEXT_PUBLIC_MERCHANT_VPA || "paytm.s4ecjea@pty";
+    const merchantName = process.env.MERCHANT_NAME || process.env.NEXT_PUBLIC_MERCHANT_NAME || "Desai Sandipbhai Mansukhbhai";
 
     // 3. Build App-Specific UPI Intent
     const intentResult = buildUpiIntent({
@@ -106,6 +106,7 @@ export async function POST(request: NextRequest) {
       amount: authoritativeAmount,
       currency: "INR",
       merchantVpa,
+      merchantName,
       status: "PENDING",
     });
   } catch (error) {
