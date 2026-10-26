@@ -115,17 +115,21 @@ export function buildUpiIntent(params: UpiIntentParams): UpiIntentResult {
   const formattedAmount = params.amount.toFixed(2);
   const mcc = params.mcc !== undefined ? params.mcc : "5691";
   const mcParam = mcc ? `&mc=${mcc}` : "";
+  // Do not append tr or mc for PhonePe custom schemes to avoid triggering strict merchant POS credit-card validation
+  const trParam = (params.txnRef && params.targetApp !== "phonepe") ? `&tr=${params.txnRef}` : "";
 
   // 1. Generic NPCI Standard URI
-  const genericParams = `pa=${params.merchantVpa}&pn=${encodedPn}${mcParam}&tr=${params.txnRef}&tn=${encodedTn}&am=${formattedAmount}&cu=INR`;
+  const genericParams = `pa=${params.merchantVpa}&pn=${encodedPn}${mcParam}${trParam}&tn=${encodedTn}&am=${formattedAmount}&cu=INR`;
   const genericUpiUrl = `upi://pay?${genericParams}`;
 
   // 2. App-Specific Android Chrome Intent
-  // Android intent URI format: intent://pay?...#Intent;scheme=upi;package=...;end
   const androidIntentUrl = `intent://pay?${genericParams}#Intent;scheme=upi;package=${appConfig.androidPackage};end`;
 
-  // 3. iOS Custom Scheme
-  const iosUrl = `${appConfig.iosScheme}?${genericParams}`;
+  // 3. iOS / Direct Custom Scheme (Clean URI for PhonePe)
+  const cleanDirectParams = `pa=${params.merchantVpa}&pn=${encodedPn}&am=${formattedAmount}&cu=INR`;
+  const iosUrl = params.targetApp === "phonepe"
+    ? `${appConfig.iosScheme}?${cleanDirectParams}`
+    : `${appConfig.iosScheme}?${genericParams}`;
 
   // 4. Select appropriate intent URL based on client device
   let intentUrl = androidIntentUrl;
