@@ -52,13 +52,13 @@ interface ActiveTxnInfo {
   amount: number;
 }
 
-// Authoritative Merchant Configuration for Desai Sandipbhai Mansukhbhai
-const DEFAULT_MERCHANT_VPA = "paytm.s4ecjea@pty";
-const PHONEPE_DIRECT_VPA = "paytm.s4ecjea@pty";
-const DEFAULT_MERCHANT_NAME = "Desai Sandipbhai Mansukhbhai";
+// Authoritative Merchant Configuration for Milan Narola (Universal UPI)
+const DEFAULT_MERCHANT_VPA = process.env.NEXT_PUBLIC_MERCHANT_VPA || "narolamilan123@okicici";
+const PHONEPE_DIRECT_VPA = "narolamilan123@okicici";
+const DEFAULT_MERCHANT_NAME = process.env.NEXT_PUBLIC_MERCHANT_NAME || "Milan Narola";
 const DEFAULT_MERCHANT_PHONE = "9724242503";
-const DEFAULT_SETTLEMENT_BANK = "AXIS BANK ****1071";
-const DEFAULT_MERCHANT_ID = "ITEFNN81741247720006";
+const DEFAULT_SETTLEMENT_BANK = "ICICI BANK UPI";
+const DEFAULT_MERCHANT_ID = "narolamilan123";
 
 interface MissingAppModalInfo {
   appName: string;
@@ -86,7 +86,7 @@ export function PaymentGatewayCheckout() {
   const [copiedVpa, setCopiedVpa] = useState(false);
   const [showOriginalStandee, setShowOriginalStandee] = useState(false);
   const [localQrDataUrl, setLocalQrDataUrl] = useState<string>("");
-  const [selectedQrType, setSelectedQrType] = useState<"paytm" | "phonepe" | "standee">("paytm");
+  const [selectedQrType, setSelectedQrType] = useState<"gpay" | "phonepe" | "paytm">("gpay");
   const [desktopModalQrUrl, setDesktopModalQrUrl] = useState<string>("");
   const [errorNotice, setErrorNotice] = useState<string | null>(null);
   const pollIntervalRef = useRef<NodeJS.Timeout | null>(null);
@@ -168,12 +168,14 @@ export function PaymentGatewayCheckout() {
   // Generate instantaneous local QR data URL without third-party network dependencies
   useEffect(() => {
     const formattedAmount = totalAmount.toFixed(2);
-    let upiString = `upi://pay?pa=${DEFAULT_MERCHANT_VPA}&pn=Paytm&am=${formattedAmount}&cu=INR`;
-    let colorDark = "#002E6E";
+    const payeeNameEncoded = encodeURIComponent(DEFAULT_MERCHANT_NAME);
+    const upiString = `upi://pay?pa=${DEFAULT_MERCHANT_VPA}&pn=${payeeNameEncoded}&am=${formattedAmount}&cu=INR`;
+    let colorDark = "#1A73E8";
 
     if (selectedQrType === "phonepe") {
-      upiString = `upi://pay?pa=${PHONEPE_DIRECT_VPA}&pn=${encodeURIComponent(DEFAULT_MERCHANT_NAME)}&am=${formattedAmount}&cu=INR`;
       colorDark = "#5F259F";
+    } else if (selectedQrType === "paytm") {
+      colorDark = "#002E6E";
     }
 
     QRCode.toDataURL(upiString, {
@@ -629,8 +631,8 @@ export function PaymentGatewayCheckout() {
             </div>
 
             <div className="flex justify-between items-center">
-              <span className="text-[#7E7469]">Paytm Merchant ID (MID)</span>
-              <span className="font-mono text-[#111111]">{DEFAULT_MERCHANT_ID}</span>
+              <span className="text-[#7E7469]">UPI Payee (VPA)</span>
+              <span className="font-mono text-[#111111]">{DEFAULT_MERCHANT_VPA}</span>
             </div>
 
             <div className="flex justify-between items-center">
@@ -1049,24 +1051,24 @@ export function PaymentGatewayCheckout() {
                         Click your preferred payment app below. On mobile devices, your chosen UPI application will open directly with your order details pre-filled.
                       </p>
 
-                      {/* Guidance Box to prevent PhonePe / GPay credit card failure */}
-                      <div className="p-4 bg-amber-50 border-2 border-amber-400 text-amber-950 rounded-md text-xs space-y-2 shadow-sm">
-                        <div className="flex items-center space-x-2 font-bold text-amber-950 text-sm">
-                          <AlertCircle className="w-5 h-5 text-amber-600 shrink-0" />
-                          <span>PhonePe માં આ એરર કેમ આવે છે અને તેનો ૧૦૦% ઉકેલ:</span>
+                      {/* Guidance Box for Universal UPI Payment */}
+                      <div className="p-4 bg-emerald-50 border-2 border-emerald-500 text-emerald-950 rounded-md text-xs space-y-2 shadow-sm">
+                        <div className="flex items-center space-x-2 font-bold text-emerald-950 text-sm">
+                          <ShieldCheck className="w-5 h-5 text-emerald-600 shrink-0" />
+                          <span>Direct UPI Payment ({DEFAULT_MERCHANT_VPA}):</span>
                         </div>
-                        <div className="space-y-1.5 text-[11px] text-amber-900 leading-relaxed">
+                        <div className="space-y-1.5 text-[11px] text-emerald-900 leading-relaxed">
                           <p className="font-semibold text-stone-900">
-                            🔍 ₹૧૪૯ ની રકમ ₹૫૦૦ કરતાં ઓછી હોવાથી PhonePe આપોઆપ <strong>&ldquo;UPI LITE&rdquo;</strong> (Prepaid Instrument) અથવા ક્રેડિટ કાર્ડ પસંદ કરી લે છે. આ એરર હટાવવા માટે:
+                            તમે નીચે આપેલા <strong>Google Pay, PhonePe, Paytm અથવા BHIM</strong> કોઈપણ એપથી સુરક્ષિત રીતે ચૂકવણી કરી શકો છો:
                           </p>
                           <ul className="list-disc pl-4 space-y-1 text-stone-800">
-                            <li>PhonePe માં નીચે <strong>&ldquo;Pay ₹149&rdquo;</strong> દબાવતા પહેલાં <strong>&ldquo;Debited from / એકાઉન્ટ સિલેક્ટ&rdquo;</strong> પર ક્લિક કરો.</li>
-                            <li>ત્યાં <strong>UPI LITE</strong> કે ક્રેડિટ કાર્ડમાંથી ટીક હટાવીને તમારી <strong>સામાન્ય બેંક (Savings Account)</strong> પસંદ કરો.</li>
-                            <li>તમારો ૪ કે ૬ આંકડાનો <strong>UPI PIN</strong> નાખીને પેમેન્ટ કરો ➔ પેમેન્ટ તરત જ ૧૦૦% સફળ થઈ જશે!</li>
+                            <li>કોઈપણ એપ પર ક્લિક કરતાં તે એપ આપોઆપ ખુલશે અને ₹{totalAmount.toFixed(0)} ની રકમ ભરાઈને આવી જશે.</li>
+                            <li>તમારા બેંક એકાઉન્ટમાંથી સીધા જ સુરક્ષિત રીતે પેમેન્ટ થઈ જશે (0% Credit Card Error).</li>
+                            <li>પેમેન્ટ પૂર્ણ થયા પછી તરત તમારો ઓર્ડર કન્ફર્મ થઈ જશે!</li>
                           </ul>
                         </div>
-                        <p className="text-[10px] text-amber-800 border-t border-amber-300/80 pt-1.5 mt-1 font-mono">
-                          Paytm Merchant: Desai Sandipbhai Mansukhbhai • MID: {DEFAULT_MERCHANT_ID} • AXIS BANK ****1071
+                        <p className="text-[10px] text-emerald-800 border-t border-emerald-300/80 pt-1.5 mt-1 font-mono font-semibold">
+                          Active Payee: {DEFAULT_MERCHANT_NAME} • UPI ID: {DEFAULT_MERCHANT_VPA}
                         </p>
                       </div>
 
@@ -1092,7 +1094,7 @@ export function PaymentGatewayCheckout() {
                                 </span>
                               </div>
                               <div className="text-[10px] text-[#002E6E]/80">
-                                Verified Payee: {DEFAULT_MERCHANT_NAME} • Savings A/C &amp; UPI LITE
+                                Verified Payee: {DEFAULT_MERCHANT_NAME} ({DEFAULT_MERCHANT_VPA})
                               </div>
                             </div>
                           </div>
@@ -1127,7 +1129,7 @@ export function PaymentGatewayCheckout() {
                                 </span>
                               </div>
                               <div className="text-[10px] text-purple-900 font-medium">
-                                Direct PhonePe Bank Payment • 0% Error Guarantee
+                                Direct PhonePe UPI ({DEFAULT_MERCHANT_VPA}) • 0% Error Guarantee
                               </div>
                             </div>
                           </div>
@@ -1148,29 +1150,32 @@ export function PaymentGatewayCheckout() {
                           type="button"
                           onClick={() => handleContinueWithApp("gpay")}
                           disabled={launchingApp !== null}
-                          className="w-full flex items-center justify-between p-4 border border-[#E8E1D5] bg-white hover:border-[#111111] hover:bg-[#FAF8F5] transition-all group cursor-pointer shadow-2xs disabled:opacity-60 disabled:cursor-not-allowed"
+                          className="w-full flex items-center justify-between p-4 border-2 border-[#1A73E8] bg-[#F7FAFE] hover:bg-[#EEF5FD] transition-all group cursor-pointer shadow-sm disabled:opacity-60 disabled:cursor-not-allowed"
                         >
                           <div className="flex items-center space-x-3.5">
-                            <div className="w-10 h-10 rounded-full bg-white border border-[#E8E1D5] flex items-center justify-center font-bold text-xs shadow-2xs group-hover:scale-105 transition-transform">
+                            <div className="w-10 h-10 rounded-full bg-white border border-[#1A73E8]/30 flex items-center justify-center font-bold text-xs shadow-2xs group-hover:scale-105 transition-transform">
                               <span className="text-[#4285F4]">G</span>
                               <span className="text-[#EA4335]">P</span>
                               <span className="text-[#FBBC05]">a</span>
                               <span className="text-[#34A853]">y</span>
                             </div>
                             <div className="text-left">
-                              <div className="text-xs font-semibold text-[#111111] tracking-wide">
-                                Continue with Google Pay
+                              <div className="text-xs font-semibold text-[#111111] tracking-wide flex items-center space-x-2">
+                                <span>Continue with Google Pay</span>
+                                <span className="bg-[#1A73E8] text-white text-[9px] uppercase tracking-wider px-2 py-0.5 font-bold rounded-xs">
+                                  Native ICICI
+                                </span>
                               </div>
-                              <div className="text-[10px] text-[#7E7469]">
-                                Direct Google Pay Intent • Select Bank Savings Account
+                              <div className="text-[10px] text-[#1A73E8] font-medium">
+                                Direct Google Pay ({DEFAULT_MERCHANT_VPA}) • 100% Instant
                               </div>
                             </div>
                           </div>
-                          <div className="flex items-center space-x-2 text-xs text-[#111111] font-medium group-hover:text-[#C5A880] transition-colors">
+                          <div className="flex items-center space-x-2 text-xs text-[#1A73E8] font-medium group-hover:text-[#4285F4] transition-colors">
                             {launchingApp === "gpay" ? (
                               <>
-                                <RefreshCw className="w-4 h-4 animate-spin text-[#C5A880]" />
-                                <span className="text-[10px] text-[#C5A880]">Opening...</span>
+                                <RefreshCw className="w-4 h-4 animate-spin text-[#1A73E8]" />
+                                <span className="text-[10px] text-[#1A73E8]">Opening...</span>
                               </>
                             ) : (
                               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -1198,7 +1203,7 @@ export function PaymentGatewayCheckout() {
                                 </span>
                               </div>
                               <div className="text-[10px] text-[#7E7469]">
-                                Direct Bharat Interface for Money • Select Bank Savings Account
+                                Direct Bharat Interface for Money • {DEFAULT_MERCHANT_VPA}
                               </div>
                             </div>
                           </div>
@@ -1217,8 +1222,8 @@ export function PaymentGatewayCheckout() {
                         {/* Option 5: 100% Guaranteed Direct Bank Transfer (Bypasses all PhonePe Credit Card restrictions) */}
                         <div className="pt-3 border-t border-[#E8E1D5] space-y-1.5">
                           <div className="text-[11px] font-semibold text-[#111111] flex items-center justify-between">
-                            <span>PhonePe માં ક્રેડિટ કાર્ડ એરર વગર ડાયરેક્ટ પેમેન્ટ:</span>
-                            <span className="text-[9px] text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded font-bold uppercase tracking-wider">0% Error</span>
+                            <span>ડાયરેક્ટ UPI પેમેન્ટ (Google Pay / PhonePe / Paytm):</span>
+                            <span className="text-[9px] text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded font-bold uppercase tracking-wider">100% Guaranteed</span>
                           </div>
                           <a
                             href={
@@ -1236,10 +1241,10 @@ export function PaymentGatewayCheckout() {
                               </div>
                               <div>
                                 <div className="text-xs font-bold text-emerald-950 flex items-center space-x-1.5">
-                                  <span>Pay via Direct PhonePe UPI ({DEFAULT_MERCHANT_VPA})</span>
+                                  <span>Pay via Direct UPI ({DEFAULT_MERCHANT_VPA})</span>
                                 </div>
                                 <div className="text-[10px] text-emerald-800">
-                                  PhonePe માં કોઈ પણ એરર વગર ડાયરેક્ટ તમારા બેંક ખાતામાંથી પેમેન્ટ થઈ જશે
+                                  કોઈ પણ એરર વગર ડાયરેક્ટ તમારા બેંક ખાતામાંથી પેમેન્ટ થઈ જશે (100% Guaranteed)
                                 </div>
                               </div>
                             </div>
@@ -1253,18 +1258,18 @@ export function PaymentGatewayCheckout() {
                   {/* Mode B: Dynamic QR Code */}
                   {upiMode === "qr" && (
                     <div className="flex flex-col items-center justify-center p-4 sm:p-6 border border-[#002E6E]/20 bg-white space-y-4 text-center shadow-xs">
-                      {/* Selectable Tabs: Paytm, PhonePe, Standee */}
+                      {/* Selectable Tabs: GPay, PhonePe, Paytm */}
                       <div className="w-full max-w-sm grid grid-cols-3 gap-1 p-1 bg-stone-100 rounded-sm border border-stone-200">
                         <button
                           type="button"
-                          onClick={() => setSelectedQrType("paytm")}
+                          onClick={() => setSelectedQrType("gpay")}
                           className={`py-1.5 px-2 text-[11px] font-bold rounded-xs transition-all cursor-pointer flex items-center justify-center space-x-1 ${
-                            selectedQrType === "paytm"
-                              ? "bg-[#002E6E] text-white shadow-xs"
+                            selectedQrType === "gpay"
+                              ? "bg-[#1A73E8] text-white shadow-xs"
                               : "text-stone-700 hover:text-stone-900 hover:bg-stone-200/60"
                           }`}
                         >
-                          <span>Paytm QR</span>
+                          <span>GPay QR</span>
                         </button>
                         <button
                           type="button"
@@ -1279,29 +1284,29 @@ export function PaymentGatewayCheckout() {
                         </button>
                         <button
                           type="button"
-                          onClick={() => setSelectedQrType("standee")}
+                          onClick={() => setSelectedQrType("paytm")}
                           className={`py-1.5 px-2 text-[11px] font-bold rounded-xs transition-all cursor-pointer flex items-center justify-center space-x-1 ${
-                            selectedQrType === "standee"
-                              ? "bg-stone-900 text-white shadow-xs"
+                            selectedQrType === "paytm"
+                              ? "bg-[#002E6E] text-white shadow-xs"
                               : "text-stone-700 hover:text-stone-900 hover:bg-stone-200/60"
                           }`}
                         >
-                          <span>Standee Photo</span>
+                          <span>Paytm QR</span>
                         </button>
                       </div>
 
                       {/* Header based on selected QR */}
-                      {selectedQrType === "paytm" && (
-                        <div className="w-full max-w-sm bg-[#002E6E] text-white p-3 rounded-t-lg flex items-center justify-between">
+                      {selectedQrType === "gpay" && (
+                        <div className="w-full max-w-sm bg-[#1A73E8] text-white p-3 rounded-t-lg flex items-center justify-between">
                           <div className="flex items-center space-x-2">
                             <div className="bg-white px-2 py-0.5 rounded text-[10px] font-bold">
-                              <span className="text-[#002E6E]">Pay</span><span className="text-[#00BAF2]">tm</span>
+                              <span className="text-[#4285F4]">G</span><span className="text-[#EA4335]">P</span><span className="text-[#FBBC05]">a</span><span className="text-[#34A853]">y</span>
                             </div>
-                            <span className="text-[11px] font-medium tracking-wide">for Business</span>
+                            <span className="text-[11px] font-medium tracking-wide">ICICI UPI</span>
                           </div>
                           <div className="text-right">
                             <div className="text-[11px] font-semibold">{DEFAULT_MERCHANT_NAME}</div>
-                            <div className="text-[9px] text-[#00BAF2] font-mono">MID: {DEFAULT_MERCHANT_ID}</div>
+                            <div className="text-[9px] text-blue-100 font-mono">{DEFAULT_MERCHANT_VPA}</div>
                           </div>
                         </div>
                       )}
@@ -1316,20 +1321,22 @@ export function PaymentGatewayCheckout() {
                           </div>
                           <div className="text-right">
                             <div className="text-[11px] font-semibold">{DEFAULT_MERCHANT_NAME}</div>
-                            <div className="text-[9px] text-purple-200 font-mono">0% Credit Card Error</div>
+                            <div className="text-[9px] text-purple-200 font-mono">{DEFAULT_MERCHANT_VPA}</div>
                           </div>
                         </div>
                       )}
 
-                      {selectedQrType === "standee" && (
-                        <div className="w-full max-w-sm bg-stone-900 text-white p-3 rounded-t-lg flex items-center justify-between">
+                      {selectedQrType === "paytm" && (
+                        <div className="w-full max-w-sm bg-[#002E6E] text-white p-3 rounded-t-lg flex items-center justify-between">
                           <div className="flex items-center space-x-2">
-                            <QrCode className="w-4 h-4 text-[#C5A880]" />
-                            <span className="text-[11px] font-semibold tracking-wide">Original Counter Standee</span>
+                            <div className="bg-white px-2 py-0.5 rounded text-[10px] font-bold">
+                              <span className="text-[#002E6E]">Pay</span><span className="text-[#00BAF2]">tm</span>
+                            </div>
+                            <span className="text-[11px] font-medium tracking-wide">UPI Direct</span>
                           </div>
                           <div className="text-right">
                             <div className="text-[11px] font-semibold">{DEFAULT_MERCHANT_NAME}</div>
-                            <div className="text-[9px] text-[#C5A880] font-mono">MID: {DEFAULT_MERCHANT_ID}</div>
+                            <div className="text-[9px] text-[#00BAF2] font-mono">{DEFAULT_MERCHANT_VPA}</div>
                           </div>
                         </div>
                       )}
@@ -1337,42 +1344,26 @@ export function PaymentGatewayCheckout() {
                       {/* Promo Ribbon */}
                       <div className="w-full max-w-sm -mt-4 bg-[#FFDE00] text-[#111111] py-1.5 px-3 text-[10px] font-bold uppercase tracking-wider flex items-center justify-center space-x-1.5 shadow-2xs">
                         <Sparkles className="w-3.5 h-3.5 text-[#002E6E]" />
-                        <span>
-                          {selectedQrType === "phonepe"
-                            ? "Scan with PhonePe, GPay or Any UPI App"
-                            : selectedQrType === "standee"
-                            ? "Original Scanned Merchant QR Standee"
-                            : "Scan in Paytm App, GPay, PhonePe or Any UPI"}
-                        </span>
+                        <span>Scan with Google Pay, PhonePe, Paytm or Any UPI App</span>
                       </div>
 
                       {/* QR Display */}
                       <div className="p-4 bg-white border border-[#D8D1C7] shadow-sm max-w-sm w-full flex flex-col items-center space-y-3">
-                        {selectedQrType === "standee" ? (
-                          <div className="w-64 h-80 relative flex flex-col items-center justify-center bg-stone-50 border border-stone-200 p-2 overflow-hidden">
+                        <div className={`w-56 h-56 bg-white flex flex-col items-center justify-center border-2 p-2 relative ${
+                          selectedQrType === "phonepe" ? "border-[#5F259F]/30" : selectedQrType === "gpay" ? "border-[#1A73E8]/30" : "border-[#002E6E]/20"
+                        }`}>
+                          {localQrDataUrl ? (
                             <img
-                              src="/images/paytm-business-qr-uploaded.png"
-                              alt="Official Paytm for Business Standee"
-                              className="w-full h-full object-contain"
+                              src={localQrDataUrl}
+                              alt="Universal UPI QR Code"
+                              className="w-52 h-52 object-contain"
                             />
-                          </div>
-                        ) : (
-                          <div className={`w-56 h-56 bg-white flex flex-col items-center justify-center border-2 p-2 relative ${
-                            selectedQrType === "phonepe" ? "border-[#5F259F]/30" : "border-[#002E6E]/20"
-                          }`}>
-                            {localQrDataUrl ? (
-                              <img
-                                src={localQrDataUrl}
-                                alt={selectedQrType === "phonepe" ? "PhonePe UPI QR Code" : "Paytm Bharat UPI QR Code"}
-                                className="w-52 h-52 object-contain"
-                              />
-                            ) : (
-                              <div className="w-52 h-52 flex items-center justify-center">
-                                <RefreshCw className="w-6 h-6 animate-spin text-stone-400" />
-                              </div>
-                            )}
-                          </div>
-                        )}
+                          ) : (
+                            <div className="w-52 h-52 flex items-center justify-center">
+                              <RefreshCw className="w-6 h-6 animate-spin text-stone-400" />
+                            </div>
+                          )}
+                        </div>
                       </div>
 
                       {/* PhonePe / GPay Savings Account Tip */}
@@ -1416,19 +1407,20 @@ export function PaymentGatewayCheckout() {
 
                         {/* Accepted rails badges */}
                         <div className="flex flex-wrap items-center justify-center gap-1.5 pt-1 text-[9px] font-semibold text-[#002E6E]">
-                          <span className="bg-[#EEF6FF] px-2 py-0.5 rounded">Paytm Postpaid</span>
-                          <span className="bg-[#EEF6FF] px-2 py-0.5 rounded">UPI</span>
-                          <span className="bg-[#EEF6FF] px-2 py-0.5 rounded">UPI LITE</span>
-                          <span className="bg-[#EEF6FF] px-2 py-0.5 rounded">RuPay Credit Card</span>
+                          <span className="bg-[#EEF6FF] px-2 py-0.5 rounded">Google Pay</span>
+                          <span className="bg-[#EEF6FF] px-2 py-0.5 rounded">PhonePe</span>
+                          <span className="bg-[#EEF6FF] px-2 py-0.5 rounded">Paytm</span>
+                          <span className="bg-[#EEF6FF] px-2 py-0.5 rounded">BHIM</span>
+                          <span className="bg-[#EEF6FF] px-2 py-0.5 rounded">All UPI Apps</span>
                         </div>
 
                         {/* Instant Settlement info */}
                         <div className="text-[10px] text-stone-500 pt-1 flex flex-col items-center justify-center space-y-0.5">
                           <div className="flex items-center space-x-1.5">
                             <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-                            <span>Verified Merchant ID: <strong className="font-mono text-[#002E6E]">{DEFAULT_MERCHANT_ID}</strong></span>
+                            <span>Verified Payee: <strong className="font-mono text-[#002E6E]">{DEFAULT_MERCHANT_NAME}</strong></span>
                           </div>
-                          <span className="text-[9px] text-stone-400">Payments settle instantly to {DEFAULT_SETTLEMENT_BANK}</span>
+                          <span className="text-[9px] text-stone-400">Direct instant transfer to {DEFAULT_SETTLEMENT_BANK}</span>
                         </div>
 
                         {/* 1-Click Order Confirmation for QR */}
@@ -2173,7 +2165,7 @@ export function PaymentGatewayCheckout() {
                       <span className="bg-white/20 text-white text-[9px] uppercase px-1.5 py-0.2 rounded font-bold">Direct Launch</span>
                     </div>
                     <div className="text-[10px] text-purple-100">
-                      Tap here to open PhonePe • Select Bank Savings Account to pay
+                      Tap here to open PhonePe • {DEFAULT_MERCHANT_VPA}
                     </div>
                   </div>
                   <ExternalLink className="w-4 h-4 shrink-0" />
