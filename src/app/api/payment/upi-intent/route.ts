@@ -66,11 +66,11 @@ export async function POST(request: NextRequest) {
     const merchantVpa = process.env.PHONEPE_MERCHANT_VPA || process.env.NEXT_PUBLIC_MERCHANT_VPA || "paytm.s4ecjea@pty";
     const merchantName = process.env.MERCHANT_NAME || process.env.NEXT_PUBLIC_MERCHANT_NAME || "Desai Sandipbhai Mansukhbhai";
 
-    // 3. Build App-Specific UPI Intent
+    // 3. Build App-Specific UPI Intent (Omit restrictive MCC so all bank accounts & UPI apps work seamlessly)
     const intentResult = buildUpiIntent({
       merchantVpa,
       merchantName,
-      mcc: "5691",
+      mcc: process.env.MERCHANT_MCC || "",
       txnId,
       txnRef: txnId,
       amount: authoritativeAmount,

@@ -25,6 +25,7 @@ import {
   Copy,
   Check,
   ExternalLink,
+  Truck,
 } from "lucide-react";
 import { useCart } from "@/context/cart-context";
 import { formatINR } from "@/lib/utils";
@@ -32,7 +33,7 @@ import { MOCK_PRODUCTS } from "@/lib/shopify/mock-data";
 import { calculateBogoDiscount } from "@/lib/bogo";
 
 // Payment Method Tab identifiers matching user's Image 2
-type PaymentTab = "upi" | "cards" | "netbanking" | "wallets" | "emi";
+type PaymentTab = "upi" | "cards" | "netbanking" | "cod" | "wallets" | "emi";
 type UpiApp = "gpay" | "phonepe" | "paytm" | "bhim";
 
 interface ActiveTxnInfo {
@@ -411,29 +412,51 @@ export function PaymentGatewayCheckout() {
       setVpaError("");
     }
 
+    if (activeTab === "cards") {
+      const cleanCard = cardNumber.replace(/\s/g, "");
+      if (cleanCard.length < 15) {
+        setErrorNotice("Please enter a valid 16-digit card number.");
+        return;
+      }
+      if (!cardHolder.trim()) {
+        setErrorNotice("Please enter the cardholder name.");
+        return;
+      }
+      if (!cardExpiry.includes("/") || cardExpiry.length < 5) {
+        setErrorNotice("Please enter a valid card expiry date (MM/YY).");
+        return;
+      }
+      if (cardCvv.length < 3) {
+        setErrorNotice("Please enter a valid 3 or 4 digit CVV code.");
+        return;
+      }
+    }
+
     setIsProcessing(true);
     setProcessingStage(1);
 
     // Simulate multi-step bank-grade authorization sequence
-    setTimeout(() => setProcessingStage(2), 1000);
-    setTimeout(() => setProcessingStage(3), 2200);
+    setTimeout(() => setProcessingStage(2), 800);
+    setTimeout(() => setProcessingStage(3), 1600);
 
     setTimeout(() => {
       setIsProcessing(false);
       setIsPaid(true);
 
-      const generatedOrderId = "GLIS-" + Math.floor(100000 + Math.random() * 900000);
-      const generatedTxnId = "TXN_PHPE_" + Math.random().toString(36).substring(2, 12).toUpperCase();
+      const generatedOrderId = "NAV-" + Math.floor(100000 + Math.random() * 900000);
+      const generatedTxnId = "TXN_NAV_" + Math.random().toString(36).substring(2, 12).toUpperCase();
       const generatedUtr = "UTR" + Math.floor(100000000000 + Math.random() * 900000000000);
 
-      let methodLabel = "PhonePe UPI";
+      let methodLabel = "Paytm for Business (UPI)";
       if (activeTab === "upi") {
-        if (selectedUpiApp === "gpay") methodLabel = "Google Pay (UPI)";
+        if (selectedUpiApp === "paytm") methodLabel = "Paytm (UPI)";
         else if (selectedUpiApp === "phonepe") methodLabel = "PhonePe (UPI)";
-        else if (selectedUpiApp === "paytm") methodLabel = "Paytm (UPI)";
+        else if (selectedUpiApp === "gpay") methodLabel = "Google Pay (UPI)";
         else methodLabel = "BHIM (UPI)";
       } else if (activeTab === "cards") {
-        methodLabel = "Credit / Debit Card (Visa/RuPay)";
+        methodLabel = "Credit / Debit Card (Visa/RuPay/Mastercard)";
+      } else if (activeTab === "cod") {
+        methodLabel = "Cash on Delivery (COD) / Pay on Delivery";
       } else if (activeTab === "netbanking") {
         methodLabel = `${selectedBank} Net Banking`;
       } else if (activeTab === "wallets") {
@@ -486,13 +509,15 @@ export function PaymentGatewayCheckout() {
               <CheckCircle2 className="w-8 h-8" />
             </div>
             <span className="text-[10px] uppercase tracking-[0.3em] text-[#C5A880] font-semibold block">
-              Payment Gateway Verified
+              {paymentResult.method.includes("Cash on Delivery") ? "Order Placed Successfully" : "Payment Gateway Verified"}
             </span>
             <h1 className="font-serif-luxury text-3xl sm:text-4xl text-[#111111]">
-              Payment Successful
+              {paymentResult.method.includes("Cash on Delivery") ? "Order Confirmed!" : "Payment Successful"}
             </h1>
             <p className="text-xs text-[#7E7469] max-w-md mx-auto">
-              Your transaction has been securely authorized and settled via the PhonePe & Banking Rail.
+              {paymentResult.method.includes("Cash on Delivery")
+                ? `Your order has been confirmed. Please keep ${formatINR(paymentResult.amount)} ready in cash or UPI upon delivery.`
+                : "Your transaction has been securely authorized and settled via the PhonePe & Banking Rail."}
             </p>
           </div>
 
@@ -509,8 +534,10 @@ export function PaymentGatewayCheckout() {
             </div>
 
             <div className="flex justify-between items-center">
-              <span className="text-[#7E7469]">Bank / UPI UTR</span>
-              <span className="font-mono text-[#111111]">{paymentResult.utr}</span>
+              <span className="text-[#7E7469]">{paymentResult.method.includes("Cash on Delivery") ? "Payment Terms" : "Bank / UPI UTR"}</span>
+              <span className="font-mono text-[#111111]">
+                {paymentResult.method.includes("Cash on Delivery") ? "Pay at Doorstep" : paymentResult.utr}
+              </span>
             </div>
 
             <div className="flex justify-between items-center">
@@ -519,12 +546,14 @@ export function PaymentGatewayCheckout() {
             </div>
 
             <div className="flex justify-between items-center">
-              <span className="text-[#7E7469]">Payment Timestamp</span>
+              <span className="text-[#7E7469]">Order Timestamp</span>
               <span className="text-[#111111]">{paymentResult.timestamp}</span>
             </div>
 
             <div className="flex justify-between items-center pt-3 border-t border-[#E8E1D5] text-sm font-semibold">
-              <span className="text-[#111111]">Amount Paid (INR)</span>
+              <span className="text-[#111111]">
+                {paymentResult.method.includes("Cash on Delivery") ? "Payable on Delivery (INR)" : "Amount Paid (INR)"}
+              </span>
               <span className="text-emerald-700 font-serif-luxury text-lg">{formatINR(paymentResult.amount)}</span>
             </div>
           </div>
@@ -723,75 +752,89 @@ export function PaymentGatewayCheckout() {
               </div>
 
               {/* Payment Category Pills (Image 2 style) */}
-              <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 text-xs">
+              <div className="grid grid-cols-3 sm:grid-cols-6 gap-2 text-xs">
                 {/* 1. UPI */}
                 <button
                   type="button"
                   onClick={() => setActiveTab("upi")}
-                  className={`p-3 border text-center transition-all cursor-pointer flex flex-col items-center justify-center space-y-1.5 ${
+                  className={`p-2.5 sm:p-3 border text-center transition-all cursor-pointer flex flex-col items-center justify-center space-y-1.5 ${
                     activeTab === "upi"
                       ? "border-[#111111] bg-[#111111] text-[#FAF8F5] shadow-xs"
                       : "border-[#E8E1D5] bg-[#FAF8F5] hover:bg-white text-[#4A4742]"
                   }`}
                 >
                   <Smartphone className="w-4 h-4 text-[#C5A880]" />
-                  <span className="font-medium text-[11px] tracking-wide">UPI Apps</span>
+                  <span className="font-medium text-[10px] sm:text-[11px] tracking-wide">UPI Apps</span>
                 </button>
 
                 {/* 2. Cards */}
                 <button
                   type="button"
                   onClick={() => setActiveTab("cards")}
-                  className={`p-3 border text-center transition-all cursor-pointer flex flex-col items-center justify-center space-y-1.5 ${
+                  className={`p-2.5 sm:p-3 border text-center transition-all cursor-pointer flex flex-col items-center justify-center space-y-1.5 ${
                     activeTab === "cards"
                       ? "border-[#111111] bg-[#111111] text-[#FAF8F5] shadow-xs"
                       : "border-[#E8E1D5] bg-[#FAF8F5] hover:bg-white text-[#4A4742]"
                   }`}
                 >
                   <CreditCard className="w-4 h-4 text-[#C5A880]" />
-                  <span className="font-medium text-[11px] tracking-wide">Cards</span>
+                  <span className="font-medium text-[10px] sm:text-[11px] tracking-wide">Cards</span>
                 </button>
 
-                {/* 3. Net Banking */}
+                {/* 3. Cash on Delivery (COD) */}
+                <button
+                  type="button"
+                  onClick={() => setActiveTab("cod")}
+                  className={`p-2.5 sm:p-3 border text-center transition-all cursor-pointer flex flex-col items-center justify-center space-y-1.5 ${
+                    activeTab === "cod"
+                      ? "border-[#111111] bg-[#111111] text-[#FAF8F5] shadow-xs"
+                      : "border-[#E8E1D5] bg-[#FAF8F5] hover:bg-white text-[#4A4742]"
+                  }`}
+                >
+                  <Truck className="w-4 h-4 text-[#C5A880]" />
+                  <span className="font-medium text-[10px] sm:text-[11px] tracking-wide">Pay on Delivery</span>
+                </button>
+
+                {/* 4. Net Banking */}
                 <button
                   type="button"
                   onClick={() => setActiveTab("netbanking")}
-                  className={`p-3 border text-center transition-all cursor-pointer flex flex-col items-center justify-center space-y-1.5 ${
+                  className={`p-2.5 sm:p-3 border text-center transition-all cursor-pointer flex flex-col items-center justify-center space-y-1.5 ${
                     activeTab === "netbanking"
                       ? "border-[#111111] bg-[#111111] text-[#FAF8F5] shadow-xs"
                       : "border-[#E8E1D5] bg-[#FAF8F5] hover:bg-white text-[#4A4742]"
                   }`}
                 >
                   <Building2 className="w-4 h-4 text-[#C5A880]" />
-                  <span className="font-medium text-[11px] tracking-wide">Net Banking</span>
+                  <span className="font-medium text-[10px] sm:text-[11px] tracking-wide">Net Banking</span>
                 </button>
 
-                {/* 4. Wallets */}
+                {/* 5. Wallets */}
                 <button
                   type="button"
                   onClick={() => setActiveTab("wallets")}
-                  className={`p-3 border text-center transition-all cursor-pointer flex flex-col items-center justify-center space-y-1.5 ${
+                  className={`p-2.5 sm:p-3 border text-center transition-all cursor-pointer flex flex-col items-center justify-center space-y-1.5 ${
                     activeTab === "wallets"
                       ? "border-[#111111] bg-[#111111] text-[#FAF8F5] shadow-xs"
                       : "border-[#E8E1D5] bg-[#FAF8F5] hover:bg-white text-[#4A4742]"
                   }`}
                 >
                   <Wallet className="w-4 h-4 text-[#C5A880]" />
-                  <span className="font-medium text-[11px] tracking-wide">Wallets</span>
+                  <span className="font-medium text-[10px] sm:text-[11px] tracking-wide">Wallets</span>
                 </button>
 
-                {/* 5. EMIs */}
+                {/* 6. EMIs */}
                 <button
                   type="button"
                   onClick={() => setActiveTab("emi")}
-                  className={`p-3 border text-center transition-all cursor-pointer flex flex-col items-center justify-center space-y-1.5 col-span-2 sm:col-span-1 ${
+                  className={`p-2.5 sm:p-3 border text-center transition-all cursor-pointer flex flex-col items-center justify-center space-y-1.5 ${
                     activeTab === "emi"
                       ? "border-[#111111] bg-[#111111] text-[#FAF8F5] shadow-xs"
                       : "border-[#E8E1D5] bg-[#FAF8F5] hover:bg-white text-[#4A4742]"
                   }`}
                 >
                   <Clock className="w-4 h-4 text-[#C5A880]" />
-                  <span className="font-medium text-[11px] tracking-wide">Pay Later / EMI</span>
+                  <span className="font-medium text-[10px] sm:text-[11px] tracking-wide">Pay Later/EMI</span>
                 </button>
               </div>
 
@@ -864,6 +907,23 @@ export function PaymentGatewayCheckout() {
                         Click your preferred payment app below. On mobile devices, your chosen UPI application will open directly with your order details pre-filled.
                       </p>
 
+                      {/* Guidance Box to prevent PhonePe / GPay credit card failure */}
+                      <div className="p-3.5 bg-amber-50/90 border border-amber-300 text-amber-950 rounded-sm text-xs space-y-1.5 shadow-2xs">
+                        <div className="flex items-center space-x-1.5 font-semibold text-amber-900">
+                          <AlertCircle className="w-4 h-4 text-amber-600 shrink-0" />
+                          <span>Important: Pay via Bank Savings Account or UPI LITE</span>
+                        </div>
+                        <p className="text-[11px] leading-relaxed text-amber-900">
+                          Inside PhonePe, GPay, or Paytm, please select your <strong>Bank Savings Account</strong> (e.g. SBI, HDFC, ICICI, Axis, Kotak, BOB) or <strong>UPI LITE</strong>.
+                        </p>
+                        <p className="text-[11px] leading-relaxed text-amber-800">
+                          ⚠️ If PhonePe shows <em>&ldquo;merchant not accepting credit cards&rdquo;</em>, simply tap to switch your account from Credit Card / Wallet to your <strong>Savings Account</strong>.
+                        </p>
+                        <p className="text-[10px] text-stone-700 font-medium pt-0.5 border-t border-amber-200/60 mt-1">
+                          (ગુજરાતી: UPI એપમાં ક્રેડિટ કાર્ડ અથવા વોલેટના બદલે તમારા <strong>બેંક સેવિંગ્સ એકાઉન્ટ</strong>થી પેમેન્ટ કરો.)
+                        </p>
+                      </div>
+
                       {/* 4 SEPARATE PAYMENT BUTTONS */}
                       <div className="space-y-3">
                         {/* Button 1: Paytm (Official Merchant Gateway) */}
@@ -886,7 +946,7 @@ export function PaymentGatewayCheckout() {
                                 </span>
                               </div>
                               <div className="text-[10px] text-[#002E6E]/80">
-                                Verified Payee: {DEFAULT_MERCHANT_NAME} • Instant Axis Settlement
+                                Verified Payee: {DEFAULT_MERCHANT_NAME} • Savings A/C &amp; UPI LITE
                               </div>
                             </div>
                           </div>
@@ -921,7 +981,7 @@ export function PaymentGatewayCheckout() {
                                 </span>
                               </div>
                               <div className="text-[10px] text-[#7E7469]">
-                                Official PhonePe Intent • Pre-filled checkout
+                                Official PhonePe Intent • Select Bank Savings Account
                               </div>
                             </div>
                           </div>
@@ -956,7 +1016,7 @@ export function PaymentGatewayCheckout() {
                                 Continue with Google Pay
                               </div>
                               <div className="text-[10px] text-[#7E7469]">
-                                Direct Google Pay Intent • Instant bank debit
+                                Direct Google Pay Intent • Select Bank Savings Account
                               </div>
                             </div>
                           </div>
@@ -992,7 +1052,7 @@ export function PaymentGatewayCheckout() {
                                 </span>
                               </div>
                               <div className="text-[10px] text-[#7E7469]">
-                                Direct Bharat Interface for Money • Any bank account
+                                Direct Bharat Interface for Money • Select Bank Savings Account
                               </div>
                             </div>
                           </div>
@@ -1048,7 +1108,7 @@ export function PaymentGatewayCheckout() {
                           <div className="w-56 h-56 bg-white flex flex-col items-center justify-center border-2 border-[#002E6E]/20 p-2 relative">
                             <img
                               src={`https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(
-                                `upi://pay?pa=${DEFAULT_MERCHANT_VPA}&pn=${encodeURIComponent(DEFAULT_MERCHANT_NAME)}&mc=5691&tr=TXN_NAV_${Date.now()}&tn=NAVRANG%20CLOTHING%20Order&am=${totalAmount.toFixed(2)}&cu=INR`
+                                `upi://pay?pa=${DEFAULT_MERCHANT_VPA}&pn=${encodeURIComponent(DEFAULT_MERCHANT_NAME)}&tr=TXN_NAV_${Date.now()}&tn=NAVRANG%20CLOTHING%20Order&am=${totalAmount.toFixed(2)}&cu=INR`
                               )}`}
                               alt="Paytm Bharat UPI QR Code"
                               className="w-52 h-52 object-contain"
@@ -1065,6 +1125,20 @@ export function PaymentGatewayCheckout() {
                           <QrCode className="w-3 h-3" />
                           <span>{showOriginalStandee ? `Switch to Dynamic Pre-filled QR (${formatINR(totalAmount)})` : "View Official Standee Photo"}</span>
                         </button>
+                      </div>
+
+                      {/* PhonePe / GPay Savings Account Tip */}
+                      <div className="bg-amber-50/90 border border-amber-300 p-2.5 rounded-sm text-left text-[11px] text-amber-950 space-y-1 max-w-sm w-full">
+                        <div className="flex items-center space-x-1.5 font-semibold text-amber-900">
+                          <AlertCircle className="w-3.5 h-3.5 text-amber-700 shrink-0" />
+                          <span>Tip: Pay with Bank Savings Account or UPI LITE</span>
+                        </div>
+                        <p className="text-[10px] leading-relaxed text-amber-850">
+                          In PhonePe / Google Pay, scan and pay via your <strong>Savings Account</strong>. If prompted about credit cards, switch to your linked bank account.
+                        </p>
+                        <p className="text-[9px] text-amber-900 font-medium">
+                          (ફોનપે કે ગુગલ પેમાં બેંક સેવિંગ્સ એકાઉન્ટ પસંદ કરો.)
+                        </p>
                       </div>
 
                       <div className="space-y-2 max-w-sm w-full">
@@ -1216,7 +1290,51 @@ export function PaymentGatewayCheckout() {
                 </div>
               )}
 
-              {/* TAB 3: NET BANKING */}
+              {/* TAB 3: CASH ON DELIVERY (COD) */}
+              {activeTab === "cod" && (
+                <div className="space-y-4 pt-2 text-xs">
+                  <div className="p-4 bg-emerald-50/90 border border-emerald-200 rounded-sm space-y-2">
+                    <div className="flex items-center space-x-2 text-emerald-900 font-semibold text-sm">
+                      <Truck className="w-5 h-5 text-emerald-700" />
+                      <span>Cash on Delivery (Pay on Delivery)</span>
+                    </div>
+                    <p className="text-emerald-800 text-[11px] leading-relaxed">
+                      Pay when your package is delivered directly to your doorstep. Zero advance payment required!
+                    </p>
+                    <div className="text-[10px] text-emerald-950 font-medium pt-1 border-t border-emerald-200/60">
+                      (ગુજરાતી: તમારો ઓર્ડર ઘરે આવે ત્યારે રોકડા અથવા ડિલિવરી બોયના ક્યુઆર કોડથી પેમેન્ટ કરી શકો છો.)
+                    </div>
+                  </div>
+
+                  <div className="space-y-2.5">
+                    <div className="flex items-start space-x-2.5 p-3.5 border border-[#E8E1D5] bg-[#FAF8F5]">
+                      <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                      <div>
+                        <strong className="text-[#111111] block">Doorstep Inspection & Delivery</strong>
+                        <span className="text-[#7E7469] text-[11px]">Check the tamper-evident package at your doorstep prior to payment.</span>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start space-x-2.5 p-3.5 border border-[#E8E1D5] bg-[#FAF8F5]">
+                      <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                      <div>
+                        <strong className="text-[#111111] block">UPI & Cash Accepted by Delivery Partner</strong>
+                        <span className="text-[#7E7469] text-[11px]">You can pay via Cash, PhonePe, GPay, or Paytm QR directly to our courier executive.</span>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start space-x-2.5 p-3.5 border border-[#E8E1D5] bg-[#FAF8F5]">
+                      <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                      <div>
+                        <strong className="text-[#111111] block">Payable Amount</strong>
+                        <span className="text-[#7E7469] text-[11px]">Total payable at delivery: <strong className="text-[#111111] font-serif-luxury">{formatINR(totalAmount)}</strong> (No hidden fees).</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* TAB 4: NET BANKING */}
               {activeTab === "netbanking" && (
                 <div className="space-y-4 pt-2">
                   <p className="text-xs text-[#7E7469]">
@@ -1396,6 +1514,26 @@ export function PaymentGatewayCheckout() {
                       </>
                     )}
                   </div>
+                ) : activeTab === "cod" ? (
+                  <button
+                    type="button"
+                    onClick={handlePayNow}
+                    disabled={isProcessing}
+                    className="w-full bg-[#111111] text-[#FAF8F5] py-4 px-6 text-xs uppercase tracking-[0.2em] font-medium hover:bg-emerald-700 hover:text-white transition-all flex items-center justify-center space-x-2 cursor-pointer shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {isProcessing ? (
+                      <>
+                        <RefreshCw className="w-4 h-4 animate-spin" />
+                        <span>Confirming Cash on Delivery Order...</span>
+                      </>
+                    ) : (
+                      <>
+                        <Truck className="w-4 h-4" />
+                        <span>Place Order with Cash on Delivery ({formatINR(totalAmount)})</span>
+                        <ArrowRight className="w-4 h-4" />
+                      </>
+                    )}
+                  </button>
                 ) : (
                   <button
                     type="button"

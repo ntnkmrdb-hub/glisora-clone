@@ -111,10 +111,11 @@ export function buildUpiIntent(params: UpiIntentParams): UpiIntentResult {
   const encodedPn = encodeURIComponent(params.merchantName);
   const encodedTn = encodeURIComponent(params.note);
   const formattedAmount = params.amount.toFixed(2);
-  const mcc = params.mcc || "5691"; // 5691 = Men's and Women's Apparel Retailers
+  const mcc = params.mcc !== undefined ? params.mcc : "5691";
+  const mcParam = mcc ? `&mc=${mcc}` : "";
 
   // 1. Generic NPCI Standard URI
-  const genericParams = `pa=${params.merchantVpa}&pn=${encodedPn}&mc=${mcc}&tr=${params.txnRef}&tn=${encodedTn}&am=${formattedAmount}&cu=INR`;
+  const genericParams = `pa=${params.merchantVpa}&pn=${encodedPn}${mcParam}&tr=${params.txnRef}&tn=${encodedTn}&am=${formattedAmount}&cu=INR`;
   const genericUpiUrl = `upi://pay?${genericParams}`;
 
   // 2. App-Specific Android Chrome Intent
