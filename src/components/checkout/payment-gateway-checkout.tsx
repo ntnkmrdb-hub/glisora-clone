@@ -306,6 +306,111 @@ export function PaymentGatewayCheckout() {
     }
   };
 
+  const getAppDeepLink = (appKey: UpiApp): string => {
+    const cleanPayeeName = encodeURIComponent(DEFAULT_MERCHANT_NAME);
+    const cleanAm = totalAmount.toFixed(2);
+    const { deviceOS } = typeof window !== "undefined" ? getDeviceInfo() : { deviceOS: "OTHER" };
+
+    if (appKey === "phonepe") {
+      const cleanPhonePeParams = `pa=${PHONEPE_DIRECT_VPA}&pn=${cleanPayeeName}&am=${cleanAm}&cu=INR`;
+      if (deviceOS === "IOS") {
+        return `phonepe://pay?${cleanPhonePeParams}`;
+      }
+      return `intent://pay?${cleanPhonePeParams}#Intent;scheme=upi;package=com.phonepe.app;end`;
+    }
+
+    if (appKey === "gpay") {
+      const baseParams = `pa=${DEFAULT_MERCHANT_VPA}&pn=${cleanPayeeName}&am=${cleanAm}&cu=INR`;
+      if (deviceOS === "IOS") {
+        return `gpay://upi/pay?${baseParams}`;
+      }
+      return `intent://pay?${baseParams}#Intent;scheme=upi;package=com.google.android.apps.npx.mandates;end`;
+    }
+
+    if (appKey === "paytm") {
+      const baseParams = `pa=${DEFAULT_MERCHANT_VPA}&pn=${cleanPayeeName}&am=${cleanAm}&cu=INR`;
+      if (deviceOS === "IOS") {
+        return `paytmmp://pay?${baseParams}`;
+      }
+      return `intent://pay?${baseParams}#Intent;scheme=upi;package=net.one97.paytm;end`;
+    }
+
+    return `upi://pay?pa=${DEFAULT_MERCHANT_VPA}&pn=${cleanPayeeName}&am=${cleanAm}&cu=INR`;
+  };
+
+  const handleAppClick = (e: React.MouseEvent, appKey: UpiApp) => {
+    if (totalAmount <= 0 || lines.length === 0) {
+      e.preventDefault();
+      setErrorNotice("Your shopping bag is currently empty (₹0). Please add a luxury piece to your bag before initiating payment.");
+      return;
+    }
+
+    if (!validateShipping()) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+
+    const { isMobile, deviceOS } = getDeviceInfo();
+
+    if (!isMobile) {
+      e.preventDefault();
+      handleContinueWithApp(appKey);
+      return;
+    }
+
+    // On mobile devices: let the native anchor href trigger immediate OS app launch!
+    // Simultaneously display the active order card in the checkout UI and start polling
+    const mockTxnId = "TXN" + Date.now();
+    const mockOrderId = "ORD" + Math.floor(100000 + Math.random() * 900000);
+    const appDisplayNames: Record<UpiApp, string> = {
+      gpay: "Google Pay",
+      phonepe: "PhonePe",
+      paytm: "Paytm",
+      bhim: "BHIM UPI",
+    };
+
+    const genericUpi = `upi://pay?pa=${DEFAULT_MERCHANT_VPA}&pn=${encodeURIComponent(DEFAULT_MERCHANT_NAME)}&am=${totalAmount.toFixed(2)}&cu=INR`;
+    const txnInfo: ActiveTxnInfo = {
+      txnId: mockTxnId,
+      orderId: mockOrderId,
+      targetApp: appKey,
+      appName: appDisplayNames[appKey],
+      intentUrl: getAppDeepLink(appKey),
+      genericUpiUrl: genericUpi,
+      qrData: genericUpi,
+      merchantVpa: appKey === "phonepe" ? PHONEPE_DIRECT_VPA : DEFAULT_MERCHANT_VPA,
+      merchantName: DEFAULT_MERCHANT_NAME,
+      merchantId: DEFAULT_MERCHANT_ID,
+      amount: totalAmount,
+    };
+    setActiveTxn(txnInfo);
+    startStatusPolling(mockTxnId, mockOrderId, appDisplayNames[appKey]);
+
+    // Send session registration to server in background
+    fetch("/api/payment/upi-intent", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        targetApp: appKey,
+        amount: totalAmount,
+        cartId: cart?.id || "",
+        customerName: shippingInfo.fullName,
+        customerPhone: shippingInfo.phone,
+        deviceOS,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success && data.txnId) {
+          setActiveTxn((prev) => (prev ? { ...prev, txnId: data.txnId, orderId: data.orderId || prev.orderId } : null));
+        }
+      })
+      .catch((err) => {
+        console.warn("Background intent registration:", err);
+      });
+  };
+
   const handleContinueWithApp = async (appKey: UpiApp) => {
     if (totalAmount <= 0 || lines.length === 0) {
       setErrorNotice("Your shopping bag is currently empty (₹0). Please add a luxury piece to your bag before initiating payment.");
@@ -1075,11 +1180,10 @@ export function PaymentGatewayCheckout() {
                       {/* 4 SEPARATE PAYMENT BUTTONS */}
                       <div className="space-y-3">
                         {/* Button 1: Paytm (Official Merchant Gateway) */}
-                        <button
-                          type="button"
-                          onClick={() => handleContinueWithApp("paytm")}
-                          disabled={launchingApp !== null}
-                          className="w-full flex items-center justify-between p-4 border-2 border-[#002E6E] bg-[#F7FBFF] hover:bg-[#EEF6FF] transition-all group cursor-pointer shadow-sm disabled:opacity-60 disabled:cursor-not-allowed"
+                        <a
+                          href={getAppDeepLink("paytm")}
+                          onClick={(e) => handleAppClick(e, "paytm")}
+                          className="w-full flex items-center justify-between p-4 border-2 border-[#002E6E] bg-[#F7FBFF] hover:bg-[#EEF6FF] transition-all group cursor-pointer shadow-sm"
                         >
                           <div className="flex items-center space-x-3.5">
                             <div className="w-10 h-10 rounded-full bg-white border border-[#002E6E]/30 flex items-center justify-center font-bold text-[11px] shadow-2xs group-hover:scale-105 transition-transform">
@@ -1108,14 +1212,13 @@ export function PaymentGatewayCheckout() {
                               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                             )}
                           </div>
-                        </button>
+                        </a>
 
                         {/* Button 2: PhonePe */}
-                        <button
-                          type="button"
-                          onClick={() => handleContinueWithApp("phonepe")}
-                          disabled={launchingApp !== null}
-                          className="w-full flex items-center justify-between p-4 border border-[#5F259F]/30 bg-white hover:border-[#5F259F] hover:bg-[#FAF8F5] transition-all group cursor-pointer shadow-2xs disabled:opacity-60 disabled:cursor-not-allowed"
+                        <a
+                          href={getAppDeepLink("phonepe")}
+                          onClick={(e) => handleAppClick(e, "phonepe")}
+                          className="w-full flex items-center justify-between p-4 border border-[#5F259F]/30 bg-white hover:border-[#5F259F] hover:bg-[#FAF8F5] transition-all group cursor-pointer shadow-2xs"
                         >
                           <div className="flex items-center space-x-3.5">
                             <div className="w-10 h-10 rounded-full bg-[#5F259F] text-white flex items-center justify-center font-bold text-base shadow-2xs group-hover:scale-105 transition-transform">
@@ -1143,14 +1246,13 @@ export function PaymentGatewayCheckout() {
                               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                             )}
                           </div>
-                        </button>
+                        </a>
 
                         {/* Button 3: Google Pay */}
-                        <button
-                          type="button"
-                          onClick={() => handleContinueWithApp("gpay")}
-                          disabled={launchingApp !== null}
-                          className="w-full flex items-center justify-between p-4 border-2 border-[#1A73E8] bg-[#F7FAFE] hover:bg-[#EEF5FD] transition-all group cursor-pointer shadow-sm disabled:opacity-60 disabled:cursor-not-allowed"
+                        <a
+                          href={getAppDeepLink("gpay")}
+                          onClick={(e) => handleAppClick(e, "gpay")}
+                          className="w-full flex items-center justify-between p-4 border-2 border-[#1A73E8] bg-[#F7FAFE] hover:bg-[#EEF5FD] transition-all group cursor-pointer shadow-sm"
                         >
                           <div className="flex items-center space-x-3.5">
                             <div className="w-10 h-10 rounded-full bg-white border border-[#1A73E8]/30 flex items-center justify-center font-bold text-xs shadow-2xs group-hover:scale-105 transition-transform">
@@ -1181,14 +1283,13 @@ export function PaymentGatewayCheckout() {
                               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                             )}
                           </div>
-                        </button>
+                        </a>
 
                         {/* Button 4: BHIM UPI */}
-                        <button
-                          type="button"
-                          onClick={() => handleContinueWithApp("bhim")}
-                          disabled={launchingApp !== null}
-                          className="w-full flex items-center justify-between p-4 border border-[#008848]/20 bg-white hover:border-[#008848] hover:bg-[#FAF8F5] transition-all group cursor-pointer shadow-2xs disabled:opacity-60 disabled:cursor-not-allowed"
+                        <a
+                          href={getAppDeepLink("bhim")}
+                          onClick={(e) => handleAppClick(e, "bhim")}
+                          className="w-full flex items-center justify-between p-4 border border-[#008848]/20 bg-white hover:border-[#008848] hover:bg-[#FAF8F5] transition-all group cursor-pointer shadow-2xs"
                         >
                           <div className="flex items-center space-x-3.5">
                             <div className="w-10 h-10 rounded-full bg-white border border-[#008848]/30 flex items-center justify-center font-bold text-xs shadow-2xs group-hover:scale-105 transition-transform">
@@ -1217,7 +1318,7 @@ export function PaymentGatewayCheckout() {
                               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                             )}
                           </div>
-                        </button>
+                        </a>
 
                         {/* Option 5: 100% Guaranteed Direct Bank Transfer (Bypasses all PhonePe Credit Card restrictions) */}
                         <div className="pt-3 border-t border-[#E8E1D5] space-y-1.5">
