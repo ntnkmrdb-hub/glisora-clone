@@ -48,6 +48,7 @@ interface ActiveTxnInfo {
   qrData: string;
   merchantVpa: string;
   merchantName?: string;
+  merchantId?: string;
   amount: number;
 }
 
@@ -405,6 +406,7 @@ export function PaymentGatewayCheckout() {
         qrData,
         merchantVpa: merchantVpa || (appKey === "phonepe" ? PHONEPE_DIRECT_VPA : DEFAULT_MERCHANT_VPA),
         merchantName: DEFAULT_MERCHANT_NAME,
+        merchantId: data.merchantId || DEFAULT_MERCHANT_ID,
         amount: totalAmount,
       };
 
@@ -601,6 +603,11 @@ export function PaymentGatewayCheckout() {
             <div className="flex justify-between items-center">
               <span className="text-[#7E7469]">Payment Gateway Ref (Txn ID)</span>
               <span className="font-mono text-[#111111]">{paymentResult.txnId}</span>
+            </div>
+
+            <div className="flex justify-between items-center">
+              <span className="text-[#7E7469]">Paytm Merchant ID (MID)</span>
+              <span className="font-mono text-[#111111]">{DEFAULT_MERCHANT_ID}</span>
             </div>
 
             <div className="flex justify-between items-center">
@@ -1271,7 +1278,7 @@ export function PaymentGatewayCheckout() {
                           </div>
                           <div className="text-right">
                             <div className="text-[11px] font-semibold">{DEFAULT_MERCHANT_NAME}</div>
-                            <div className="text-[9px] text-[#00BAF2] font-mono">+91 {DEFAULT_MERCHANT_PHONE}</div>
+                            <div className="text-[9px] text-[#00BAF2] font-mono">MID: {DEFAULT_MERCHANT_ID}</div>
                           </div>
                         </div>
                       )}
@@ -1299,7 +1306,7 @@ export function PaymentGatewayCheckout() {
                           </div>
                           <div className="text-right">
                             <div className="text-[11px] font-semibold">{DEFAULT_MERCHANT_NAME}</div>
-                            <div className="text-[9px] text-[#C5A880] font-mono">{DEFAULT_SETTLEMENT_BANK}</div>
+                            <div className="text-[9px] text-[#C5A880] font-mono">MID: {DEFAULT_MERCHANT_ID}</div>
                           </div>
                         </div>
                       )}
@@ -1393,9 +1400,12 @@ export function PaymentGatewayCheckout() {
                         </div>
 
                         {/* Instant Settlement info */}
-                        <div className="text-[10px] text-stone-500 pt-1 flex items-center justify-center space-x-1.5">
-                          <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-                          <span>Payments settle Instantly to {DEFAULT_SETTLEMENT_BANK}</span>
+                        <div className="text-[10px] text-stone-500 pt-1 flex flex-col items-center justify-center space-y-0.5">
+                          <div className="flex items-center space-x-1.5">
+                            <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+                            <span>Verified Merchant ID: <strong className="font-mono text-[#002E6E]">{DEFAULT_MERCHANT_ID}</strong></span>
+                          </div>
+                          <span className="text-[9px] text-stone-400">Payments settle instantly to {DEFAULT_SETTLEMENT_BANK}</span>
                         </div>
                       </div>
                     </div>
@@ -2015,6 +2025,10 @@ export function PaymentGatewayCheckout() {
                     <span>{activeTxn.merchantVpa || DEFAULT_MERCHANT_VPA}</span>
                     {copiedVpa ? <Check className="w-3 h-3 text-emerald-600" /> : <Copy className="w-3 h-3 text-[#7E7469]" />}
                   </button>
+                </div>
+                <div className="flex justify-between text-[11px]">
+                  <span className="text-[#7E7469]">Merchant ID</span>
+                  <span className="font-mono text-[#111111]">{activeTxn.merchantId || DEFAULT_MERCHANT_ID}</span>
                 </div>
                 <div className="flex justify-between text-[11px]">
                   <span className="text-[#7E7469]">Settlement Rail</span>

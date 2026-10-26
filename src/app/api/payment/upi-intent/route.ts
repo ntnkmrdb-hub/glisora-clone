@@ -110,6 +110,7 @@ export async function POST(request: NextRequest) {
       currency: "INR",
       merchantVpa,
       merchantName,
+      merchantId: process.env.PAYTM_MERCHANT_ID || "ITEFNN81741247720006",
       status: "PENDING",
     });
   } catch (error) {
