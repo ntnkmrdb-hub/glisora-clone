@@ -31,6 +31,7 @@ import { useCart } from "@/context/cart-context";
 import { formatINR } from "@/lib/utils";
 import { MOCK_PRODUCTS } from "@/lib/shopify/mock-data";
 import { calculateBogoDiscount } from "@/lib/bogo";
+import QRCode from "qrcode";
 
 // Payment Method Tab identifiers matching user's Image 2
 type PaymentTab = "upi" | "cards" | "netbanking" | "cod" | "wallets" | "emi";
@@ -83,6 +84,9 @@ export function PaymentGatewayCheckout() {
   const [isCheckingStatus, setIsCheckingStatus] = useState(false);
   const [copiedVpa, setCopiedVpa] = useState(false);
   const [showOriginalStandee, setShowOriginalStandee] = useState(false);
+  const [localQrDataUrl, setLocalQrDataUrl] = useState<string>("");
+  const [selectedQrType, setSelectedQrType] = useState<"paytm" | "phonepe" | "standee">("paytm");
+  const [desktopModalQrUrl, setDesktopModalQrUrl] = useState<string>("");
   const [errorNotice, setErrorNotice] = useState<string | null>(null);
   const pollIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -159,6 +163,47 @@ export function PaymentGatewayCheckout() {
   const bogoDiscount = bogoResult.discount;
   const gstAmount = Math.round(bogoResult.total * 0.12);
   const totalAmount = bogoResult.total;
+
+  // Generate instantaneous local QR data URL without third-party network dependencies
+  useEffect(() => {
+    const formattedAmount = totalAmount.toFixed(2);
+    let upiString = `upi://pay?pa=${DEFAULT_MERCHANT_VPA}&pn=Paytm&am=${formattedAmount}&cu=INR`;
+    let colorDark = "#002E6E";
+
+    if (selectedQrType === "phonepe") {
+      upiString = `upi://pay?pa=${PHONEPE_DIRECT_VPA}&pn=${encodeURIComponent(DEFAULT_MERCHANT_NAME)}&am=${formattedAmount}&cu=INR`;
+      colorDark = "#5F259F";
+    }
+
+    QRCode.toDataURL(upiString, {
+      errorCorrectionLevel: "M",
+      margin: 1,
+      width: 280,
+      color: {
+        dark: colorDark,
+        light: "#FFFFFF",
+      },
+    })
+      .then((url) => setLocalQrDataUrl(url))
+      .catch((err) => console.error("Error generating QR:", err));
+  }, [totalAmount, selectedQrType]);
+
+  // Generate QR for desktop modal when activeTxn changes
+  useEffect(() => {
+    if (activeTxn?.qrData) {
+      QRCode.toDataURL(activeTxn.qrData, {
+        errorCorrectionLevel: "M",
+        margin: 1,
+        width: 260,
+        color: {
+          dark: activeTxn.targetApp === "phonepe" ? "#5F259F" : "#002E6E",
+          light: "#FFFFFF",
+        },
+      })
+        .then((url) => setDesktopModalQrUrl(url))
+        .catch(() => {});
+    }
+  }, [activeTxn]);
 
   const validateShipping = () => {
     const errors: Record<string, string> = {};
@@ -279,40 +324,44 @@ export function PaymentGatewayCheckout() {
     const cleanNote = encodeURIComponent(`Payment to ${DEFAULT_MERCHANT_NAME}`);
     const cleanAm = totalAmount.toFixed(2);
     const baseUpiParams = `pa=${DEFAULT_MERCHANT_VPA}&pn=${cleanPayeeName}&tn=${cleanNote}&am=${cleanAm}&cu=INR`;
-    // PhonePe uses 9724242503@paytm to guarantee 100% direct bank debit without credit card or merchant terminal restrictions
+    // Clean PhonePe params without mc or tr to ensure direct bank debit with 0% credit card restriction
     const cleanPhonePeParams = `pa=${PHONEPE_DIRECT_VPA}&pn=${cleanPayeeName}&am=${cleanAm}&cu=INR`;
 
     const directAppUrls: Record<UpiApp, string> = {
-      phonepe: `phonepe://pay?${cleanPhonePeParams}`,
-      paytm: `paytmmp://pay?${baseUpiParams}`,
+      phonepe: deviceOS === "IOS"
+        ? `phonepe://pay?${cleanPhonePeParams}`
+        : `intent://pay?${cleanPhonePeParams}#Intent;scheme=upi;package=com.phonepe.app;end`,
+      paytm: deviceOS === "IOS"
+        ? `paytmmp://pay?${baseUpiParams}`
+        : `intent://pay?${baseUpiParams}#Intent;scheme=upi;package=net.one97.paytm;end`,
       gpay: deviceOS === "IOS"
         ? `gpay://upi/pay?${baseUpiParams}`
         : `intent://pay?${baseUpiParams}#Intent;scheme=upi;package=com.google.android.apps.npx.mandates;end`,
       bhim: `upi://pay?${baseUpiParams}`,
     };
 
-    // Helper to safely trigger deep link via anchor tag (guarantees OS protocol routing in Chrome/Safari)
+    // Helper to safely trigger deep link via window.location.assign or anchor tag (guarantees OS protocol routing in Chrome/Safari)
     const triggerDeepLink = (url: string) => {
       try {
-        const link = document.createElement("a");
-        link.href = url;
-        link.style.display = "none";
-        document.body.appendChild(link);
-        link.click();
-        setTimeout(() => {
-          try {
-            if (link.parentNode) document.body.removeChild(link);
-          } catch {}
-        }, 1000);
+        window.location.assign(url);
       } catch {
-        window.location.href = url;
+        try {
+          const link = document.createElement("a");
+          link.href = url;
+          link.rel = "noopener noreferrer";
+          link.style.display = "none";
+          document.body.appendChild(link);
+          link.click();
+          setTimeout(() => {
+            try {
+              if (link.parentNode) document.body.removeChild(link);
+            } catch {}
+          }, 1000);
+        } catch {
+          window.location.href = url;
+        }
       }
     };
-
-    // If on mobile: Immediately trigger the app deep link to avoid browser popup/redirect restrictions
-    if (isMobile) {
-      triggerDeepLink(directAppUrls[appKey]);
-    }
 
     try {
       const res = await fetch("/api/payment/upi-intent", {
@@ -354,51 +403,26 @@ export function PaymentGatewayCheckout() {
         customSchemeUrl,
         genericUpiUrl,
         qrData,
-        merchantVpa: merchantVpa || DEFAULT_MERCHANT_VPA,
+        merchantVpa: merchantVpa || (appKey === "phonepe" ? PHONEPE_DIRECT_VPA : DEFAULT_MERCHANT_VPA),
         merchantName: DEFAULT_MERCHANT_NAME,
         amount: totalAmount,
       };
 
       setActiveTxn(txnInfo);
 
-      // On Desktop: Open desktop QR modal and do not pretend app opened
+      // Start status polling
+      startStatusPolling(txnId, orderId, finalAppName);
+
+      // On Desktop: Open desktop QR modal and finish launching
       if (!isMobile) {
         setShowDesktopModal(true);
         setLaunchingApp(null);
-        startStatusPolling(txnId, orderId, finalAppName);
         return;
       }
 
-      // On Mobile: Attempt to open the specific UPI app
-      startStatusPolling(txnId, orderId, finalAppName);
-
-      let appOpened = false;
-      const handleVisibilityChange = () => {
-        if (document.hidden) {
-          appOpened = true;
-        }
-      };
-      document.addEventListener("visibilitychange", handleVisibilityChange, { once: true });
-
-      // Fallback timer (2500ms): if app did not open and user remains on screen, show missing app dialog
-      setTimeout(() => {
-        document.removeEventListener("visibilitychange", handleVisibilityChange);
-        setLaunchingApp(null);
-
-        if (!appOpened && !document.hidden) {
-          setMissingAppModalData({
-            appName: finalAppName,
-            targetApp: appKey,
-            genericUpiUrl,
-            qrData,
-            txnId,
-            orderId,
-          });
-        }
-      }, 2500);
-
-      // Secondary trigger with authoritative server URL
-      const targetLaunchUrl = appKey === "phonepe" ? directAppUrls.phonepe : intentUrl;
+      // On Mobile: Single clean, authoritative app launch
+      const targetLaunchUrl = directAppUrls[appKey] || intentUrl;
+      setLaunchingApp(null);
       triggerDeepLink(targetLaunchUrl);
     } catch (err) {
       setLaunchingApp(null);
@@ -949,6 +973,48 @@ export function PaymentGatewayCheckout() {
                   {/* Mode A: Four Separate Payment Buttons */}
                   {upiMode === "intent" && (
                     <div className="space-y-4">
+                      {/* In-page Active Transaction Status Card for Mobile */}
+                      {activeTxn && (
+                        <div className="p-4 bg-[#F7FBFF] border-2 border-[#002E6E] text-stone-900 rounded-sm space-y-3 shadow-xs">
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center space-x-2">
+                              <RefreshCw className="w-4 h-4 animate-spin text-[#002E6E]" />
+                              <span className="text-xs font-bold text-[#002E6E]">
+                                {activeTxn.appName} Payment in Progress
+                              </span>
+                            </div>
+                            <span className="text-xs font-bold font-mono text-[#002E6E]">{formatINR(activeTxn.amount)}</span>
+                          </div>
+                          <p className="text-[11px] text-stone-600 leading-relaxed">
+                            Order #{activeTxn.orderId} • Please complete your payment in {activeTxn.appName}. This page will update automatically once confirmed by the bank.
+                          </p>
+                          <div className="flex flex-wrap items-center gap-2 pt-1">
+                            <a
+                              href={activeTxn.intentUrl}
+                              className="px-3 py-1.5 bg-[#002E6E] text-white text-[11px] font-bold rounded-xs hover:bg-[#001f4d] inline-flex items-center space-x-1 cursor-pointer"
+                            >
+                              <span>Reopen {activeTxn.appName}</span>
+                              <ExternalLink className="w-3 h-3" />
+                            </a>
+                            <button
+                              type="button"
+                              onClick={() => checkStatusManual(false)}
+                              disabled={isCheckingStatus}
+                              className="px-3 py-1.5 border border-[#002E6E] text-[#002E6E] text-[11px] font-bold rounded-xs hover:bg-[#EEF6FF] cursor-pointer"
+                            >
+                              {isCheckingStatus ? "Checking Bank..." : "Verify Payment Status"}
+                            </button>
+                            <button
+                              type="button"
+                              onClick={() => setUpiMode("qr")}
+                              className="px-3 py-1.5 border border-stone-300 text-stone-700 text-[11px] font-medium rounded-xs hover:bg-stone-50 cursor-pointer"
+                            >
+                              Show QR Code
+                            </button>
+                          </div>
+                        </div>
+                      )}
+
                       <p className="text-xs text-[#7E7469] leading-relaxed">
                         Click your preferred payment app below. On mobile devices, your chosen UPI application will open directly with your order details pre-filled.
                       </p>
@@ -1121,11 +1187,17 @@ export function PaymentGatewayCheckout() {
                         {/* Option 5: 100% Guaranteed Direct Bank Transfer (Bypasses all PhonePe Credit Card restrictions) */}
                         <div className="pt-3 border-t border-[#E8E1D5] space-y-1.5">
                           <div className="text-[11px] font-semibold text-[#111111] flex items-center justify-between">
-                            <span>PhonePe માં ક્રેડિટ કાર્ડ એરર આવતી હોય તો ડાયરેક્ટ વિકલ્પ:</span>
+                            <span>PhonePe માં ક્રેડિટ કાર્ડ એરર વગર ડાયરેક્ટ પેમેન્ટ:</span>
                             <span className="text-[9px] text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded font-bold uppercase tracking-wider">0% Error</span>
                           </div>
                           <a
-                            href={`phonepe://pay?pa=9724242503@ybl&pn=${encodeURIComponent(DEFAULT_MERCHANT_NAME)}&am=${totalAmount.toFixed(2)}&cu=INR`}
+                            href={
+                              typeof window !== "undefined" && /android/i.test(navigator.userAgent)
+                                ? `intent://pay?pa=${DEFAULT_MERCHANT_VPA}&pn=${encodeURIComponent(DEFAULT_MERCHANT_NAME)}&am=${totalAmount.toFixed(2)}&cu=INR#Intent;scheme=upi;package=com.phonepe.app;end`
+                                : typeof window !== "undefined" && /iphone|ipad|ipod/i.test(navigator.userAgent)
+                                ? `phonepe://pay?pa=${DEFAULT_MERCHANT_VPA}&pn=${encodeURIComponent(DEFAULT_MERCHANT_NAME)}&am=${totalAmount.toFixed(2)}&cu=INR`
+                                : `upi://pay?pa=${DEFAULT_MERCHANT_VPA}&pn=${encodeURIComponent(DEFAULT_MERCHANT_NAME)}&am=${totalAmount.toFixed(2)}&cu=INR`
+                            }
                             className="w-full flex items-center justify-between p-3.5 border-2 border-emerald-600 bg-emerald-50 hover:bg-emerald-100 transition-all text-left group cursor-pointer shadow-xs rounded-xs"
                           >
                             <div className="flex items-center space-x-3">
@@ -1134,7 +1206,7 @@ export function PaymentGatewayCheckout() {
                               </div>
                               <div>
                                 <div className="text-xs font-bold text-emerald-950 flex items-center space-x-1.5">
-                                  <span>Pay via Direct PhonePe UPI (9724242503@ybl)</span>
+                                  <span>Pay via Direct PhonePe UPI ({DEFAULT_MERCHANT_VPA})</span>
                                 </div>
                                 <div className="text-[10px] text-emerald-800">
                                   PhonePe માં કોઈ પણ એરર વગર ડાયરેક્ટ તમારા બેંક ખાતામાંથી પેમેન્ટ થઈ જશે
@@ -1151,29 +1223,102 @@ export function PaymentGatewayCheckout() {
                   {/* Mode B: Dynamic QR Code */}
                   {upiMode === "qr" && (
                     <div className="flex flex-col items-center justify-center p-4 sm:p-6 border border-[#002E6E]/20 bg-white space-y-4 text-center shadow-xs">
-                      {/* Paytm for Business Header */}
-                      <div className="w-full max-w-sm bg-[#002E6E] text-white p-3 rounded-t-lg flex items-center justify-between">
-                        <div className="flex items-center space-x-2">
-                          <div className="bg-white px-2 py-0.5 rounded text-[10px] font-bold">
-                            <span className="text-[#002E6E]">Pay</span><span className="text-[#00BAF2]">tm</span>
-                          </div>
-                          <span className="text-[11px] font-medium tracking-wide">for Business</span>
-                        </div>
-                        <div className="text-right">
-                          <div className="text-[11px] font-semibold">{DEFAULT_MERCHANT_NAME}</div>
-                          <div className="text-[9px] text-[#00BAF2] font-mono">+91 {DEFAULT_MERCHANT_PHONE}</div>
-                        </div>
+                      {/* Selectable Tabs: Paytm, PhonePe, Standee */}
+                      <div className="w-full max-w-sm grid grid-cols-3 gap-1 p-1 bg-stone-100 rounded-sm border border-stone-200">
+                        <button
+                          type="button"
+                          onClick={() => setSelectedQrType("paytm")}
+                          className={`py-1.5 px-2 text-[11px] font-bold rounded-xs transition-all cursor-pointer flex items-center justify-center space-x-1 ${
+                            selectedQrType === "paytm"
+                              ? "bg-[#002E6E] text-white shadow-xs"
+                              : "text-stone-700 hover:text-stone-900 hover:bg-stone-200/60"
+                          }`}
+                        >
+                          <span>Paytm QR</span>
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => setSelectedQrType("phonepe")}
+                          className={`py-1.5 px-2 text-[11px] font-bold rounded-xs transition-all cursor-pointer flex items-center justify-center space-x-1 ${
+                            selectedQrType === "phonepe"
+                              ? "bg-[#5F259F] text-white shadow-xs"
+                              : "text-stone-700 hover:text-stone-900 hover:bg-stone-200/60"
+                          }`}
+                        >
+                          <span>PhonePe QR</span>
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => setSelectedQrType("standee")}
+                          className={`py-1.5 px-2 text-[11px] font-bold rounded-xs transition-all cursor-pointer flex items-center justify-center space-x-1 ${
+                            selectedQrType === "standee"
+                              ? "bg-stone-900 text-white shadow-xs"
+                              : "text-stone-700 hover:text-stone-900 hover:bg-stone-200/60"
+                          }`}
+                        >
+                          <span>Standee Photo</span>
+                        </button>
                       </div>
 
-                      {/* Yellow Promo Ribbon */}
+                      {/* Header based on selected QR */}
+                      {selectedQrType === "paytm" && (
+                        <div className="w-full max-w-sm bg-[#002E6E] text-white p-3 rounded-t-lg flex items-center justify-between">
+                          <div className="flex items-center space-x-2">
+                            <div className="bg-white px-2 py-0.5 rounded text-[10px] font-bold">
+                              <span className="text-[#002E6E]">Pay</span><span className="text-[#00BAF2]">tm</span>
+                            </div>
+                            <span className="text-[11px] font-medium tracking-wide">for Business</span>
+                          </div>
+                          <div className="text-right">
+                            <div className="text-[11px] font-semibold">{DEFAULT_MERCHANT_NAME}</div>
+                            <div className="text-[9px] text-[#00BAF2] font-mono">+91 {DEFAULT_MERCHANT_PHONE}</div>
+                          </div>
+                        </div>
+                      )}
+
+                      {selectedQrType === "phonepe" && (
+                        <div className="w-full max-w-sm bg-[#5F259F] text-white p-3 rounded-t-lg flex items-center justify-between">
+                          <div className="flex items-center space-x-2">
+                            <div className="w-6 h-6 rounded-full bg-white text-[#5F259F] flex items-center justify-center font-bold text-xs">
+                              पे
+                            </div>
+                            <span className="text-[11px] font-bold tracking-wide">PhonePe Direct</span>
+                          </div>
+                          <div className="text-right">
+                            <div className="text-[11px] font-semibold">{DEFAULT_MERCHANT_NAME}</div>
+                            <div className="text-[9px] text-purple-200 font-mono">0% Credit Card Error</div>
+                          </div>
+                        </div>
+                      )}
+
+                      {selectedQrType === "standee" && (
+                        <div className="w-full max-w-sm bg-stone-900 text-white p-3 rounded-t-lg flex items-center justify-between">
+                          <div className="flex items-center space-x-2">
+                            <QrCode className="w-4 h-4 text-[#C5A880]" />
+                            <span className="text-[11px] font-semibold tracking-wide">Original Counter Standee</span>
+                          </div>
+                          <div className="text-right">
+                            <div className="text-[11px] font-semibold">{DEFAULT_MERCHANT_NAME}</div>
+                            <div className="text-[9px] text-[#C5A880] font-mono">{DEFAULT_SETTLEMENT_BANK}</div>
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Promo Ribbon */}
                       <div className="w-full max-w-sm -mt-4 bg-[#FFDE00] text-[#111111] py-1.5 px-3 text-[10px] font-bold uppercase tracking-wider flex items-center justify-center space-x-1.5 shadow-2xs">
                         <Sparkles className="w-3.5 h-3.5 text-[#002E6E]" />
-                        <span>Scan in Paytm App, GPay, PhonePe or Any UPI</span>
+                        <span>
+                          {selectedQrType === "phonepe"
+                            ? "Scan with PhonePe, GPay or Any UPI App"
+                            : selectedQrType === "standee"
+                            ? "Original Scanned Merchant QR Standee"
+                            : "Scan in Paytm App, GPay, PhonePe or Any UPI"}
+                        </span>
                       </div>
 
                       {/* QR Display */}
                       <div className="p-4 bg-white border border-[#D8D1C7] shadow-sm max-w-sm w-full flex flex-col items-center space-y-3">
-                        {showOriginalStandee ? (
+                        {selectedQrType === "standee" ? (
                           <div className="w-64 h-80 relative flex flex-col items-center justify-center bg-stone-50 border border-stone-200 p-2 overflow-hidden">
                             <img
                               src="/images/paytm-business-qr-uploaded.png"
@@ -1182,26 +1327,22 @@ export function PaymentGatewayCheckout() {
                             />
                           </div>
                         ) : (
-                          <div className="w-56 h-56 bg-white flex flex-col items-center justify-center border-2 border-[#002E6E]/20 p-2 relative">
-                            <img
-                              src={`https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(
-                                `upi://pay?pa=${DEFAULT_MERCHANT_VPA}&pn=${encodeURIComponent(DEFAULT_MERCHANT_NAME)}&tn=Payment%20to%20Desai%20Sandipbhai%20Mansukhbhai&am=${totalAmount.toFixed(2)}&cu=INR`
-                              )}`}
-                              alt="Paytm Bharat UPI QR Code"
-                              className="w-52 h-52 object-contain"
-                            />
+                          <div className={`w-56 h-56 bg-white flex flex-col items-center justify-center border-2 p-2 relative ${
+                            selectedQrType === "phonepe" ? "border-[#5F259F]/30" : "border-[#002E6E]/20"
+                          }`}>
+                            {localQrDataUrl ? (
+                              <img
+                                src={localQrDataUrl}
+                                alt={selectedQrType === "phonepe" ? "PhonePe UPI QR Code" : "Paytm Bharat UPI QR Code"}
+                                className="w-52 h-52 object-contain"
+                              />
+                            ) : (
+                              <div className="w-52 h-52 flex items-center justify-center">
+                                <RefreshCw className="w-6 h-6 animate-spin text-stone-400" />
+                              </div>
+                            )}
                           </div>
                         )}
-
-                        {/* Toggle between Dynamic and Standee view */}
-                        <button
-                          type="button"
-                          onClick={() => setShowOriginalStandee(!showOriginalStandee)}
-                          className="text-[10px] text-[#002E6E] font-medium hover:underline flex items-center space-x-1 cursor-pointer"
-                        >
-                          <QrCode className="w-3 h-3" />
-                          <span>{showOriginalStandee ? `Switch to Dynamic Pre-filled QR (${formatINR(totalAmount)})` : "View Official Standee Photo"}</span>
-                        </button>
                       </div>
 
                       {/* PhonePe / GPay Savings Account Tip */}
@@ -1833,11 +1974,17 @@ export function PaymentGatewayCheckout() {
             {/* QR Code Container */}
             <div className="flex flex-col items-center justify-center p-5 bg-[#FAF8F5] border border-[#E8E1D5] space-y-3">
               <div className="p-3 bg-white border border-[#D8D1C7] shadow-sm">
-                <img
-                  src={`https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(activeTxn.qrData)}`}
-                  alt={`${activeTxn.appName} QR Code`}
-                  className="w-48 h-48 object-contain"
-                />
+                {desktopModalQrUrl || localQrDataUrl ? (
+                  <img
+                    src={desktopModalQrUrl || localQrDataUrl}
+                    alt={`${activeTxn.appName} QR Code`}
+                    className="w-48 h-48 object-contain"
+                  />
+                ) : (
+                  <div className="w-48 h-48 flex items-center justify-center">
+                    <RefreshCw className="w-6 h-6 animate-spin text-[#C5A880]" />
+                  </div>
+                )}
               </div>
 
               <div className="text-center space-y-1">

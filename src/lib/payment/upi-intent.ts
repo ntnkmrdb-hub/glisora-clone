@@ -115,7 +115,7 @@ export function buildUpiIntent(params: UpiIntentParams): UpiIntentResult {
   const formattedAmount = params.amount.toFixed(2);
   const mcc = params.mcc !== undefined ? params.mcc : "5691";
   const mcParam = mcc ? `&mc=${mcc}` : "";
-  // Do not append tr or mc for PhonePe custom schemes to avoid triggering strict merchant POS credit-card validation
+  // Do not append tr for PhonePe to prevent strict merchant POS credit-card validation failures
   const trParam = (params.txnRef && params.targetApp !== "phonepe") ? `&tr=${params.txnRef}` : "";
 
   // 1. Generic NPCI Standard URI
