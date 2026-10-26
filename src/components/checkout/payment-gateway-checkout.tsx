@@ -1053,20 +1053,20 @@ export function PaymentGatewayCheckout() {
                       <div className="p-4 bg-amber-50 border-2 border-amber-400 text-amber-950 rounded-md text-xs space-y-2 shadow-sm">
                         <div className="flex items-center space-x-2 font-bold text-amber-950 text-sm">
                           <AlertCircle className="w-5 h-5 text-amber-600 shrink-0" />
-                          <span>PhonePe &amp; UPI પેમેન્ટ માટે અગત્યની સૂચના</span>
+                          <span>PhonePe માં આ એરર કેમ આવે છે અને તેનો ૧૦૦% ઉકેલ:</span>
                         </div>
                         <div className="space-y-1.5 text-[11px] text-amber-900 leading-relaxed">
                           <p className="font-semibold text-stone-900">
-                            📱 PhonePe ખુલ્યા પછી ૧ સરળ સ્ટેપ કરો:
+                            🔍 ₹૧૪૯ ની રકમ ₹૫૦૦ કરતાં ઓછી હોવાથી PhonePe આપોઆપ <strong>&ldquo;UPI LITE&rdquo;</strong> (Prepaid Instrument) અથવા ક્રેડિટ કાર્ડ પસંદ કરી લે છે. આ એરર હટાવવા માટે:
                           </p>
                           <ul className="list-disc pl-4 space-y-1 text-stone-800">
-                            <li>PhonePe ની સ્ક્રીન પર <strong>&ldquo;Pay ₹...&rdquo;</strong> દબાવતા પહેલાં નીચે <strong>&ldquo;Debited from&rdquo;</strong> જુઓ.</li>
-                            <li>જો ત્યાં ક્રેડિટ કાર્ડ અથવા વોલેટ દેખાય, તો તેના પર ટેપ કરીને તમારું <strong>Bank Savings Account</strong> (બેંક સેવિંગ્સ એકાઉન્ટ) પસંદ કરો.</li>
-                            <li>તમારો UPI PIN નાખો — <strong>પેમેન્ટ ૧ સેકન્ડમાં ડાયરેક્ટ સફળ (Success) થઈ જશે!</strong></li>
+                            <li>PhonePe માં નીચે <strong>&ldquo;Pay ₹149&rdquo;</strong> દબાવતા પહેલાં <strong>&ldquo;Debited from / એકાઉન્ટ સિલેક્ટ&rdquo;</strong> પર ક્લિક કરો.</li>
+                            <li>ત્યાં <strong>UPI LITE</strong> કે ક્રેડિટ કાર્ડમાંથી ટીક હટાવીને તમારી <strong>સામાન્ય બેંક (Savings Account)</strong> પસંદ કરો.</li>
+                            <li>તમારો ૪ કે ૬ આંકડાનો <strong>UPI PIN</strong> નાખીને પેમેન્ટ કરો ➔ પેમેન્ટ તરત જ ૧૦૦% સફળ થઈ જશે!</li>
                           </ul>
                         </div>
                         <p className="text-[10px] text-amber-800 border-t border-amber-300/80 pt-1.5 mt-1 font-mono">
-                          Merchant: Desai Sandipbhai Mansukhbhai • VPA: paytm.s4ecjea@pty • AXIS BANK ****1071
+                          Paytm Merchant: Desai Sandipbhai Mansukhbhai • MID: {DEFAULT_MERCHANT_ID} • AXIS BANK ****1071
                         </p>
                       </div>
 
