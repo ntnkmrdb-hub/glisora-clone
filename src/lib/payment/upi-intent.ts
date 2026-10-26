@@ -88,6 +88,7 @@ export interface TransactionRecord {
   status: "PENDING" | "COMPLETED" | "FAILED" | "CANCELLED";
   targetApp: UpiTargetApp;
   utr?: string;
+  failureReason?: string;
   createdAt: number;
   updatedAt: number;
 }

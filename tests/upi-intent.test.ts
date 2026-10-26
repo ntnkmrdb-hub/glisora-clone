@@ -250,5 +250,166 @@ describe("GLISORA App-Specific UPI Intent Service", () => {
       expect(data.status).toBe("COMPLETED");
       expect(data.utr).toBeDefined();
     });
+
+    it("Scenario 2 & 5: handles FAILED payment and unsupported payment instrument", async () => {
+      const registry = getTransactionRegistry();
+      registry.set("TXN_FAIL_TEST", {
+        txnId: "TXN_FAIL_TEST",
+        orderId: "GLIS-88888",
+        amount: 149,
+        currency: "INR",
+        status: "PENDING",
+        targetApp: "phonepe",
+        createdAt: Date.now(),
+        updatedAt: Date.now(),
+      });
+
+      const failReq = new NextRequest("http://localhost:3000/api/payment/verify-status", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          txnId: "TXN_FAIL_TEST",
+          action: "FAIL_PAYMENT",
+          reason: "UNSUPPORTED_PAYMENT_INSTRUMENT: Merchant does not accept RuPay Credit Card / PPI on UPI",
+        }),
+      });
+
+      const failRes = await handleVerifyStatusPost(failReq);
+      expect(failRes.status).toBe(200);
+      const failData = await failRes.json();
+      expect(failData.status).toBe("FAILED");
+      expect(failData.failureReason).toContain("UNSUPPORTED_PAYMENT_INSTRUMENT");
+
+      // Verify GET reflects the failure reason to the client
+      const checkReq = new NextRequest("http://localhost:3000/api/payment/verify-status?txnId=TXN_FAIL_TEST");
+      const checkRes = await handleVerifyStatusGet(checkReq);
+      const checkData = await checkRes.json();
+      expect(checkData.status).toBe("FAILED");
+      expect(checkData.failureReason).toContain("UNSUPPORTED_PAYMENT_INSTRUMENT");
+    });
+
+    it("Scenario 3: handles CANCELLED payment when user abandons or cancels payment", async () => {
+      const registry = getTransactionRegistry();
+      registry.set("TXN_CANCEL_TEST", {
+        txnId: "TXN_CANCEL_TEST",
+        orderId: "GLIS-77777",
+        amount: 349,
+        currency: "INR",
+        status: "PENDING",
+        targetApp: "paytm",
+        createdAt: Date.now(),
+        updatedAt: Date.now(),
+      });
+
+      const cancelReq = new NextRequest("http://localhost:3000/api/payment/verify-status", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          txnId: "TXN_CANCEL_TEST",
+          action: "CANCEL_PAYMENT",
+        }),
+      });
+
+      const cancelRes = await handleVerifyStatusPost(cancelReq);
+      expect(cancelRes.status).toBe(200);
+      const cancelData = await cancelRes.json();
+      expect(cancelData.status).toBe("CANCELLED");
+      expect(cancelData.failureReason).toBe("CUSTOMER_CANCELLED");
+    });
+
+    it("Scenario 7: provides generic fallback UPI URL and QR data when no compatible app is installed", () => {
+      const fallbackResult = buildUpiIntent({
+        merchantVpa: "paytm.s4ecjea@pty",
+        merchantName: "Desai Sandipbhai Mansukhbhai",
+        txnId: "TXN_FALLBACK_123",
+        txnRef: "TXN_FALLBACK_123",
+        amount: 149,
+        note: "Order NAV-12345",
+        targetApp: "phonepe",
+        isAndroid: false,
+        isIos: false,
+      });
+
+      expect(fallbackResult.genericUpiUrl).toContain("upi://pay?");
+      expect(fallbackResult.genericUpiUrl).toContain("pa=paytm.s4ecjea@pty");
+      expect(fallbackResult.genericUpiUrl).toContain("am=149.00");
+      expect(fallbackResult.qrData).toBe(fallbackResult.genericUpiUrl);
+      expect(fallbackResult.intentUrl).toBe(fallbackResult.genericUpiUrl);
+    });
+
+    it("Scenario 13: generates isolated, unique transaction IDs for payment retries", async () => {
+      const req1 = new NextRequest("http://localhost:3000/api/payment/upi-intent", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ targetApp: "phonepe", amount: 149 }),
+      });
+      const res1 = await handleUpiIntent(req1);
+      const data1 = await res1.json();
+
+      const req2 = new NextRequest("http://localhost:3000/api/payment/upi-intent", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ targetApp: "phonepe", amount: 149 }),
+      });
+      const res2 = await handleUpiIntent(req2);
+      const data2 = await res2.json();
+
+      expect(data1.txnId).not.toBe(data2.txnId);
+      expect(data1.orderId).not.toBe(data2.orderId);
+    });
+
+    it("Scenario 14: handles delayed gateway response gracefully during polling", async () => {
+      const registry = getTransactionRegistry();
+      registry.set("TXN_DELAYED_TEST", {
+        txnId: "TXN_DELAYED_TEST",
+        orderId: "GLIS-55555",
+        amount: 299,
+        currency: "INR",
+        status: "PENDING",
+        targetApp: "gpay",
+        createdAt: Date.now() - 30000,
+        updatedAt: Date.now() - 30000,
+      });
+
+      // Poll 1: still pending
+      const poll1 = await handleVerifyStatusGet(
+        new NextRequest("http://localhost:3000/api/payment/verify-status?txnId=TXN_DELAYED_TEST")
+      );
+      const data1 = await poll1.json();
+      expect(data1.status).toBe("PENDING");
+
+      // Gateway finally confirms
+      const record = registry.get("TXN_DELAYED_TEST");
+      if (record) {
+        record.status = "COMPLETED";
+        record.utr = "UTR998877665544";
+        registry.set("TXN_DELAYED_TEST", record);
+      }
+
+      // Poll 2: completed
+      const poll2 = await handleVerifyStatusGet(
+        new NextRequest("http://localhost:3000/api/payment/verify-status?txnId=TXN_DELAYED_TEST")
+      );
+      const data2 = await poll2.json();
+      expect(data2.status).toBe("COMPLETED");
+      expect(data2.utr).toBe("UTR998877665544");
+    });
+
+    it("Scenario 15: validates Android WebView / Chrome Intent URI formatting", () => {
+      const intentResult = buildUpiIntent({
+        merchantVpa: "paytm.s4ecjea@pty",
+        merchantName: "Desai Sandipbhai Mansukhbhai",
+        txnId: "TXN_WEBVIEW_101",
+        txnRef: "TXN_WEBVIEW_101",
+        amount: 149,
+        note: "Order NAV-101",
+        targetApp: "phonepe",
+        isAndroid: true,
+      });
+
+      expect(intentResult.intentUrl).toMatch(/^intent:\/\/pay\?/);
+      expect(intentResult.intentUrl).toContain("#Intent;scheme=upi;package=com.phonepe.app;end");
+      expect(intentResult.customSchemeUrl).toMatch(/^phonepe:\/\/pay\?/);
+    });
   });
 });

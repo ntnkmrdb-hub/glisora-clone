@@ -34,6 +34,7 @@ export async function GET(request: NextRequest) {
       orderId: record.orderId,
       status: record.status,
       utr: record.utr || null,
+      failureReason: record.failureReason || null,
       amount: record.amount,
       currency: record.currency,
       targetApp: record.targetApp,
@@ -65,11 +66,17 @@ export async function POST(request: NextRequest) {
 
     if (action === "CONFIRM_PAYMENT") {
       record.status = "COMPLETED";
-      record.utr = "UTR" + Math.floor(100000000000 + Math.random() * 900000000000);
+      record.utr = body.utr || ("UTR" + Math.floor(100000000000 + Math.random() * 900000000000));
+      record.updatedAt = Date.now();
+      registry.set(txnId, record);
+    } else if (action === "FAIL_PAYMENT") {
+      record.status = "FAILED";
+      record.failureReason = body.reason || "UNSUPPORTED_PAYMENT_INSTRUMENT";
       record.updatedAt = Date.now();
       registry.set(txnId, record);
     } else if (action === "CANCEL_PAYMENT") {
       record.status = "CANCELLED";
+      record.failureReason = "CUSTOMER_CANCELLED";
       record.updatedAt = Date.now();
       registry.set(txnId, record);
     }
@@ -79,6 +86,7 @@ export async function POST(request: NextRequest) {
       orderId: record.orderId,
       status: record.status,
       utr: record.utr || null,
+      failureReason: record.failureReason || null,
       amount: record.amount,
       currency: record.currency,
     });
