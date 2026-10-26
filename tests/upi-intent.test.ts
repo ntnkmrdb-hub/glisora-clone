@@ -27,8 +27,8 @@ describe("GLISORA App-Specific UPI Intent Service", () => {
 
   describe("buildUpiIntent Generator", () => {
     const baseParams = {
-      merchantVpa: "glisora.atelier@icici",
-      merchantName: "GLISORA Luxury Atelier",
+      merchantVpa: "narolamilan123@okicici",
+      merchantName: "Milan Narola",
       txnId: "TXN_TEST_12345",
       txnRef: "TXN_TEST_12345",
       amount: 45000,
@@ -46,7 +46,7 @@ describe("GLISORA App-Specific UPI Intent Service", () => {
       expect(result.appName).toBe("Google Pay");
       expect(result.androidPackage).toBe("com.google.android.apps.npx.mandates");
       expect(result.intentUrl).toContain("intent://pay?");
-      expect(result.intentUrl).toContain("pa=glisora.atelier@icici");
+      expect(result.intentUrl).toContain("pa=narolamilan123@okicici");
       expect(result.intentUrl).toContain("package=com.google.android.apps.npx.mandates");
       expect(result.intentUrl).toContain("scheme=upi");
       expect(result.genericUpiUrl).toContain("upi://pay?");
@@ -319,8 +319,8 @@ describe("GLISORA App-Specific UPI Intent Service", () => {
 
     it("Scenario 7: provides generic fallback UPI URL and QR data when no compatible app is installed", () => {
       const fallbackResult = buildUpiIntent({
-        merchantVpa: "paytm.s4ecjea@pty",
-        merchantName: "Desai Sandipbhai Mansukhbhai",
+        merchantVpa: "narolamilan123@okicici",
+        merchantName: "Milan Narola",
         txnId: "TXN_FALLBACK_123",
         txnRef: "TXN_FALLBACK_123",
         amount: 149,
@@ -331,7 +331,7 @@ describe("GLISORA App-Specific UPI Intent Service", () => {
       });
 
       expect(fallbackResult.genericUpiUrl).toContain("upi://pay?");
-      expect(fallbackResult.genericUpiUrl).toContain("pa=paytm.s4ecjea@pty");
+      expect(fallbackResult.genericUpiUrl).toContain("pa=narolamilan123@okicici");
       expect(fallbackResult.genericUpiUrl).toContain("am=149.00");
       expect(fallbackResult.qrData).toBe(fallbackResult.genericUpiUrl);
       expect(fallbackResult.intentUrl).toBe(fallbackResult.genericUpiUrl);
@@ -397,8 +397,8 @@ describe("GLISORA App-Specific UPI Intent Service", () => {
 
     it("Scenario 15: validates Android WebView / Chrome Intent URI formatting", () => {
       const intentResult = buildUpiIntent({
-        merchantVpa: "paytm.s4ecjea@pty",
-        merchantName: "Desai Sandipbhai Mansukhbhai",
+        merchantVpa: "narolamilan123@okicici",
+        merchantName: "Navrang Clothing",
         txnId: "TXN_WEBVIEW_101",
         txnRef: "TXN_WEBVIEW_101",
         amount: 149,

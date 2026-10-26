@@ -474,7 +474,7 @@ export function PaymentGatewayCheckout() {
         orderId,
         txnId,
         utr,
-        method: activeTxn ? `${activeTxn.appName} (UPI)` : "UPI Instant Payment",
+        method: activeTxn ? `${activeTxn.appName} UPI (${DEFAULT_MERCHANT_VPA})` : `Universal UPI (${DEFAULT_MERCHANT_VPA})`,
         amount: totalAmount,
       });
     } catch {
@@ -544,12 +544,12 @@ export function PaymentGatewayCheckout() {
       const generatedTxnId = "TXN_NAV_" + Math.random().toString(36).substring(2, 12).toUpperCase();
       const generatedUtr = "UTR" + Math.floor(100000000000 + Math.random() * 900000000000);
 
-      let methodLabel = "Paytm for Business (UPI)";
+      let methodLabel = `Universal UPI (${DEFAULT_MERCHANT_VPA})`;
       if (activeTab === "upi") {
-        if (selectedUpiApp === "paytm") methodLabel = "Paytm (UPI)";
-        else if (selectedUpiApp === "phonepe") methodLabel = "PhonePe (UPI)";
-        else if (selectedUpiApp === "gpay") methodLabel = "Google Pay (UPI)";
-        else methodLabel = "BHIM (UPI)";
+        if (selectedUpiApp === "paytm") methodLabel = `Paytm UPI (${DEFAULT_MERCHANT_VPA})`;
+        else if (selectedUpiApp === "phonepe") methodLabel = `PhonePe UPI (${DEFAULT_MERCHANT_VPA})`;
+        else if (selectedUpiApp === "gpay") methodLabel = `Google Pay UPI (${DEFAULT_MERCHANT_VPA})`;
+        else methodLabel = `BHIM UPI (${DEFAULT_MERCHANT_VPA})`;
       } else if (activeTab === "cards") {
         methodLabel = "Credit / Debit Card (Visa/RuPay/Mastercard)";
       } else if (activeTab === "cod") {

@@ -37,7 +37,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({
         checkoutUrl: "/checkout",
         isMock: true,
-        provider: "PhonePe Payment Gateway (Sandbox Mode)",
+        provider: "PhonePe & Universal UPI Gateway (narolamilan123@okicici)",
         message: "Proceeding to NAVRANG CLOTHING Secure Payment Gateway.",
       });
     }

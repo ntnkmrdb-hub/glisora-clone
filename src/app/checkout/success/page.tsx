@@ -38,14 +38,14 @@ export default async function CheckoutSuccessPage({ searchParams }: Props) {
         <div className="bg-[#FAF8F5] border border-[#C5A880]/50 p-4 text-xs text-[#7E7469] max-w-lg mx-auto mb-8 text-left space-y-1">
           <strong className="block text-[#111111] font-semibold">Sandbox Simulation Notice:</strong>
           <p>
-            You are viewing this confirmation in developer sandbox mode. In live production, final payment authorization is securely executed via PhonePe Payment Gateway on Shopify&apos;s Level 1 PCI-DSS checkout domain.
+            You are viewing this confirmation in developer sandbox mode. In live production, final payment authorization is securely executed via UPI (narolamilan123@okicici) &amp; Payment Gateway on Shopify&apos;s Level 1 PCI-DSS checkout domain.
           </p>
         </div>
       ) : (
         <div className="bg-[#FAF8F5] border border-[#E8E1D5] p-4 text-xs text-[#7E7469] max-w-lg mx-auto mb-8 text-left space-y-1">
           <strong className="block text-[#111111] font-semibold">Authoritative Payment Verification:</strong>
           <p>
-            Your transaction is verified authoritatively via Shopify and PhonePe Payment Gateway. Official payment receipts, GST tax breakdown, and dispatch updates are delivered directly to your registered email.
+            Your transaction is verified authoritatively via Shopify and UPI Payment Gateway (narolamilan123@okicici). Official payment receipts, GST tax breakdown, and dispatch updates are delivered directly to your registered email.
           </p>
         </div>
       )}
