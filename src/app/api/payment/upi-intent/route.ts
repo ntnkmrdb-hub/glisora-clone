@@ -66,7 +66,7 @@ export async function POST(request: NextRequest) {
     const merchantVpa = process.env.PHONEPE_MERCHANT_VPA || process.env.NEXT_PUBLIC_MERCHANT_VPA || "paytm.s4ecjea@pty";
     const merchantName = process.env.MERCHANT_NAME || process.env.NEXT_PUBLIC_MERCHANT_NAME || "Desai Sandipbhai Mansukhbhai";
 
-    // 3. Build App-Specific UPI Intent (Omit restrictive MCC so all bank accounts & UPI apps work seamlessly)
+    // 3. Build App-Specific UPI Intent for Desai Sandipbhai Mansukhbhai
     const intentResult = buildUpiIntent({
       merchantVpa,
       merchantName,
@@ -74,7 +74,7 @@ export async function POST(request: NextRequest) {
       txnId,
       txnRef: txnId,
       amount: authoritativeAmount,
-      note: `NAVRANG CLOTHING Order ${orderId}`,
+      note: `Payment to ${merchantName} - Order ${orderId}`,
       targetApp: targetApp as UpiTargetApp,
       isAndroid: deviceOS === "ANDROID",
       isIos: deviceOS === "IOS",
@@ -100,6 +100,7 @@ export async function POST(request: NextRequest) {
       targetApp: intentResult.targetApp,
       appName: intentResult.appName,
       intentUrl: intentResult.intentUrl,
+      customSchemeUrl: intentResult.customSchemeUrl,
       genericUpiUrl: intentResult.genericUpiUrl,
       qrData: intentResult.qrData,
       androidPackage: intentResult.androidPackage,

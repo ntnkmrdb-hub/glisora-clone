@@ -42,6 +42,7 @@ interface ActiveTxnInfo {
   targetApp: UpiApp;
   appName: string;
   intentUrl: string;
+  customSchemeUrl?: string;
   genericUpiUrl: string;
   qrData: string;
   merchantVpa: string;
@@ -271,6 +272,44 @@ export function PaymentGatewayCheckout() {
 
     const { isMobile, deviceOS } = getDeviceInfo();
 
+    // 1. Direct deep links for instant, unblocked mobile launch (PhonePe, Paytm, GPay, BHIM)
+    const cleanPayeeName = encodeURIComponent(DEFAULT_MERCHANT_NAME);
+    const cleanNote = encodeURIComponent(`Payment to ${DEFAULT_MERCHANT_NAME}`);
+    const cleanAm = totalAmount.toFixed(2);
+    const baseUpiParams = `pa=${DEFAULT_MERCHANT_VPA}&pn=${cleanPayeeName}&tn=${cleanNote}&am=${cleanAm}&cu=INR`;
+
+    const directAppUrls: Record<UpiApp, string> = {
+      phonepe: `phonepe://pay?${baseUpiParams}`,
+      paytm: `paytmmp://pay?${baseUpiParams}`,
+      gpay: deviceOS === "IOS"
+        ? `gpay://upi/pay?${baseUpiParams}`
+        : `intent://pay?${baseUpiParams}#Intent;scheme=upi;package=com.google.android.apps.npx.mandates;end`,
+      bhim: `upi://pay?${baseUpiParams}`,
+    };
+
+    // Helper to safely trigger deep link via anchor tag (guarantees OS protocol routing in Chrome/Safari)
+    const triggerDeepLink = (url: string) => {
+      try {
+        const link = document.createElement("a");
+        link.href = url;
+        link.style.display = "none";
+        document.body.appendChild(link);
+        link.click();
+        setTimeout(() => {
+          try {
+            if (link.parentNode) document.body.removeChild(link);
+          } catch {}
+        }, 1000);
+      } catch {
+        window.location.href = url;
+      }
+    };
+
+    // If on mobile: Immediately trigger the app deep link to avoid browser popup/redirect restrictions
+    if (isMobile) {
+      triggerDeepLink(directAppUrls[appKey]);
+    }
+
     try {
       const res = await fetch("/api/payment/upi-intent", {
         method: "POST",
@@ -291,7 +330,7 @@ export function PaymentGatewayCheckout() {
         throw new Error(errorMsg);
       }
 
-      const { txnId, orderId, intentUrl, genericUpiUrl, qrData, appName, merchantVpa } = data;
+      const { txnId, orderId, intentUrl, customSchemeUrl, genericUpiUrl, qrData, appName, merchantVpa } = data;
 
       const appDisplayNames: Record<UpiApp, string> = {
         gpay: "Google Pay",
@@ -308,9 +347,11 @@ export function PaymentGatewayCheckout() {
         targetApp: appKey,
         appName: finalAppName,
         intentUrl,
+        customSchemeUrl,
         genericUpiUrl,
         qrData,
         merchantVpa: merchantVpa || DEFAULT_MERCHANT_VPA,
+        merchantName: DEFAULT_MERCHANT_NAME,
         amount: totalAmount,
       };
 
@@ -352,8 +393,9 @@ export function PaymentGatewayCheckout() {
         }
       }, 2500);
 
-      // Launch intent
-      window.location.assign(intentUrl);
+      // Secondary trigger with authoritative server URL
+      const targetLaunchUrl = appKey === "phonepe" ? (customSchemeUrl || directAppUrls.phonepe) : intentUrl;
+      triggerDeepLink(targetLaunchUrl);
     } catch (err) {
       setLaunchingApp(null);
       setErrorNotice((err as Error).message || "An error occurred while launching UPI app");
@@ -1108,7 +1150,7 @@ export function PaymentGatewayCheckout() {
                           <div className="w-56 h-56 bg-white flex flex-col items-center justify-center border-2 border-[#002E6E]/20 p-2 relative">
                             <img
                               src={`https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(
-                                `upi://pay?pa=${DEFAULT_MERCHANT_VPA}&pn=${encodeURIComponent(DEFAULT_MERCHANT_NAME)}&tr=TXN_NAV_${Date.now()}&tn=NAVRANG%20CLOTHING%20Order&am=${totalAmount.toFixed(2)}&cu=INR`
+                                `upi://pay?pa=${DEFAULT_MERCHANT_VPA}&pn=${encodeURIComponent(DEFAULT_MERCHANT_NAME)}&tn=Payment%20to%20Desai%20Sandipbhai%20Mansukhbhai&am=${totalAmount.toFixed(2)}&cu=INR`
                               )}`}
                               alt="Paytm Bharat UPI QR Code"
                               className="w-52 h-52 object-contain"
@@ -1876,6 +1918,25 @@ export function PaymentGatewayCheckout() {
 
             {/* 3 Fallback Options */}
             <div className="space-y-2.5 pt-1">
+              {/* Option 0: Direct PhonePe deep link if PhonePe was chosen */}
+              {missingAppModalData.targetApp === "phonepe" && (
+                <a
+                  href={`phonepe://pay?pa=${DEFAULT_MERCHANT_VPA}&pn=${encodeURIComponent(DEFAULT_MERCHANT_NAME)}&tn=${encodeURIComponent(`Payment to ${DEFAULT_MERCHANT_NAME}`)}&am=${totalAmount.toFixed(2)}&cu=INR`}
+                  className="w-full p-3.5 border-2 border-[#5F259F] bg-[#5F259F] text-white hover:bg-[#4d1d82] transition-all text-left flex items-center justify-between cursor-pointer rounded-xs shadow-sm"
+                >
+                  <div>
+                    <div className="text-xs font-semibold flex items-center space-x-1.5">
+                      <span>Open PhonePe App Directly</span>
+                      <span className="bg-white/20 text-white text-[9px] uppercase px-1.5 py-0.2 rounded font-bold">Direct Launch</span>
+                    </div>
+                    <div className="text-[10px] text-purple-100">
+                      Tap here to open PhonePe payment to Desai Sandipbhai Mansukhbhai
+                    </div>
+                  </div>
+                  <ExternalLink className="w-4 h-4 shrink-0" />
+                </a>
+              )}
+
               {/* Option 1: Generic UPI App Chooser */}
               <button
                 type="button"

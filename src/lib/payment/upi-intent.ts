@@ -71,6 +71,7 @@ export interface UpiIntentResult {
   targetApp: UpiTargetApp;
   appName: string;
   intentUrl: string;
+  customSchemeUrl: string;
   genericUpiUrl: string;
   qrData: string;
   androidPackage: string;
@@ -141,6 +142,7 @@ export function buildUpiIntent(params: UpiIntentParams): UpiIntentResult {
     targetApp: params.targetApp,
     appName: appConfig.name,
     intentUrl,
+    customSchemeUrl: iosUrl,
     genericUpiUrl,
     qrData,
     androidPackage: appConfig.androidPackage,
