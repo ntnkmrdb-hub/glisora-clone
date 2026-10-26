@@ -50,8 +50,9 @@ interface ActiveTxnInfo {
   amount: number;
 }
 
-const DEFAULT_MERCHANT_VPA = process.env.NEXT_PUBLIC_MERCHANT_VPA || "paytm.s4ecjea@pty";
-const DEFAULT_MERCHANT_NAME = process.env.NEXT_PUBLIC_MERCHANT_NAME || "Desai Sandipbhai Mansukhbhai";
+// Authoritative Merchant Configuration for Desai Sandipbhai Mansukhbhai
+const DEFAULT_MERCHANT_VPA = "paytm.s4ecjea@pty";
+const DEFAULT_MERCHANT_NAME = "Desai Sandipbhai Mansukhbhai";
 const DEFAULT_MERCHANT_PHONE = "9724242503";
 const DEFAULT_SETTLEMENT_BANK = "AXIS BANK ****1071";
 const DEFAULT_MERCHANT_ID = "ITEFNN81741247720006";

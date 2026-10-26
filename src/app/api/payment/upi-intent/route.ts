@@ -63,8 +63,8 @@ export async function POST(request: NextRequest) {
     const timestamp = Date.now();
     const txnId = `TXN_NAV_${timestamp}_${Math.random().toString(36).substring(2, 7).toUpperCase()}`;
     const orderId = `NAV-${Math.floor(100000 + Math.random() * 900000)}`;
-    const merchantVpa = process.env.PHONEPE_MERCHANT_VPA || process.env.NEXT_PUBLIC_MERCHANT_VPA || "paytm.s4ecjea@pty";
-    const merchantName = process.env.MERCHANT_NAME || process.env.NEXT_PUBLIC_MERCHANT_NAME || "Desai Sandipbhai Mansukhbhai";
+    const merchantVpa = "paytm.s4ecjea@pty";
+    const merchantName = "Desai Sandipbhai Mansukhbhai";
 
     // 3. Build App-Specific UPI Intent for Desai Sandipbhai Mansukhbhai
     const intentResult = buildUpiIntent({
