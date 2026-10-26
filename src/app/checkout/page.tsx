@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { PaymentGatewayCheckout } from "@/components/checkout/payment-gateway-checkout";
 
 export const metadata: Metadata = {
-  title: "Secure Checkout & Payment Gateway | NAVRANG CLOTHING",
-  description: "Secure payment gateway for NAVRANG CLOTHING. Pay instantly using Google Pay, PhonePe, Paytm, BHIM UPI, Cards, Net Banking, and EMIs.",
+  title: "Secure Checkout | NAVRANG CLOTHING",
+  description: "Secure checkout for NAVRANG CLOTHING. Pay instantly using Direct UPI (Google Pay, PhonePe, Paytm, BHIM, QR Code) or Cash on Delivery (COD).",
 };
 
 export default function CheckoutPage() {

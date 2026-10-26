@@ -33,8 +33,8 @@ import { MOCK_PRODUCTS } from "@/lib/shopify/mock-data";
 import { calculateBogoDiscount } from "@/lib/bogo";
 import QRCode from "qrcode";
 
-// Payment Method Tab identifiers matching user's Image 2
-type PaymentTab = "upi" | "cards" | "netbanking" | "cod" | "wallets" | "emi";
+// Payment Method Tab identifiers (Direct UPI & Cash on Delivery)
+type PaymentTab = "upi" | "cod";
 type UpiApp = "gpay" | "phonepe" | "paytm" | "bhim";
 
 interface ActiveTxnInfo {
@@ -91,20 +91,6 @@ export function PaymentGatewayCheckout() {
   const [errorNotice, setErrorNotice] = useState<string | null>(null);
   const pollIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Card form state
-  const [cardNumber, setCardNumber] = useState("");
-  const [cardHolder, setCardHolder] = useState("");
-  const [cardExpiry, setCardExpiry] = useState("");
-  const [cardCvv, setCardCvv] = useState("");
-
-  // Net banking state
-  const [selectedBank, setSelectedBank] = useState("HDFC");
-
-  // Wallets state
-  const [selectedWallet, setSelectedWallet] = useState("phonepe_wallet");
-
-  // EMI state
-  const [emiTenure, setEmiTenure] = useState(3);
 
   // Shipping details state
   const [shippingInfo, setShippingInfo] = useState({
@@ -614,30 +600,10 @@ export function PaymentGatewayCheckout() {
       setVpaError("");
     }
 
-    if (activeTab === "cards") {
-      const cleanCard = cardNumber.replace(/\s/g, "");
-      if (cleanCard.length < 15) {
-        setErrorNotice("Please enter a valid 16-digit card number.");
-        return;
-      }
-      if (!cardHolder.trim()) {
-        setErrorNotice("Please enter the cardholder name.");
-        return;
-      }
-      if (!cardExpiry.includes("/") || cardExpiry.length < 5) {
-        setErrorNotice("Please enter a valid card expiry date (MM/YY).");
-        return;
-      }
-      if (cardCvv.length < 3) {
-        setErrorNotice("Please enter a valid 3 or 4 digit CVV code.");
-        return;
-      }
-    }
-
     setIsProcessing(true);
     setProcessingStage(1);
 
-    // Simulate multi-step bank-grade authorization sequence
+    // Simulate multi-step authorization sequence
     setTimeout(() => setProcessingStage(2), 800);
     setTimeout(() => setProcessingStage(3), 1600);
 
@@ -649,22 +615,14 @@ export function PaymentGatewayCheckout() {
       const generatedTxnId = "TXN_NAV_" + Math.random().toString(36).substring(2, 12).toUpperCase();
       const generatedUtr = "UTR" + Math.floor(100000000000 + Math.random() * 900000000000);
 
-      let methodLabel = `Universal UPI (${DEFAULT_MERCHANT_VPA})`;
+      let methodLabel = `Direct UPI (${DEFAULT_MERCHANT_VPA})`;
       if (activeTab === "upi") {
         if (selectedUpiApp === "paytm") methodLabel = `Paytm UPI (${DEFAULT_MERCHANT_VPA})`;
         else if (selectedUpiApp === "phonepe") methodLabel = `PhonePe UPI (${DEFAULT_MERCHANT_VPA})`;
         else if (selectedUpiApp === "gpay") methodLabel = `Google Pay UPI (${DEFAULT_MERCHANT_VPA})`;
         else methodLabel = `BHIM UPI (${DEFAULT_MERCHANT_VPA})`;
-      } else if (activeTab === "cards") {
-        methodLabel = "Credit / Debit Card (Visa/RuPay/Mastercard)";
-      } else if (activeTab === "cod") {
-        methodLabel = "Cash on Delivery (COD) / Pay on Delivery";
-      } else if (activeTab === "netbanking") {
-        methodLabel = `${selectedBank} Net Banking`;
-      } else if (activeTab === "wallets") {
-        methodLabel = "Digital Wallet";
       } else {
-        methodLabel = `${emiTenure}-Month No-Cost EMI`;
+        methodLabel = "Cash on Delivery (COD) / Pay on Delivery";
       }
 
       setPaymentResult({
@@ -686,19 +644,6 @@ export function PaymentGatewayCheckout() {
       // Clear the cart upon successful payment
       lines.forEach((l) => removeItem(l.id));
     }, 3200);
-  };
-
-  // Card input formatters
-  const handleCardNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const raw = e.target.value.replace(/\D/g, "").slice(0, 16);
-    const formatted = raw.replace(/(\d{4})(?=\d)/g, "$1 ");
-    setCardNumber(formatted);
-  };
-
-  const handleCardExpiryChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const raw = e.target.value.replace(/\D/g, "").slice(0, 4);
-    const formatted = raw.replace(/(\d{2})(?=\d)/g, "$1/");
-    setCardExpiry(formatted);
   };
 
   if (isPaid && paymentResult) {
@@ -731,7 +676,7 @@ export function PaymentGatewayCheckout() {
             </div>
 
             <div className="flex justify-between items-center">
-              <span className="text-[#7E7469]">Payment Gateway Ref (Txn ID)</span>
+              <span className="text-[#7E7469]">Transaction Reference ID</span>
               <span className="font-mono text-[#111111]">{paymentResult.txnId}</span>
             </div>
 
@@ -811,10 +756,10 @@ export function PaymentGatewayCheckout() {
               <span>/</span>
               <span>Shipping</span>
               <span>/</span>
-              <span className="text-[#111111]">Secure Payment Gateway</span>
+              <span className="text-[#111111]">Secure Checkout</span>
             </div>
             <h1 className="font-serif-luxury text-2xl md:text-3xl text-[#111111]">
-              NAVRANG CLOTHING Checkout & Payment
+              NAVRANG CLOTHING Checkout
             </h1>
           </div>
           <div className="flex items-center space-x-2 text-xs text-[#7E7469] bg-white border border-[#E8E1D5] px-3.5 py-1.5 shadow-2xs">
@@ -942,7 +887,7 @@ export function PaymentGatewayCheckout() {
               </div>
             </div>
 
-            {/* Step 2: Payment Gateway Selection (Exact visual match with Image 2) */}
+            {/* Step 2: Payment Method Selection */}
             <div className="bg-white border border-[#E8E1D5] p-5 sm:p-7 shadow-xs space-y-6">
               <div className="flex items-center justify-between border-b border-[#E8E1D5] pb-3">
                 <div className="flex items-center space-x-2">
@@ -950,7 +895,7 @@ export function PaymentGatewayCheckout() {
                     2
                   </span>
                   <h2 className="text-sm font-semibold tracking-wider uppercase text-[#111111]">
-                    Payment Gateway Mode
+                    Payment Method (ચૂકવણી પદ્ધતિ)
                   </h2>
                 </div>
                 <span className="text-[10px] text-[#C5A880] font-semibold tracking-wider uppercase">
@@ -958,90 +903,58 @@ export function PaymentGatewayCheckout() {
                 </span>
               </div>
 
-              {/* Payment Category Pills (Image 2 style) */}
-              <div className="grid grid-cols-3 sm:grid-cols-6 gap-2 text-xs">
-                {/* 1. UPI */}
+              {/* Two Direct Payment Options: Direct UPI or Cash on Delivery */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                {/* 1. Direct UPI */}
                 <button
                   type="button"
                   onClick={() => setActiveTab("upi")}
-                  className={`p-2.5 sm:p-3 border text-center transition-all cursor-pointer flex flex-col items-center justify-center space-y-1.5 ${
+                  className={`p-4 border-2 text-left transition-all cursor-pointer flex flex-col justify-between space-y-2 rounded-xs ${
                     activeTab === "upi"
-                      ? "border-[#111111] bg-[#111111] text-[#FAF8F5] shadow-xs"
+                      ? "border-[#111111] bg-stone-900 text-white shadow-sm"
                       : "border-[#E8E1D5] bg-[#FAF8F5] hover:bg-white text-[#4A4742]"
                   }`}
                 >
-                  <Smartphone className="w-4 h-4 text-[#C5A880]" />
-                  <span className="font-medium text-[10px] sm:text-[11px] tracking-wide">UPI Apps</span>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-2">
+                      <Smartphone className={`w-4 h-4 ${activeTab === "upi" ? "text-amber-400" : "text-[#C5A880]"}`} />
+                      <span className="font-bold text-xs tracking-wide">Direct UPI Payment</span>
+                    </div>
+                    <span className={`text-[9px] uppercase tracking-wider px-2 py-0.5 font-bold rounded-xs ${
+                      activeTab === "upi" ? "bg-amber-400 text-black" : "bg-emerald-100 text-emerald-800"
+                    }`}>
+                      100% Instant
+                    </span>
+                  </div>
+                  <p className={`text-[11px] leading-relaxed ${activeTab === "upi" ? "text-stone-300" : "text-[#7E7469]"}`}>
+                    PhonePe, Google Pay, Paytm, BHIM અથવા QR કોડ (Milan Narola: {DEFAULT_MERCHANT_VPA})
+                  </p>
                 </button>
 
-                {/* 2. Cards */}
-                <button
-                  type="button"
-                  onClick={() => setActiveTab("cards")}
-                  className={`p-2.5 sm:p-3 border text-center transition-all cursor-pointer flex flex-col items-center justify-center space-y-1.5 ${
-                    activeTab === "cards"
-                      ? "border-[#111111] bg-[#111111] text-[#FAF8F5] shadow-xs"
-                      : "border-[#E8E1D5] bg-[#FAF8F5] hover:bg-white text-[#4A4742]"
-                  }`}
-                >
-                  <CreditCard className="w-4 h-4 text-[#C5A880]" />
-                  <span className="font-medium text-[10px] sm:text-[11px] tracking-wide">Cards</span>
-                </button>
-
-                {/* 3. Cash on Delivery (COD) */}
+                {/* 2. Cash on Delivery (COD) */}
                 <button
                   type="button"
                   onClick={() => setActiveTab("cod")}
-                  className={`p-2.5 sm:p-3 border text-center transition-all cursor-pointer flex flex-col items-center justify-center space-y-1.5 ${
+                  className={`p-4 border-2 text-left transition-all cursor-pointer flex flex-col justify-between space-y-2 rounded-xs ${
                     activeTab === "cod"
-                      ? "border-[#111111] bg-[#111111] text-[#FAF8F5] shadow-xs"
+                      ? "border-[#111111] bg-stone-900 text-white shadow-sm"
                       : "border-[#E8E1D5] bg-[#FAF8F5] hover:bg-white text-[#4A4742]"
                   }`}
                 >
-                  <Truck className="w-4 h-4 text-[#C5A880]" />
-                  <span className="font-medium text-[10px] sm:text-[11px] tracking-wide">Pay on Delivery</span>
-                </button>
-
-                {/* 4. Net Banking */}
-                <button
-                  type="button"
-                  onClick={() => setActiveTab("netbanking")}
-                  className={`p-2.5 sm:p-3 border text-center transition-all cursor-pointer flex flex-col items-center justify-center space-y-1.5 ${
-                    activeTab === "netbanking"
-                      ? "border-[#111111] bg-[#111111] text-[#FAF8F5] shadow-xs"
-                      : "border-[#E8E1D5] bg-[#FAF8F5] hover:bg-white text-[#4A4742]"
-                  }`}
-                >
-                  <Building2 className="w-4 h-4 text-[#C5A880]" />
-                  <span className="font-medium text-[10px] sm:text-[11px] tracking-wide">Net Banking</span>
-                </button>
-
-                {/* 5. Wallets */}
-                <button
-                  type="button"
-                  onClick={() => setActiveTab("wallets")}
-                  className={`p-2.5 sm:p-3 border text-center transition-all cursor-pointer flex flex-col items-center justify-center space-y-1.5 ${
-                    activeTab === "wallets"
-                      ? "border-[#111111] bg-[#111111] text-[#FAF8F5] shadow-xs"
-                      : "border-[#E8E1D5] bg-[#FAF8F5] hover:bg-white text-[#4A4742]"
-                  }`}
-                >
-                  <Wallet className="w-4 h-4 text-[#C5A880]" />
-                  <span className="font-medium text-[10px] sm:text-[11px] tracking-wide">Wallets</span>
-                </button>
-
-                {/* 6. EMIs */}
-                <button
-                  type="button"
-                  onClick={() => setActiveTab("emi")}
-                  className={`p-2.5 sm:p-3 border text-center transition-all cursor-pointer flex flex-col items-center justify-center space-y-1.5 ${
-                    activeTab === "emi"
-                      ? "border-[#111111] bg-[#111111] text-[#FAF8F5] shadow-xs"
-                      : "border-[#E8E1D5] bg-[#FAF8F5] hover:bg-white text-[#4A4742]"
-                  }`}
-                >
-                  <Clock className="w-4 h-4 text-[#C5A880]" />
-                  <span className="font-medium text-[10px] sm:text-[11px] tracking-wide">Pay Later/EMI</span>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-2">
+                      <Truck className={`w-4 h-4 ${activeTab === "cod" ? "text-amber-400" : "text-[#C5A880]"}`} />
+                      <span className="font-bold text-xs tracking-wide">Cash on Delivery (COD)</span>
+                    </div>
+                    <span className={`text-[9px] uppercase tracking-wider px-2 py-0.5 font-bold rounded-xs ${
+                      activeTab === "cod" ? "bg-amber-400 text-black" : "bg-blue-100 text-blue-800"
+                    }`}>
+                      Zero Advance
+                    </span>
+                  </div>
+                  <p className={`text-[11px] leading-relaxed ${activeTab === "cod" ? "text-stone-300" : "text-[#7E7469]"}`}>
+                    તમારા ઘરે પાર્સલ પહોંચે ત્યારે રોકડા અથવા ડિલિવરી બોયને UPI થી ચૂકવો
+                  </p>
                 </button>
               </div>
 
@@ -1573,78 +1486,7 @@ export function PaymentGatewayCheckout() {
                 </div>
               )}
 
-              {/* TAB 2: CREDIT / DEBIT CARDS */}
-              {activeTab === "cards" && (
-                <div className="space-y-4 pt-2">
-                  <div className="flex items-center justify-between text-xs pb-2 border-b border-[#E8E1D5]">
-                    <span className="text-[#7E7469]">Accepted Indian & International Cards</span>
-                    <div className="flex space-x-1.5">
-                      <span className="border border-[#E8E1D5] bg-[#FAF8F5] px-2 py-0.5 font-bold text-[10px] text-blue-700">VISA</span>
-                      <span className="border border-[#E8E1D5] bg-[#FAF8F5] px-2 py-0.5 font-bold text-[10px] text-red-600">Mastercard</span>
-                      <span className="border border-[#E8E1D5] bg-[#FAF8F5] px-2 py-0.5 font-bold text-[10px] text-emerald-700">RuPay</span>
-                    </div>
-                  </div>
 
-                  <div className="space-y-3 text-xs">
-                    <div>
-                      <label className="block text-[11px] uppercase tracking-wider text-[#7E7469] mb-1">
-                        Card Number
-                      </label>
-                      <input
-                        type="text"
-                        value={cardNumber}
-                        onChange={handleCardNumberChange}
-                        maxLength={19}
-                        className="w-full border border-[#D8D1C7] p-2.5 text-xs font-mono focus:outline-hidden focus:border-[#C5A880]"
-                        placeholder="4532 •••• •••• 8920"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-[11px] uppercase tracking-wider text-[#7E7469] mb-1">
-                        Cardholder Name
-                      </label>
-                      <input
-                        type="text"
-                        value={cardHolder}
-                        onChange={(e) => setCardHolder(e.target.value)}
-                        className="w-full border border-[#D8D1C7] p-2.5 text-xs focus:outline-hidden focus:border-[#C5A880]"
-                        placeholder="Name as printed on card"
-                      />
-                    </div>
-
-                    <div className="grid grid-cols-2 gap-3">
-                      <div>
-                        <label className="block text-[11px] uppercase tracking-wider text-[#7E7469] mb-1">
-                          Expiry Date
-                        </label>
-                        <input
-                          type="text"
-                          value={cardExpiry}
-                          onChange={handleCardExpiryChange}
-                          maxLength={5}
-                          className="w-full border border-[#D8D1C7] p-2.5 text-xs font-mono focus:outline-hidden focus:border-[#C5A880]"
-                          placeholder="MM/YY"
-                        />
-                      </div>
-
-                      <div>
-                        <label className="block text-[11px] uppercase tracking-wider text-[#7E7469] mb-1">
-                          CVV / Security Code
-                        </label>
-                        <input
-                          type="password"
-                          value={cardCvv}
-                          onChange={(e) => setCardCvv(e.target.value.replace(/\D/g, "").slice(0, 4))}
-                          maxLength={4}
-                          className="w-full border border-[#D8D1C7] p-2.5 text-xs font-mono focus:outline-hidden focus:border-[#C5A880]"
-                          placeholder="•••"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
 
               {/* TAB 3: CASH ON DELIVERY (COD) */}
               {activeTab === "cod" && (
@@ -1690,156 +1532,9 @@ export function PaymentGatewayCheckout() {
                 </div>
               )}
 
-              {/* TAB 4: NET BANKING */}
-              {activeTab === "netbanking" && (
-                <div className="space-y-4 pt-2">
-                  <p className="text-xs text-[#7E7469]">
-                    Select your bank to authenticate securely via your bank&apos;s retail net banking portal.
-                  </p>
 
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 text-xs">
-                    {[
-                      { id: "HDFC", name: "HDFC Bank" },
-                      { id: "ICICI", name: "ICICI Bank" },
-                      { id: "SBI", name: "State Bank of India" },
-                      { id: "AXIS", name: "Axis Bank" },
-                      { id: "KOTAK", name: "Kotak Mahindra" },
-                      { id: "PNB", name: "Punjab National Bank" },
-                    ].map((bank) => (
-                      <button
-                        key={bank.id}
-                        type="button"
-                        onClick={() => setSelectedBank(bank.id)}
-                        className={`p-3 border text-left transition-all cursor-pointer flex items-center space-x-2 ${
-                          selectedBank === bank.id
-                            ? "border-[#111111] bg-[#111111] text-white"
-                            : "border-[#E8E1D5] bg-[#FAF8F5] hover:bg-white text-[#111111]"
-                        }`}
-                      >
-                        <Building2 className="w-3.5 h-3.5 text-[#C5A880]" />
-                        <span className="font-medium text-[11px]">{bank.name}</span>
-                      </button>
-                    ))}
-                  </div>
 
-                  <div>
-                    <label className="block text-[11px] uppercase tracking-wider text-[#7E7469] mb-1">
-                      Or Choose from 50+ Other Indian Banks
-                    </label>
-                    <select
-                      value={selectedBank}
-                      onChange={(e) => setSelectedBank(e.target.value)}
-                      className="w-full border border-[#D8D1C7] p-2.5 text-xs bg-white focus:outline-hidden focus:border-[#C5A880]"
-                    >
-                      <option value="HDFC">HDFC Bank</option>
-                      <option value="ICICI">ICICI Bank</option>
-                      <option value="SBI">State Bank of India</option>
-                      <option value="AXIS">Axis Bank</option>
-                      <option value="KOTAK">Kotak Mahindra Bank</option>
-                      <option value="BOB">Bank of Baroda</option>
-                      <option value="CANARA">Canara Bank</option>
-                      <option value="INDUSIND">IndusInd Bank</option>
-                      <option value="YES">Yes Bank</option>
-                      <option value="IDFC">IDFC FIRST Bank</option>
-                      <option value="FEDERAL">Federal Bank</option>
-                    </select>
-                  </div>
-                </div>
-              )}
 
-              {/* TAB 4: WALLETS */}
-              {activeTab === "wallets" && (
-                <div className="space-y-3 pt-2 text-xs">
-                  <p className="text-[#7E7469]">
-                    Select your digital wallet to authenticate with your registered mobile OTP:
-                  </p>
-                  <div className="space-y-2">
-                    {[
-                      { id: "phonepe_wallet", name: "PhonePe Wallet" },
-                      { id: "paytm_wallet", name: "Paytm Wallet" },
-                      { id: "amazon_pay", name: "Amazon Pay Balance" },
-                      { id: "mobikwik", name: "MobiKwik Wallet" },
-                    ].map((w) => (
-                      <label
-                        key={w.id}
-                        className={`flex items-center justify-between p-3 border cursor-pointer transition-all ${
-                          selectedWallet === w.id
-                            ? "border-[#111111] bg-[#FAF8F5]"
-                            : "border-[#E8E1D5] hover:bg-white"
-                        }`}
-                      >
-                        <div className="flex items-center space-x-2.5">
-                          <input
-                            type="radio"
-                            name="wallet"
-                            checked={selectedWallet === w.id}
-                            onChange={() => setSelectedWallet(w.id)}
-                            className="accent-[#111111]"
-                          />
-                          <span className="font-medium text-[#111111]">{w.name}</span>
-                        </div>
-                        <span className="text-[10px] text-emerald-700 font-medium">Linked Instant</span>
-                      </label>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* TAB 5: PAY LATER / EMI */}
-              {activeTab === "emi" && (
-                <div className="space-y-4 pt-2 text-xs">
-                  <div className="bg-[#FAF8F5] border border-[#C5A880]/40 p-3.5 space-y-1">
-                    <span className="font-semibold text-[#111111] block">No-Cost & Low-Cost EMI Plans</span>
-                    <p className="text-[11px] text-[#7E7469]">
-                      Pay in comfortable monthly installments with HDFC, ICICI, SBI, Axis, or Kotak credit cards.
-                    </p>
-                  </div>
-
-                  <div className="space-y-2">
-                    {[
-                      { months: 3, rate: 0, tag: "No-Cost EMI" },
-                      { months: 6, rate: 0, tag: "No-Cost EMI" },
-                      { months: 9, rate: 13.5, tag: "Standard EMI" },
-                      { months: 12, rate: 14.0, tag: "Standard EMI" },
-                    ].map((plan) => {
-                      const monthly = Math.round(totalAmount / plan.months);
-                      return (
-                        <label
-                          key={plan.months}
-                          className={`flex items-center justify-between p-3 border cursor-pointer transition-all ${
-                            emiTenure === plan.months
-                              ? "border-[#111111] bg-[#FAF8F5]"
-                              : "border-[#E8E1D5] hover:bg-white"
-                          }`}
-                        >
-                          <div className="flex items-center space-x-2.5">
-                            <input
-                              type="radio"
-                              name="emi"
-                              checked={emiTenure === plan.months}
-                              onChange={() => setEmiTenure(plan.months)}
-                              className="accent-[#111111]"
-                            />
-                            <div>
-                              <span className="font-semibold text-[#111111]">
-                                {plan.months} Months @ {formatINR(monthly)}/mo
-                              </span>
-                              <span className="text-[10px] text-[#7E7469] block">
-                                Total: {formatINR(totalAmount)} • {plan.rate === 0 ? "0% Interest" : `${plan.rate}% p.a.`}
-                              </span>
-                            </div>
-                          </div>
-                          <span className={`text-[10px] uppercase tracking-wider font-semibold px-2 py-0.5 ${
-                            plan.rate === 0 ? "bg-emerald-100 text-emerald-800" : "bg-[#F4EFEA] text-[#7E7469]"
-                          }`}>
-                            {plan.tag}
-                          </span>
-                        </label>
-                      );
-                    })}
-                  </div>
-                </div>
-              )}
 
               {/* Pay Now Button / Direct UPI Info */}
               <div className="pt-4 border-t border-[#E8E1D5] space-y-3">
@@ -1895,17 +1590,17 @@ export function PaymentGatewayCheckout() {
                     type="button"
                     onClick={handlePayNow}
                     disabled={isProcessing}
-                    className="w-full bg-[#111111] text-[#FAF8F5] py-4 px-6 text-xs uppercase tracking-[0.2em] font-medium hover:bg-[#C5A880] hover:text-black transition-all flex items-center justify-center space-x-2 cursor-pointer shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full bg-[#111111] text-[#FAF8F5] py-4 px-6 text-xs uppercase tracking-[0.2em] font-medium hover:bg-emerald-700 hover:text-white transition-all flex items-center justify-center space-x-2 cursor-pointer shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isProcessing ? (
                       <>
                         <RefreshCw className="w-4 h-4 animate-spin" />
-                        <span>Authorizing Payment...</span>
+                        <span>Confirming UPI Payment...</span>
                       </>
                     ) : (
                       <>
-                        <Lock className="w-4 h-4" />
-                        <span>Pay {formatINR(totalAmount)} Securely</span>
+                        <Check className="w-4 h-4" />
+                        <span>I Have Paid {formatINR(totalAmount)} - Confirm Order</span>
                         <ArrowRight className="w-4 h-4" />
                       </>
                     )}
@@ -1915,7 +1610,7 @@ export function PaymentGatewayCheckout() {
                 <div className="flex items-center justify-center space-x-4 text-[10px] text-[#7E7469] pt-2">
                   <span className="flex items-center space-x-1">
                     <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-                    <span>RBI-Licensed Gateways</span>
+                    <span>100% Secure UPI & Cash</span>
                   </span>
                   <span>•</span>
                   <span>Zero UPI PIN/Card Storage</span>
@@ -2305,22 +2000,22 @@ export function PaymentGatewayCheckout() {
                 <QrCode className="w-4 h-4 text-[#C5A880] shrink-0" />
               </button>
 
-              {/* Option 3: Card / Net Banking */}
+              {/* Option 3: Cash on Delivery (COD) */}
               <button
                 type="button"
                 onClick={() => {
                   setMissingAppModalData(null);
-                  setActiveTab("cards");
+                  setActiveTab("cod");
                 }}
                 className="w-full p-3 border border-[#E8E1D5] bg-white hover:bg-[#FAF8F5] hover:border-[#111111] transition-all text-left flex items-center justify-between cursor-pointer"
               >
                 <div>
-                  <div className="text-xs font-semibold text-[#111111]">Use Debit / Credit Card</div>
+                  <div className="text-xs font-semibold text-[#111111]">Pay on Delivery (Cash on Delivery)</div>
                   <div className="text-[10px] text-[#7E7469]">
-                    Visa, Mastercard, RuPay with OTP verification
+                    Pay cash or UPI to delivery executive at your doorstep
                   </div>
                 </div>
-                <CreditCard className="w-4 h-4 text-[#7E7469] shrink-0" />
+                <Truck className="w-4 h-4 text-[#7E7469] shrink-0" />
               </button>
             </div>
 
