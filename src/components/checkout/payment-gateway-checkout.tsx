@@ -52,7 +52,7 @@ interface ActiveTxnInfo {
 
 // Authoritative Merchant Configuration for Desai Sandipbhai Mansukhbhai
 const DEFAULT_MERCHANT_VPA = "paytm.s4ecjea@pty";
-const PHONEPE_DIRECT_VPA = "9724242503@paytm";
+const PHONEPE_DIRECT_VPA = "paytm.s4ecjea@pty";
 const DEFAULT_MERCHANT_NAME = "Desai Sandipbhai Mansukhbhai";
 const DEFAULT_MERCHANT_PHONE = "9724242503";
 const DEFAULT_SETTLEMENT_BANK = "AXIS BANK ****1071";

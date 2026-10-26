@@ -63,9 +63,9 @@ export async function POST(request: NextRequest) {
     const timestamp = Date.now();
     const txnId = `TXN_NAV_${timestamp}_${Math.random().toString(36).substring(2, 7).toUpperCase()}`;
     const orderId = `NAV-${Math.floor(100000 + Math.random() * 900000)}`;
-    // Route PhonePe to 9724242503@paytm to bypass PhonePe merchant credit card restrictions with 0% error
+    // Route PhonePe to paytm.s4ecjea@pty to bypass PhonePe merchant credit card restrictions with 0% error
     // Route Paytm, GPay, and BHIM to official business gateway paytm.s4ecjea@pty
-    const merchantVpa = targetApp === "phonepe" ? "9724242503@paytm" : "paytm.s4ecjea@pty";
+    const merchantVpa = targetApp === "phonepe" ? "paytm.s4ecjea@pty" : "paytm.s4ecjea@pty";
     const merchantName = "Desai Sandipbhai Mansukhbhai";
 
     // 3. Build App-Specific UPI Intent for Desai Sandipbhai Mansukhbhai
