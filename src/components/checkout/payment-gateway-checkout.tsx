@@ -1366,17 +1366,14 @@ export function PaymentGatewayCheckout() {
                         </div>
                       </div>
 
-                      {/* PhonePe / GPay Savings Account Tip */}
-                      <div className="bg-amber-50/90 border border-amber-300 p-2.5 rounded-sm text-left text-[11px] text-amber-950 space-y-1 max-w-sm w-full">
-                        <div className="flex items-center space-x-1.5 font-semibold text-amber-900">
-                          <AlertCircle className="w-3.5 h-3.5 text-amber-700 shrink-0" />
-                          <span>Tip: Pay with Bank Savings Account or UPI LITE</span>
+                      {/* PhonePe Gallery QR Notice & Tip */}
+                      <div className="bg-purple-50 border border-purple-300 p-2.5 rounded-sm text-left text-[11px] text-purple-950 space-y-1 max-w-sm w-full">
+                        <div className="flex items-center space-x-1.5 font-semibold text-purple-900">
+                          <AlertCircle className="w-3.5 h-3.5 text-purple-700 shrink-0" />
+                          <span>PhonePe માં &ldquo;You can pay up to ₹2,000...&rdquo; આવે તો:</span>
                         </div>
-                        <p className="text-[10px] leading-relaxed text-amber-850">
-                          In PhonePe / Google Pay, scan and pay via your <strong>Savings Account</strong>. If prompted about credit cards, switch to your linked bank account.
-                        </p>
-                        <p className="text-[9px] text-amber-900 font-medium">
-                          (ફોનપે કે ગુગલ પેમાં બેંક સેવિંગ્સ એકાઉન્ટ પસંદ કરો.)
+                        <p className="text-[10px] leading-relaxed text-purple-900">
+                          જો તમે ગેલેરીમાંથી QR સ્કેન કર્યો હોય અને નીચે ₹2,000 વાળી નોટિસ આવે, તો ફક્ત નીચે આપેલા <strong>DISMISS</strong> પર ક્લિક કરો ➔ પછી <strong>Pay ₹{totalAmount.toFixed(0)}</strong> પર ક્લિક કરીને તમારો UPI PIN નાખો.
                         </p>
                       </div>
 
