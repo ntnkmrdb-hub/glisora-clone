@@ -951,19 +951,23 @@ export function PaymentGatewayCheckout() {
                       </p>
 
                       {/* Guidance Box to prevent PhonePe / GPay credit card failure */}
-                      <div className="p-3.5 bg-amber-50/90 border border-amber-300 text-amber-950 rounded-sm text-xs space-y-1.5 shadow-2xs">
-                        <div className="flex items-center space-x-1.5 font-semibold text-amber-900">
-                          <AlertCircle className="w-4 h-4 text-amber-600 shrink-0" />
-                          <span>Important: Pay via Bank Savings Account or UPI LITE</span>
+                      <div className="p-4 bg-amber-50 border-2 border-amber-400 text-amber-950 rounded-md text-xs space-y-2 shadow-sm">
+                        <div className="flex items-center space-x-2 font-bold text-amber-950 text-sm">
+                          <AlertCircle className="w-5 h-5 text-amber-600 shrink-0" />
+                          <span>PhonePe &amp; UPI પેમેન્ટ માટે અગત્યની સૂચના</span>
                         </div>
-                        <p className="text-[11px] leading-relaxed text-amber-900">
-                          Inside PhonePe, GPay, or Paytm, please select your <strong>Bank Savings Account</strong> (e.g. SBI, HDFC, ICICI, Axis, Kotak, BOB) or <strong>UPI LITE</strong>.
-                        </p>
-                        <p className="text-[11px] leading-relaxed text-amber-800">
-                          ⚠️ If PhonePe shows <em>&ldquo;merchant not accepting credit cards&rdquo;</em>, simply tap to switch your account from Credit Card / Wallet to your <strong>Savings Account</strong>.
-                        </p>
-                        <p className="text-[10px] text-stone-700 font-medium pt-0.5 border-t border-amber-200/60 mt-1">
-                          (ગુજરાતી: UPI એપમાં ક્રેડિટ કાર્ડ અથવા વોલેટના બદલે તમારા <strong>બેંક સેવિંગ્સ એકાઉન્ટ</strong>થી પેમેન્ટ કરો.)
+                        <div className="space-y-1.5 text-[11px] text-amber-900 leading-relaxed">
+                          <p className="font-semibold text-stone-900">
+                            📱 PhonePe ખુલ્યા પછી ૧ સરળ સ્ટેપ કરો:
+                          </p>
+                          <ul className="list-disc pl-4 space-y-1 text-stone-800">
+                            <li>PhonePe ની સ્ક્રીન પર <strong>&ldquo;Pay ₹...&rdquo;</strong> દબાવતા પહેલાં નીચે <strong>&ldquo;Debited from&rdquo;</strong> જુઓ.</li>
+                            <li>જો ત્યાં ક્રેડિટ કાર્ડ અથવા વોલેટ દેખાય, તો તેના પર ટેપ કરીને તમારું <strong>Bank Savings Account</strong> (બેંક સેવિંગ્સ એકાઉન્ટ) પસંદ કરો.</li>
+                            <li>તમારો UPI PIN નાખો — <strong>પેમેન્ટ ૧ સેકન્ડમાં ડાયરેક્ટ સફળ (Success) થઈ જશે!</strong></li>
+                          </ul>
+                        </div>
+                        <p className="text-[10px] text-amber-800 border-t border-amber-300/80 pt-1.5 mt-1 font-mono">
+                          Merchant: Desai Sandipbhai Mansukhbhai • VPA: paytm.s4ecjea@pty • AXIS BANK ****1071
                         </p>
                       </div>
 
@@ -1931,7 +1935,7 @@ export function PaymentGatewayCheckout() {
                       <span className="bg-white/20 text-white text-[9px] uppercase px-1.5 py-0.2 rounded font-bold">Direct Launch</span>
                     </div>
                     <div className="text-[10px] text-purple-100">
-                      Tap here to open PhonePe payment to Desai Sandipbhai Mansukhbhai
+                      Tap here to open PhonePe • Select Bank Savings Account to pay
                     </div>
                   </div>
                   <ExternalLink className="w-4 h-4 shrink-0" />
